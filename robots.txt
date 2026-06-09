@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /velora-onboarding.html
+Disallow: /netlify/
 
 Sitemap: https://velora.associates/sitemap.xml
