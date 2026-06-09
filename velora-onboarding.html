@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velora — Client Onboarding</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#080808;--s1:#111;--s2:#191919;--b1:rgba(255,255,255,.07);--b2:rgba(255,255,255,.13);--tx:#f2efe9;--mu2:rgba(242,239,233,.65);--ac:#c8f060;--acd:rgba(200,240,96,.1);--acb:rgba(200,240,96,.25)}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);padding:48px 5%;min-height:100vh}
+.wrap{max-width:680px;margin:0 auto}
+.header{text-align:center;margin-bottom:48px}
+.logo{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;margin-bottom:10px}.logo span{color:var(--ac)}
+h1{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:8px}
+.sub{font-size:14px;color:var(--mu2);line-height:1.6}
+.section{margin-bottom:36px}
+.section-label{font-family:'Syne',sans-serif;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--b1)}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fg label{font-size:13px;font-weight:600;color:var(--tx)}
+.fg .hint{font-size:12px;color:var(--mu2);margin-top:-2px}
+input,textarea,select{width:100%;background:var(--s2);border:1px solid var(--b2);border-radius:10px;padding:13px 16px;color:var(--tx);font-family:'Outfit',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
+input:focus,textarea:focus,select:focus{border-color:var(--acb)}
+input::placeholder,textarea::placeholder{color:rgba(242,239,233,.3)}
+textarea{resize:vertical;min-height:100px}
+select{cursor:pointer}
+select option{background:var(--s2);color:var(--tx)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.submit-wrap{text-align:center;margin-top:40px}
+.submit-btn{background:var(--ac);color:#080808;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;padding:16px 48px;border:none;border-radius:12px;cursor:pointer;transition:background .15s,transform .15s}
+.submit-btn:hover{background:#b0d840;transform:translateY(-2px)}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.success{text-align:center;padding:80px 20px;display:none}
+.success .ico{font-size:52px;margin-bottom:16px}
+.success h2{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;margin-bottom:10px}
+.success p{font-size:14px;color:var(--mu2);line-height:1.7}
+@media(max-width:560px){.frow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="logo">Vel<span>ora</span></div>
+    <h1>Client Onboarding Form</h1>
+    <div class="sub">Fill this out as completely as possible. The more detail you give, the better your website will be. Alejandro will review everything and reach out within 24 hours.</div>
+  </div>
+
+  <div id="formWrap">
+  <form id="onboardForm" onsubmit="submitForm(event)">
+    <input type="hidden" name="_subject" value="New Velora Onboarding Submission">
+    <input type="hidden" name="source" value="Client Onboarding Form">
+
+    <div class="section">
+      <div class="section-label">1 — Your Business</div>
+      <div class="frow">
+        <div class="fg">
+          <label>Business Name *</label>
+          <input type="text" name="business_name" placeholder="e.g. Sunrise Cleaning Co." required>
+        </div>
+        <div class="fg">
+          <label>Your Name *</label>
+          <input type="text" name="owner_name" placeholder="First and last name" required>
+        </div>
+      </div>
+      <div class="frow">
+        <div class="fg">
+          <label>Phone Number *</label>
+          <input type="tel" name="phone" placeholder="(xxx) xxx-xxxx" required>
+        </div>
+        <div class="fg">
+          <label>Email Address *</label>
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Business Address or Service Area *</label>
+        <input type="text" name="location" placeholder="e.g. 123 Main St, Bowie MD — or — Serving all of Prince George's County" required>
+      </div>
+      <div class="fg">
+        <label>Current Website (if any)</label>
+        <input type="text" name="current_website" placeholder="Leave blank if none">
+      </div>
+      <div class="fg">
+        <label>What does your business do? *</label>
+        <div class="hint">Describe your services like you'd explain to a new customer.</div>
+        <textarea name="business_description" placeholder="e.g. We provide residential cleaning in the Bowie area — deep cleans, move-out cleans, and weekly recurring service." required></textarea>
+      </div>
+      <div class="fg">
+        <label>What makes you different from competitors?</label>
+        <textarea name="differentiator" placeholder="e.g. Family-owned, always on time, eco-friendly products, 10 years in business, 200+ five-star reviews."></textarea>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">2 — Your Customers</div>
+      <div class="fg">
+        <label>Who is your ideal customer?</label>
+        <textarea name="ideal_customer" placeholder="e.g. Homeowners in Bowie ages 30–55, busy professionals who want a clean home but don't have time."></textarea>
+      </div>
+      <div class="fg">
+        <label>How do customers currently find you?</label>
+        <select name="how_found">
+          <option value="">— Select one —</option>
+          <option>Mostly word of mouth / referrals</option>
+          <option>Google search</option>
+          <option>Social media (Instagram, Facebook, TikTok)</option>
+          <option>Yelp or other review sites</option>
+          <option>Mix of the above</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>What do customers say when they compliment you?</label>
+        <input type="text" name="compliment" placeholder="e.g. 'Always on time and incredibly thorough'">
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">3 — Your Website</div>
+      <div class="fg">
+        <label>What pages do you want? *</label>
+        <textarea name="pages" placeholder="e.g. Home, About, Services, Pricing, Gallery, Testimonials, Contact, Book Now" required></textarea>
+      </div>
+      <div class="fg">
+        <label>List your services and prices</label>
+        <textarea name="services_pricing" placeholder="e.g. Standard Clean — $120, Deep Clean — $200, Move-Out Clean — $250, Weekly — $95/visit"></textarea>
+      </div>
+      <div class="fg">
+        <label>Main goal of your website? *</label>
+        <select name="website_goal" required>
+          <option value="">— Select one —</option>
+          <option>Get people to call or text me</option>
+          <option>Get people to book an appointment online</option>
+          <option>Get people to fill out a contact form</option>
+          <option>Sell products online</option>
+          <option>All of the above</option>
+        </select>
+      </div>
+      <div class="frow">
+        <div class="fg">
+          <label>Do you have a logo?</label>
+          <select name="has_logo">
+            <option value="">— Select —</option>
+            <option>Yes — I'll send it</option>
+            <option>No — I need one designed</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Do you have photos?</label>
+          <select name="has_photos">
+            <option value="">— Select —</option>
+            <option>Yes — I'll send them</option>
+            <option>No — use stock photos</option>
+            <option>Mix of both</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Brand colors (if any)</label>
+        <input type="text" name="brand_colors" placeholder="e.g. Navy blue and gold — or — No colors yet, suggest something">
+      </div>
+      <div class="fg">
+        <label>Describe the vibe/style you want</label>
+        <input type="text" name="vibe" placeholder="e.g. Clean and professional, Modern and bold, Warm and friendly, Luxury and premium">
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">4 — Final Details</div>
+      <div class="fg">
+        <label>Business hours</label>
+        <input type="text" name="hours" placeholder="e.g. Mon–Fri 8am–6pm, Sat 9am–3pm, Closed Sunday">
+      </div>
+      <div class="fg">
+        <label>Social media links</label>
+        <input type="text" name="social_links" placeholder="e.g. instagram.com/mybusiness, facebook.com/mybusiness">
+      </div>
+      <div class="fg">
+        <label>Any specific text or content you want included?</label>
+        <textarea name="specific_content" placeholder="Paste any text — an About Us section, tagline, special offer, etc."></textarea>
+      </div>
+      <div class="fg">
+        <label>Anything else Alejandro should know?</label>
+        <textarea name="notes" placeholder="Special requests, things you love or hate about other websites, competitors to reference, etc."></textarea>
+      </div>
+    </div>
+
+    <div class="submit-wrap">
+      <button class="submit-btn" type="submit" id="submitBtn">Submit Onboarding →</button>
+    </div>
+  </form>
+  </div>
+
+  <div class="success" id="successMsg">
+    <div class="ico">✅</div>
+    <h2>You're all set!</h2>
+    <p>Alejandro received your onboarding info and will reach out within 24 hours to get started.<br><br>You can also text him directly at <strong style="color:var(--ac)">(240) 665-9426</strong>.</p>
+  </div>
+</div>
+
+<script>
+async function submitForm(e){
+  e.preventDefault();
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.textContent='Submitting…';
+  var data={};
+  new FormData(document.getElementById('onboardForm')).forEach(function(v,k){data[k]=v});
+  try{
+    var r=await fetch('https://formspree.io/f/xqeopapj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+    if(r.ok){
+      document.getElementById('formWrap').style.display='none';
+      document.getElementById('successMsg').style.display='block';
+    } else {
+      btn.disabled=false;btn.textContent='Submit Onboarding →';
+      alert('Something went wrong. Text Alejandro at (240) 665-9426.');
+    }
+  }catch(err){
+    btn.disabled=false;btn.textContent='Submit Onboarding →';
+    alert('Something went wrong. Text Alejandro at (240) 665-9426.');
+  }
+}
+</script>
+</body>
+</html>

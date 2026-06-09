@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velora — What We Build</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#080808;--s1:#111;--s2:#191919;--b1:rgba(255,255,255,.07);--b2:rgba(255,255,255,.13);--tx:#f2efe9;--mu2:rgba(242,239,233,.65);--ac:#c8f060;--acd:rgba(200,240,96,.1);--acb:rgba(200,240,96,.25)}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+.wrap{max-width:960px;margin:0 auto;padding:0 6%}
+/* NAV */
+nav{padding:22px 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--b1)}
+.logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800}.logo span{color:var(--ac)}
+.nav-cta{background:var(--ac);color:#080808;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;transition:background .15s}
+.nav-cta:hover{background:#b0d840}
+/* HERO */
+.hero{text-align:center;padding:80px 0 64px}
+.hero-tag{display:inline-block;background:var(--acd);border:1px solid var(--acb);color:var(--ac);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--ac)}
+.hero p{font-size:16px;color:var(--mu2);line-height:1.8;max-width:540px;margin:0 auto 32px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-p{background:var(--ac);color:#080808;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;transition:background .15s,transform .15s}
+.btn-p:hover{background:#b0d840;transform:translateY(-2px)}
+.btn-s{background:transparent;color:var(--tx);font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;padding:14px 28px;border-radius:10px;text-decoration:none;border:1px solid var(--b2);transition:border-color .15s}
+.btn-s:hover{border-color:var(--acb)}
+/* WHAT YOU GET */
+.sec{padding:72px 0;border-top:1px solid var(--b1)}
+.sec-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:10px}
+.sec-h{font-family:'Syne',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.025em;margin-bottom:14px}
+.sec-sub{font-size:15px;color:var(--mu2);line-height:1.8;max-width:520px;margin-bottom:40px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feat{background:var(--s1);border:1px solid var(--b1);border-radius:14px;padding:24px 22px}
+.feat-ico{font-size:26px;margin-bottom:12px}
+.feat h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin-bottom:8px}
+.feat p{font-size:13px;color:var(--mu2);line-height:1.6}
+/* PRICING */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.pkg{background:var(--s1);border:1px solid var(--b1);border-radius:16px;padding:28px 24px}
+.pkg.hot{border-color:var(--acb);background:linear-gradient(160deg,#0e1a02,var(--s1))}
+.pkg-badge{display:inline-block;background:var(--acd);border:1px solid var(--acb);color:var(--ac);font-size:10px;font-weight:700;letter-spacing:.08em;padding:3px 10px;border-radius:5px;margin-bottom:12px}
+.pkg-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;margin-bottom:6px}
+.pkg-price{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:var(--ac);margin-bottom:4px}
+.pkg-note{font-size:12px;color:var(--mu2);margin-bottom:20px}
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.pkg-list li{font-size:13px;color:var(--mu2);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.pkg-list li::before{content:'✓';color:var(--ac);font-weight:700;flex-shrink:0}
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.step{background:var(--s1);border:1px solid var(--b1);border-radius:14px;padding:22px 18px;text-align:center}
+.step-n{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--ac);margin-bottom:8px}
+.step h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;margin-bottom:6px}
+.step p{font-size:12px;color:var(--mu2);line-height:1.6}
+/* DEMO STRIP */
+.demo-strip{background:var(--s1);border:1px solid var(--b1);border-radius:16px;padding:28px 30px;margin-top:40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.demo-strip h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px}
+.demo-strip p{font-size:14px;color:var(--mu2);line-height:1.6}
+/* CTA */
+.cta-sec{background:linear-gradient(135deg,#0d1a00,#080808);border:1px solid var(--acb);border-radius:20px;padding:56px 48px;text-align:center;margin:72px 0}
+.cta-sec h2{font-family:'Syne',sans-serif;font-size:clamp(24px,4vw,38px);font-weight:800;margin-bottom:12px}
+.cta-sec p{font-size:15px;color:var(--mu2);line-height:1.8;margin-bottom:28px}
+/* FOOTER */
+footer{border-top:1px solid var(--b1);padding:28px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer .fl{font-family:'Syne',sans-serif;font-size:16px;font-weight:800}.fl span{color:var(--ac)}
+footer .fr{font-size:13px;color:var(--mu2)}
+@media(max-width:700px){.features,.pricing,.steps{grid-template-columns:1fr}.demo-strip{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Vel<span>ora</span></div>
+  <a class="nav-cta" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Book Free Call →</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">Website Agency — Bowie, MD</div>
+    <h1>AI-powered websites that<br><em>actually earn</em> for your business.</h1>
+    <p>We build fast, modern websites for local businesses in Maryland, DC, and Northern Virginia — with a built-in AI chatbot that captures leads, books appointments, and answers customers 24/7.</p>
+    <div class="hero-btns">
+      <a class="btn-p" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Book Your Free Call →</a>
+      <a class="btn-s" href="https://velora.associates" target="_blank">See Our Work</a>
+    </div>
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <div class="sec">
+    <div class="sec-tag">What's Included</div>
+    <h2 class="sec-h">Everything your business needs online. Done in a week.</h2>
+    <p class="sec-sub">No templates. No page builders. Every site is built custom for your business and designed to convert visitors into paying clients.</p>
+    <div class="features">
+      <div class="feat">
+        <div class="feat-ico">🤖</div>
+        <h3>AI Chatbot</h3>
+        <p>Trained on your services and pricing. Answers questions, captures leads, and books appointments — even at 2am.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">📈</div>
+        <h3>Google SEO</h3>
+        <p>Built to rank for local searches like "nail salon near me" or "HVAC Bowie MD" — so new clients find you first.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">📅</div>
+        <h3>Online Booking</h3>
+        <p>Customers book appointments directly from your site. No phone tag, no missed calls, no lost jobs.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">📬</div>
+        <h3>Lead Capture</h3>
+        <p>Every visitor who shows interest leaves their name, email, and phone — automatically sent to your inbox.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">⚡</div>
+        <h3>Fast Load Time</h3>
+        <p>Under 2 seconds on any device. Slow sites lose half their visitors before the page even loads.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">📱</div>
+        <h3>Mobile-First</h3>
+        <p>Looks and works perfectly on every phone, tablet, and desktop. Most of your visitors are on mobile.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="sec">
+    <div class="sec-tag">Pricing</div>
+    <h2 class="sec-h">One booked job covers the whole thing.</h2>
+    <p class="sec-sub">No subscriptions required. Pay once, own your site forever. Optional monthly hosting available.</p>
+    <div class="pricing">
+      <div class="pkg">
+        <div class="pkg-name">Launch</div>
+        <div class="pkg-price">$799</div>
+        <div class="pkg-note">one-time · live in 7 days</div>
+        <ul class="pkg-list">
+          <li>5-page custom website</li>
+          <li>AI chatbot</li>
+          <li>Lead capture forms</li>
+          <li>Google SEO setup</li>
+          <li>Mobile optimized</li>
+          <li>1 round of revisions</li>
+        </ul>
+      </div>
+      <div class="pkg hot">
+        <div class="pkg-badge">⭐ Most Popular</div>
+        <div class="pkg-name">Pro</div>
+        <div class="pkg-price">$1,999</div>
+        <div class="pkg-note">one-time · live in 7 days</div>
+        <ul class="pkg-list">
+          <li>10-page custom website</li>
+          <li>Advanced AI chatbot</li>
+          <li>Online booking system</li>
+          <li>Blog & content tools</li>
+          <li>Monthly performance reports</li>
+          <li>2 rounds of revisions</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+      <div class="pkg">
+        <div class="pkg-name">Elite</div>
+        <div class="pkg-price">$3,999</div>
+        <div class="pkg-note">one-time · live in 14 days</div>
+        <ul class="pkg-list">
+          <li>Unlimited pages</li>
+          <li>Custom AI training</li>
+          <li>Payment integration</li>
+          <li>E-commerce ready</li>
+          <li>Dedicated account mgr</li>
+          <li>3 rounds of revisions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="sec">
+    <div class="sec-tag">How It Works</div>
+    <h2 class="sec-h">From zero to live in 7 days.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h4>Free Strategy Call</h4>
+        <p>15 minutes. We learn about your business and show you exactly what we'd build.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h4>Sign & Deposit</h4>
+        <p>Contract signed, 50% deposit paid. You fill out the onboarding form and we start building.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h4>We Build</h4>
+        <p>Your custom site is built in 5–7 days. You review it and request any changes.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <h4>Go Live</h4>
+        <p>Final payment, site goes live at your domain. It starts capturing leads immediately.</p>
+      </div>
+    </div>
+    <div class="demo-strip">
+      <div>
+        <h3>Want to see a free demo first?</h3>
+        <p>Book a 15-minute call and we'll show you a live demo built specifically for your business niche — no commitment required.</p>
+      </div>
+      <a class="btn-p" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Book Free Demo →</a>
+    </div>
+  </div>
+
+  <div class="cta-sec">
+    <h2>Ready to see what we'd build for you?</h2>
+    <p>Free 15-minute call. We'll show you a demo, walk through pricing, and give you a clear plan — no pressure, no pitch.</p>
+    <a class="btn-p" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Book Your Free Call →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="fl">Vel<span>ora</span></div>
+  <div class="fr">Alejandro Espinoza · Bowie, MD · (240) 665-9426 · velora.associates</div>
+</footer>
+
+</body>
+</html>
