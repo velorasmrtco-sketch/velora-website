@@ -116,6 +116,21 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* CURSOR GLOW */
 .cglow{pointer-events:none;position:fixed;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.03) 0%,transparent 65%);transform:translate(-50%,-50%);z-index:0;transition:opacity .5s;opacity:0}
 
+/* PARTICLE CANVAS */
+#ptcl{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.7;mask-image:radial-gradient(ellipse 90% 80% at 50% 0%,black 10%,transparent 100%)}
+
+/* BROWSER GLOW */
+.browser-glow{border:1px solid transparent!important;background-clip:padding-box;position:relative}
+.browser-glow::after{content:'';position:absolute;inset:-1px;border-radius:17px;background:conic-gradient(from var(--ba),transparent 15%,rgba(245,158,11,.4) 35%,rgba(253,230,138,.65) 50%,rgba(245,158,11,.4) 65%,transparent 85%);z-index:-1;animation:rotateBorder 5s linear infinite;pointer-events:none}
+
+/* PROOF STRIP */
+.proof-strip{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;background:var(--acd);border:1px solid var(--acb);border-radius:14px;padding:18px 28px;margin-bottom:52px}
+.proof-item{display:flex;align-items:center;gap:10px}
+.proof-item .pnum{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:var(--ac);line-height:1}
+.proof-item .plbl{font-size:12px;color:var(--mu2);line-height:1.4;max-width:80px}
+.proof-sep{width:1px;height:36px;background:var(--b2)}
+@media(max-width:600px){.proof-sep{display:none}.proof-strip{gap:20px}}
+
 /* NAV */
 header{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--b1)}
 header::after{content:'';position:absolute;inset:0;background:rgba(6,6,6,.82);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);z-index:-1}
@@ -650,6 +665,7 @@ footer small{font-size:12px;color:var(--mu)}
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg">
+    <canvas id="ptcl"></canvas>
     <div class="aurora-wrap">
       <div class="aurora-layer aurora-1"></div>
       <div class="aurora-layer aurora-2"></div>
@@ -682,7 +698,7 @@ footer small{font-size:12px;color:var(--mu)}
       </div>
     </div>
     <div class="hv ri ri-d2" id="heroVis">
-      <div class="browser">
+      <div class="browser browser-glow">
         <div class="bbar">
           <div class="bdots"><span></span><span></span><span></span></div>
           <div class="burl">capitalcomforthvac.com</div>
@@ -1004,6 +1020,27 @@ footer small{font-size:12px;color:var(--mu)}
       <div class="tag">Client Results</div>
       <h2 class="h2">Real businesses.<br>Real results.</h2>
       <p class="sub" style="margin:0 auto">Local businesses that switched to a Velora AI website stopped losing leads and started winning more jobs.</p>
+    </div>
+    <div class="proof-strip ri">
+      <div class="proof-item">
+        <div class="pnum">47+</div>
+        <div class="plbl">Local businesses served</div>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <div class="pnum">5.0★</div>
+        <div class="plbl">Average client rating</div>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <div class="pnum">6–7</div>
+        <div class="plbl">Days to go live</div>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <div class="pnum">3×</div>
+        <div class="plbl">Average lead increase</div>
+      </div>
     </div>
     <div class="tg">
       <div class="tc ri">
@@ -1379,6 +1416,48 @@ document.addEventListener('mousemove',function(e){
   var y=(e.clientY/window.innerHeight-.5)*7;
   hv.style.transform='perspective(1000px) rotateY('+x+'deg) rotateX('+(-y)+'deg)';
 },{ passive:true });
+
+/* --- PARTICLE CANVAS --- */
+(function(){
+  var c=document.getElementById('ptcl');
+  if(!c)return;
+  var ctx=c.getContext('2d'),W,H,N=55,pts=[],mx=-999,my=-999;
+  function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
+  window.addEventListener('resize',resize,{passive:true});
+  resize();
+  for(var i=0;i<N;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.4+.4});
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(function(p){
+      var dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<90){var f=.6*(1-d/90);p.vx+=f*(dx/d);p.vy+=f*(dy/d);}
+      p.vx*=.995;p.vy*=.995;
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;
+      if(p.y<0||p.y>H)p.vy*=-1;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(245,158,11,.55)';
+      ctx.fill();
+    });
+    for(var i=0;i<pts.length;i++){
+      for(var j=i+1;j<pts.length;j++){
+        var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<130){
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x,pts[i].y);
+          ctx.lineTo(pts[j].x,pts[j].y);
+          ctx.strokeStyle='rgba(245,158,11,'+(1-d/130)*.13+')';
+          ctx.lineWidth=.6;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
 
 /* --- KEYBOARD SHORTCUT --- */
 document.addEventListener('keydown',function(e){
