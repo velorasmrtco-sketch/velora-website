@@ -559,7 +559,21 @@ footer small{font-size:12px;color:var(--mu)}
   .port-grid{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr;gap:36px}
 }
+/* LUCIDE ICON SIZING */
+.pico i[data-lucide]{width:22px;height:22px;color:var(--ac);stroke-width:1.75;display:block}
+.bcard-icon i[data-lucide]{width:26px;height:26px;color:var(--ac);stroke-width:1.75;display:block}
+.sb-icon i[data-lucide]{width:28px;height:28px;color:var(--ac);stroke-width:1.75;display:block;margin:0 auto}
+.apt-ico i[data-lucide]{width:20px;height:20px;color:var(--ac);stroke-width:1.75;display:block}
+.cico i[data-lucide]{width:20px;height:20px;color:var(--ac);stroke-width:1.75;display:block}
+.ti i[data-lucide]{width:13px;height:13px;stroke-width:2.5;color:var(--ac);flex-shrink:0}
+/* GSAP overrides — disable CSS transitions on GSAP-controlled elements */
+.gsap-hero .ri{opacity:1;transform:none;transition:none}
 </style>
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -840,10 +854,10 @@ footer small{font-size:12px;color:var(--mu)}
 <!-- STATS -->
 <section class="stats-s" id="results">
   <div class="sg">
-    <div class="sb ri"><span class="sb-icon">📬</span><div class="num" data-t="3" data-s="×">0×</div><div class="lbl">More leads captured vs.<br>a standard website</div></div>
-    <div class="sb ri ri-d1"><span class="sb-icon">⚡</span><div class="num" data-t="7" data-s=" days">0 days</div><div class="lbl">Average time from<br>strategy call to live site</div></div>
-    <div class="sb ri ri-d2"><span class="sb-icon">🤖</span><div class="num" data-t="50" data-s="%">0%</div><div class="lbl">Of visitors engage<br>with the AI chatbot</div></div>
-    <div class="sb ri ri-d3"><span class="sb-icon">🕐</span><div class="num" data-s="/7">24</div><div class="lbl">Hours your site works<br>capturing &amp; qualifying leads</div></div>
+    <div class="sb ri"><span class="sb-icon"><i data-lucide="mail-open"></i></span><div class="num" data-t="3" data-s="×">0×</div><div class="lbl">More leads captured vs.<br>a standard website</div></div>
+    <div class="sb ri ri-d1"><span class="sb-icon"><i data-lucide="zap"></i></span><div class="num" data-t="7" data-s=" days">0 days</div><div class="lbl">Average time from<br>strategy call to live site</div></div>
+    <div class="sb ri ri-d2"><span class="sb-icon"><i data-lucide="bot"></i></span><div class="num" data-t="50" data-s="%">0%</div><div class="lbl">Of visitors engage<br>with the AI chatbot</div></div>
+    <div class="sb ri ri-d3"><span class="sb-icon"><i data-lucide="clock"></i></span><div class="num" data-s="/7">24</div><div class="lbl">Hours your site works<br>capturing &amp; qualifying leads</div></div>
   </div>
 </section>
 
@@ -858,19 +872,19 @@ footer small{font-size:12px;color:var(--mu)}
     </div>
     <div class="pg">
       <div class="pc ri" data-n="01">
-        <div class="pico">📞</div>
+        <div class="pico"><i data-lucide="phone-call"></i></div>
         <div class="ps">Step 01 — Call</div>
         <h3>Free Strategy Call</h3>
         <p>20 minutes. We learn your business, your customers, and your goals. We map out exactly what your site needs to start converting visitors into paying clients.</p>
       </div>
       <div class="pc ri ri-d1" data-n="02">
-        <div class="pico">⚡</div>
+        <div class="pico"><i data-lucide="code-2"></i></div>
         <div class="ps">Step 02 — Build</div>
         <h3>We Build Everything</h3>
         <p>Design, development, AI chatbot setup, SEO, and launch — all handled by us. You review the draft and approve. No code, no headaches, no surprises.</p>
       </div>
       <div class="pc ri ri-d2" data-n="03">
-        <div class="pico">📈</div>
+        <div class="pico"><i data-lucide="trending-up"></i></div>
         <div class="ps">Step 03 — Grow</div>
         <h3>Watch the Leads Roll In</h3>
         <p>Your site goes live and starts working immediately. The AI chatbot qualifies leads, books appointments, and captures contact info — even while you sleep.</p>
@@ -889,7 +903,7 @@ footer small{font-size:12px;color:var(--mu)}
     </div>
     <div class="bento ri">
       <div class="bcard bcard-main">
-        <div class="bcard-icon">🤖</div>
+        <div class="bcard-icon"><i data-lucide="bot"></i></div>
         <div class="bcard-tag">AI Chatbot</div>
         <h3>Trained on Your Business</h3>
         <p>Answers FAQs, qualifies leads, and captures contact info 24/7 — trained on your specific services, pricing, and location.</p>
@@ -899,7 +913,7 @@ footer small{font-size:12px;color:var(--mu)}
         </div>
       </div>
       <div class="bcard ri ri-d1">
-        <div class="bcard-icon">📈</div>
+        <div class="bcard-icon"><i data-lucide="trending-up"></i></div>
         <div class="bcard-tag">Local SEO</div>
         <h3>Rank on Google</h3>
         <p>Built to rank for local searches from day one.</p>
@@ -910,19 +924,19 @@ footer small{font-size:12px;color:var(--mu)}
         </div>
       </div>
       <div class="bcard ri ri-d2">
-        <div class="bcard-icon">📅</div>
+        <div class="bcard-icon"><i data-lucide="calendar-check"></i></div>
         <div class="bcard-tag">Online Booking</div>
         <h3>Book While You Sleep</h3>
         <p>Clients book directly from your site — no phone tag.</p>
       </div>
       <div class="bcard ri ri-d1" style="display:flex;flex-direction:column;align-items:center;text-align:center">
-        <div class="bcard-icon">⚡</div>
+        <div class="bcard-icon"><i data-lucide="gauge"></i></div>
         <div class="bcard-tag">Speed</div>
         <h3>Under 2 Seconds</h3>
         <div class="speed-ring"><div class="speed-num">1.4s</div></div>
       </div>
       <div class="bcard ri ri-d2" style="display:flex;flex-direction:column;align-items:center;text-align:center">
-        <div class="bcard-icon">📱</div>
+        <div class="bcard-icon"><i data-lucide="smartphone"></i></div>
         <div class="bcard-tag">Mobile-First</div>
         <h3>Every Device</h3>
         <div class="phone-frame" style="margin-top:8px"><div class="phone-screen"><div class="phone-line g"></div><div class="phone-line"></div><div class="phone-line s"></div><div class="phone-line"></div><div class="phone-line g" style="width:80%"></div><div class="phone-line s" style="width:30%"></div></div></div>
@@ -966,15 +980,15 @@ footer small{font-size:12px;color:var(--mu)}
         <p>I'm 18 years old, from Bowie, MD — and I build every site myself. When you work with Velora, there are no account managers, no overseas teams, no six-week timelines. Just me, moving fast, building something that actually works.</p>
         <div class="about-pts">
           <div class="about-pt">
-            <div class="apt-ico">📍</div>
+            <div class="apt-ico"><i data-lucide="map-pin"></i></div>
             <div class="apt-body"><strong>Actually local</strong><span>I know Bowie, Silver Spring, Gaithersburg. I'm not guessing what "DMV businesses" need — I'm one of them.</span></div>
           </div>
           <div class="about-pt">
-            <div class="apt-ico">⚡</div>
+            <div class="apt-ico"><i data-lucide="zap"></i></div>
             <div class="apt-body"><strong>I move faster than agencies</strong><span>Big agencies quote 6–8 weeks. I launch in 7 days because I work nights and weekends and care about the outcome.</span></div>
           </div>
           <div class="about-pt">
-            <div class="apt-ico">🤝</div>
+            <div class="apt-ico"><i data-lucide="message-circle"></i></div>
             <div class="apt-body"><strong>You talk to the builder</strong><span>Text me directly at (240) 665-9426. You'll always reach the person who built your site — not a support ticket.</span></div>
           </div>
         </div>
@@ -1256,12 +1270,12 @@ footer small{font-size:12px;color:var(--mu)}
         <h2>Let's build something that <em>earns.</em></h2>
         <p>Book a free 20-minute strategy call and I'll walk you through exactly what I'd build for your business — no obligation, no hard sell, just a clear plan.</p>
         <div class="clist">
-          <div class="cit"><div class="cico">📞</div><div><div class="clb">Call or text</div><div class="clv"><a href="tel:+12406659426" style="color:inherit;text-decoration:none">(240) 665-9426</a></div></div></div>
-          <div class="cit"><div class="cico">✉️</div><div><div class="clb">Email</div><div class="clv">velora.smrtco@gmail.com</div></div></div>
-          <div class="cit"><div class="cico">📍</div><div><div class="clb">Based in</div><div class="clv">Bowie, MD — Serving all of DMV</div></div></div>
+          <div class="cit"><div class="cico"><i data-lucide="phone"></i></div><div><div class="clb">Call or text</div><div class="clv"><a href="tel:+12406659426" style="color:inherit;text-decoration:none">(240) 665-9426</a></div></div></div>
+          <div class="cit"><div class="cico"><i data-lucide="mail"></i></div><div><div class="clb">Email</div><div class="clv">velora.smrtco@gmail.com</div></div></div>
+          <div class="cit"><div class="cico"><i data-lucide="map-pin"></i></div><div><div class="clb">Based in</div><div class="clv">Bowie, MD — Serving all of DMV</div></div></div>
           <div class="cit"><div class="cico">🎵</div><div><div class="clb">TikTok</div><div class="clv"><a href="https://tiktok.com/@velora.co4" target="_blank" style="color:var(--mu2);text-decoration:none">@velora.co4</a></div></div></div>
-          <div class="cit"><div class="cico">⚡</div><div><div class="clb">Fast turnaround</div><div class="clv">Most sites live within 7 days</div></div></div>
-          <div class="cit"><div class="cico">🔒</div><div><div class="clb">No long-term contracts</div><div class="clv">Month-to-month, cancel anytime</div></div></div>
+          <div class="cit"><div class="cico"><i data-lucide="zap"></i></div><div><div class="clb">Fast turnaround</div><div class="clv">Most sites live within 7 days</div></div></div>
+          <div class="cit"><div class="cico"><i data-lucide="shield-check"></i></div><div><div class="clb">No long-term contracts</div><div class="clv">Month-to-month, cancel anytime</div></div></div>
         </div>
       </div>
       <div class="cform ri ri-d1">
@@ -1385,16 +1399,16 @@ function animateCounters(){
   });
 }
 
-/* --- INTERSECTION OBSERVER --- */
+/* --- INTERSECTION OBSERVER (fallback only if GSAP not loaded) --- */
 var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e){
     if(e.isIntersecting){
-      e.target.classList.add('vis');
-      if(e.target.closest('.stats-s')&&!cDone){cDone=true;animateCounters();}
+      if(typeof gsap==='undefined')e.target.classList.add('vis');
+      if(e.target.closest('.stats-s')&&!cDone&&typeof gsap==='undefined'){cDone=true;animateCounters();}
     }
   });
 },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.ri').forEach(function(el){io.observe(el);});
+if(typeof gsap==='undefined')document.querySelectorAll('.ri').forEach(function(el){io.observe(el);});
 
 /* --- CHATBOT --- */
 var vbotOpen=false;
@@ -1482,11 +1496,105 @@ document.addEventListener('mouseleave',function(e){
 });
 document.getElementById('exitModal').addEventListener('click',function(e){if(e.target===this)closeExit();});
 
-/* --- HERO LOAD ANIMATION --- */
+/* --- LUCIDE ICONS --- */
+if(typeof lucide!=='undefined')lucide.createIcons();
+
+/* --- GSAP ANIMATIONS --- */
 window.addEventListener('load',function(){
-  document.querySelectorAll('.hero .ri').forEach(function(el,i){
-    setTimeout(function(){el.classList.add('vis');},100+i*120);
+  if(typeof gsap==='undefined')return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Hero — staggered line reveal */
+  var heroEl=document.querySelector('.hero');
+  if(heroEl){
+    heroEl.classList.add('gsap-hero');
+    var heroItems=heroEl.querySelectorAll('.ri');
+    gsap.set(heroItems,{opacity:0,y:32});
+    gsap.to(heroItems,{
+      opacity:1,y:0,
+      duration:.85,
+      ease:'power3.out',
+      stagger:.11,
+      delay:.15
+    });
+  }
+
+  /* Scroll reveals — replace simple IntersectionObserver with GSAP */
+  document.querySelectorAll('.ri:not(.gsap-hero .ri)').forEach(function(el){
+    gsap.fromTo(el,
+      {opacity:0,y:26},
+      {opacity:1,y:0,duration:.75,ease:'power2.out',
+       scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none none'}}
+    );
   });
+
+  /* Stats counter with GSAP */
+  ScrollTrigger.create({
+    trigger:'.stats-s',
+    start:'top 80%',
+    once:true,
+    onEnter:function(){
+      document.querySelectorAll('.num[data-t]').forEach(function(el){
+        var target=+el.dataset.t,suffix=el.dataset.s||'';
+        gsap.to({val:0},{val:target,duration:1.4,ease:'power2.out',
+          onUpdate:function(){el.textContent=Math.round(this.targets()[0].val)+suffix;}
+        });
+      });
+      cDone=true;
+    }
+  });
+
+  /* Demo strip cards — horizontal stagger */
+  gsap.fromTo('.dcard',
+    {opacity:0,y:24},
+    {opacity:1,y:0,duration:.6,ease:'power2.out',stagger:.08,
+     scrollTrigger:{trigger:'.dstrip',start:'top 85%'}}
+  );
+
+  /* Orb parallax in hero */
+  document.querySelectorAll('.orb').forEach(function(orb,i){
+    gsap.to(orb,{
+      y:(i+1)*-60,
+      ease:'none',
+      scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}
+    });
+  });
+
+  /* Stats boxes pop in with scale */
+  gsap.fromTo('.sb',
+    {opacity:0,scale:.92,y:20},
+    {opacity:1,scale:1,y:0,duration:.6,ease:'back.out(1.4)',stagger:.1,
+     scrollTrigger:{trigger:'.stats-s',start:'top 85%'}}
+  );
+
+  /* Process cards stagger */
+  gsap.fromTo('.pc',
+    {opacity:0,y:30},
+    {opacity:1,y:0,duration:.65,ease:'power2.out',stagger:.12,
+     scrollTrigger:{trigger:'.pg',start:'top 85%'}}
+  );
+
+  /* Bento cards pop */
+  gsap.fromTo('.bcard',
+    {opacity:0,scale:.95,y:18},
+    {opacity:1,scale:1,y:0,duration:.55,ease:'back.out(1.2)',stagger:.09,
+     scrollTrigger:{trigger:'.bento',start:'top 85%'}}
+  );
+
+  /* Testimonial cards */
+  gsap.fromTo('.tc',
+    {opacity:0,y:24},
+    {opacity:1,y:0,duration:.6,ease:'power2.out',stagger:.1,
+     scrollTrigger:{trigger:'.tg',start:'top 85%'}}
+  );
+
+  /* Pricing cards */
+  gsap.fromTo('.pc2',
+    {opacity:0,scale:.96,y:20},
+    {opacity:1,scale:1,y:0,duration:.65,ease:'back.out(1.3)',stagger:.1,
+     scrollTrigger:{trigger:'.pg2',start:'top 85%'}}
+  );
 });
 </script>
 </body>
