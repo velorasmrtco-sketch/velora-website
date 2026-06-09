@@ -18,7 +18,7 @@
 <meta name="geo.region" content="US-MD">
 <meta name="geo.placename" content="Bowie, Maryland">
 <meta name="keywords" content="web design Maryland, web design Northern Virginia, AI website DMV, local business website Maryland, website designer Bowie MD, website designer Arlington VA, AI chatbot website">
-<meta name="author" content="Alejandro Espinoza">
+<meta name="author" content="Cesar Espinoza">
 <meta name="theme-color" content="#080602">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -976,12 +976,12 @@ footer small{font-size:12px;color:var(--mu)}
     <div class="about-grid">
       <div class="about-card ri" style="background:linear-gradient(135deg,var(--s2) 0%,var(--s1) 100%);border-color:var(--acb)">
         <div style="position:relative;z-index:1">
-          <div class="about-av" style="background:linear-gradient(135deg,var(--ac) 0%,var(--ac2) 100%);color:#000;font-weight:900;box-shadow:0 8px 32px rgba(245,158,11,.35)">A</div>
-          <div class="about-name">Alejandro Espinoza</div>
+          <div class="about-av" style="background:linear-gradient(135deg,var(--ac) 0%,var(--ac2) 100%);color:#000;font-weight:900;box-shadow:0 8px 32px rgba(245,158,11,.35)">C</div>
+          <div class="about-name">Cesar Espinoza</div>
           <div class="about-role">Founder · Age 18 · Bowie, MD</div>
           <div class="about-card-inner">
             <div style="font-size:13px;color:var(--mu2);margin-bottom:14px;line-height:1.7;font-family:'Instrument Serif',serif;font-style:italic;font-size:15px">"I started Velora because I kept watching great local businesses lose customers to competitors with better websites. I knew I could fix that — so I did."</div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ac);font-weight:700"><span style="width:20px;height:1px;background:var(--ac);display:inline-block"></span>Alejandro Espinoza, Founder</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ac);font-weight:700"><span style="width:20px;height:1px;background:var(--ac);display:inline-block"></span>Cesar Espinoza, Founder</div>
           </div>
           <div class="about-sts" style="margin-top:20px">
             <div class="about-st"><div class="n">10+</div><div class="l">Sites Built</div></div>
@@ -1063,7 +1063,7 @@ footer small{font-size:12px;color:var(--mu)}
       </div>
       <div class="tc ri ri-d2">
         <div class="stars">★★★★★</div>
-        <p class="tq">Alejandro had us live in 6 days. The AI chatbot answers questions at 11pm when I'm in bed and still books jobs for the next morning. Best investment I've made.</p>
+        <p class="tq">Cesar had us live in 6 days. The AI chatbot answers questions at 11pm when I'm in bed and still books jobs for the next morning. Best investment I've made.</p>
         <div class="ta">
           <div class="av" style="background:linear-gradient(135deg,#60c8f0,#2080c0);color:#fff">C</div>
           <div><div class="an">Carlos R.</div><div class="ab">CR Landscaping &amp; Design</div></div>
@@ -1328,7 +1328,7 @@ footer small{font-size:12px;color:var(--mu)}
           <div id="cfSuccess" class="fsucc" style="display:none">
             <div class="fsico">✅</div>
             <h4>Message sent!</h4>
-            <p>Alejandro will get back to you within a few hours.<br>You can also text him at <a href="tel:+12406659426" style="color:var(--ac)">(240) 665-9426</a>.</p>
+            <p>Cesar will get back to you within a few hours.<br>You can also text him at <a href="tel:+12406659426" style="color:var(--ac)">(240) 665-9426</a>.</p>
           </div>
           <form id="cfForm" onsubmit="submitCF(event)">
             <input class="finp" type="text" name="name" placeholder="Your name" required>
@@ -1517,7 +1517,7 @@ async function vbotSend(){
     if(t)t.outerHTML='<div class="vmsg bot">'+d.reply+'</div>';
     vbotCount++;
     if(vbotCount===1&&!vbotCaptured){
-      msgs.innerHTML+='<div class="vcap"><p>Want Alejandro to reach out personally?</p><input type="text" id="vcapName" placeholder="Your name"><input type="tel" id="vcapPhone" placeholder="Your phone number"><button onclick="vbotCapture()">Text me within the hour →</button></div>';
+      msgs.innerHTML+='<div class="vcap"><p>Want Cesar to reach out personally?</p><input type="text" id="vcapName" placeholder="Your name"><input type="tel" id="vcapPhone" placeholder="Your phone number"><button onclick="vbotCapture()">Text me within the hour →</button></div>';
     }
   }catch(err){
     var t=document.getElementById('vbotTyping');
@@ -1560,7 +1560,7 @@ async function vbotCapture(){
     await fetch('https://formspree.io/f/xqeopapj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:name,phone:phone,source:'Website Chatbot',_subject:'New Velora Lead: '+name})});
   }catch(e){}
   var cap=document.querySelector('.vcap');
-  if(cap)cap.outerHTML='<div class="vmsg bot">Got it, '+name+'! Alejandro will text you at '+phone+' within the hour. 🤙</div>';
+  if(cap)cap.outerHTML='<div class="vmsg bot">Got it, '+name+'! Cesar will text you at '+phone+' within the hour. 🤙</div>';
   document.getElementById('vbotMsgs').scrollTop=9999;
 }
 
