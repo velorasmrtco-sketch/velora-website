@@ -65,6 +65,54 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* SCROLL PROGRESS */
 .spbar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--ac),#fde68a,var(--ac2));z-index:1001;width:0%;transition:width .08s linear;box-shadow:0 0 10px rgba(245,158,11,.6)}
 
+/* ROTATING TEXT */
+.rw{display:inline-flex;overflow:hidden;height:1.08em;vertical-align:bottom;position:relative}
+.rw-track{display:flex;flex-direction:column;animation:rwSpin 7.2s cubic-bezier(.4,0,.2,1) infinite}
+.rw-track span{height:1.08em;display:flex;align-items:center;white-space:nowrap;color:var(--ac);font-style:italic;font-family:'Instrument Serif',serif}
+@keyframes rwSpin{0%,12%{transform:translateY(0)}14%,26%{transform:translateY(-16.667%)}28%,40%{transform:translateY(-33.333%)}42%,54%{transform:translateY(-50%)}56%,68%{transform:translateY(-66.667%)}70%,82%{transform:translateY(-83.333%)}84%,96%{transform:translateY(-16.667%)}100%{transform:translateY(0)}}
+
+/* DEMO STRIP */
+.dstrip{padding:60px 0;border-top:1px solid var(--b1);background:linear-gradient(180deg,var(--s1) 0%,var(--bg) 100%);overflow:hidden}
+.dstrip-head{text-align:center;margin-bottom:32px}
+.dstrip-head p{font-size:13px;color:var(--mu2)}
+.dscroll{display:flex;gap:16px;overflow-x:auto;padding:0 5% 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.dscroll::-webkit-scrollbar{display:none}
+.dcard{flex:0 0 260px;background:var(--s1);border:1px solid var(--b1);border-radius:16px;overflow:hidden;scroll-snap-align:start;transition:border-color .2s,transform .3s,box-shadow .3s;text-decoration:none;color:inherit;display:block}
+.dcard:hover{border-color:var(--acb);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.dcard-screen{height:140px;position:relative;overflow:hidden}
+.dcard-bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:var(--s3)}
+.dcard-dots span{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:4px}
+.dcard-dots span:nth-child(1){background:#ff5f57}.dcard-dots span:nth-child(2){background:#febc2e}.dcard-dots span:nth-child(3){background:#28c840}
+.dcard-url{flex:1;background:var(--s2);border-radius:3px;padding:2px 7px;font-size:9px;color:var(--mu)}
+.dcard-info{padding:14px 16px}
+.dcard-niche{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:4px}
+.dcard-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;margin-bottom:2px}
+.dcard-cta{font-size:11px;color:var(--mu2);display:flex;align-items:center;gap:4px;margin-top:8px}
+.dcard-cta span{color:var(--ac);font-weight:700}
+
+/* SECTION VARIANTS */
+.sec-alt{background:linear-gradient(180deg,var(--s1) 0%,var(--bg) 100%)}
+.sec-dark{background:var(--s1)}
+
+/* TAGLINE DIVIDER */
+.tdiv{display:flex;align-items:center;gap:18px;margin:0 auto;max-width:900px;padding:0 5%}
+.tdiv-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--b2),transparent)}
+.tdiv-txt{font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;color:var(--mu2);white-space:nowrap;text-align:center}
+.tdiv-txt strong{color:var(--tx);font-style:normal}
+
+/* NICHE PILLS */
+.niche-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.npill{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--mu2);background:var(--s2);border:1px solid var(--b1);padding:5px 13px;border-radius:100px;transition:all .2s;cursor:default}
+.npill:hover{color:var(--ac);border-color:var(--acb);background:var(--acd)}
+.npill .ni{font-size:14px}
+
+/* IMPROVED ABOUT CARD */
+.about-card-inner{background:linear-gradient(135deg,rgba(245,158,11,.06) 0%,transparent 60%);border-radius:16px;padding:24px;border:1px solid var(--acb);margin-top:16px}
+
+/* STAT UPGRADE */
+.sb-inner{position:relative;z-index:1}
+.sb-icon{font-size:28px;margin-bottom:12px;display:block}
+
 /* CURSOR GLOW */
 .cglow{pointer-events:none;position:fixed;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.03) 0%,transparent 65%);transform:translate(-50%,-50%);z-index:0;transition:opacity .5s;opacity:0}
 
@@ -599,16 +647,17 @@ footer small{font-size:12px;color:var(--mu)}
   </div>
   <div class="hero-grid">
     <div>
-      <div class="badge ri"><span class="badge-dot"></span>📍 DMV's AI Website Agency — Bowie, MD</div>
+      <div class="badge ri"><span class="badge-dot"></span>📍 Bowie, MD — Serving Maryland, DC &amp; Northern Virginia</div>
       <h1 class="ri ri-d1">
+        <span class="h1-line" style="font-size:clamp(22px,2.8vw,36px);font-weight:800;color:var(--mu2);letter-spacing:-.02em;display:flex;align-items:center;gap:10px;margin-bottom:6px">Built for <span class="rw" style="display:inline-flex;overflow:hidden;height:1.15em;vertical-align:middle"><span class="rw-track" style="font-family:'Instrument Serif',serif;font-style:italic;color:var(--ac);font-size:clamp(24px,3vw,40px)"><span>barbers.</span><span>HVAC companies.</span><span>nail salons.</span><span>auto detailers.</span><span>landscapers.</span><span>house cleaners.</span><span>barbers.</span></span></span></span>
         <span class="h1-line">Websites that</span>
         <span class="h1-line h1-xl"><span class="grad-text">win leads</span></span>
         <span class="h1-line">while you sleep.</span>
       </h1>
-      <p class="hero-sub ri ri-d2">We build AI-powered websites for local businesses in <strong>Maryland, DC &amp; Northern Virginia</strong> — capturing leads, booking appointments, and answering customers 24/7.</p>
+      <p class="hero-sub ri ri-d2">I build every site myself — no outsourcing, no templates. Your business gets a custom site that ranks on Google and books customers while you're on the job in <strong>Maryland, DC &amp; Northern Virginia.</strong></p>
       <div class="acts ri ri-d3">
         <a href="https://calendly.com/alejandroezpi2007/30min" target="_blank" class="btn">Book a Free Call →</a>
-        <a href="#pricing" class="btn-o">See Pricing</a>
+        <a href="#portfolio" class="btn-o">See Live Demos</a>
       </div>
       <div class="trust ri ri-d4">
         <div class="ti"><div class="d"></div>Live in 7 days</div>
@@ -668,13 +717,65 @@ footer small{font-size:12px;color:var(--mu)}
   </div>
 </div>
 
+<!-- DEMO STRIP -->
+<div class="dstrip ri">
+  <div class="dstrip-head">
+    <div class="tag" style="justify-content:center;display:flex">6 Live Demos — Scroll to Browse</div>
+    <p style="margin-top:6px">Tap any card to open a full working demo site</p>
+  </div>
+  <div class="dscroll">
+    <a class="dcard" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-hvac.html" target="_blank">
+      <div class="dcard-screen" style="background:linear-gradient(135deg,#0a1628 0%,#1a2f4a 100%)">
+        <div class="dcard-bar"><div class="dcard-dots"><span></span><span></span><span></span></div><div class="dcard-url">capitalcomforthvac.com</div></div>
+        <div style="padding:12px;font-family:'Syne',sans-serif"><div style="font-size:10px;color:#f59e0b;font-weight:800;margin-bottom:4px">⚡ Capital Comfort HVAC</div><div style="font-size:13px;font-weight:800;line-height:1.2;color:#fff">Bowie's #1 Heating &amp; Cooling</div><div style="margin-top:8px;background:#f59e0b;color:#000;font-size:9px;font-weight:700;padding:4px 10px;border-radius:4px;display:inline-block">Get a Free Quote →</div></div>
+      </div>
+      <div class="dcard-info"><div class="dcard-niche">HVAC</div><div class="dcard-name">Capital Comfort HVAC</div><div class="dcard-cta">View demo <span>↗</span></div></div>
+    </a>
+    <a class="dcard" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-nail-salon.html" target="_blank">
+      <div class="dcard-screen" style="background:linear-gradient(135deg,#1a0d1a 0%,#2d1035 100%)">
+        <div class="dcard-bar"><div class="dcard-dots"><span></span><span></span><span></span></div><div class="dcard-url">luxenailstudio.com</div></div>
+        <div style="padding:12px;font-family:'Syne',sans-serif"><div style="font-size:10px;color:#e879f9;font-weight:800;margin-bottom:4px">✦ Luxe Nail Studio</div><div style="font-size:13px;font-weight:800;line-height:1.2;color:#fff">Bowie's Premier Nail Spa</div><div style="margin-top:8px;background:#e879f9;color:#000;font-size:9px;font-weight:700;padding:4px 10px;border-radius:4px;display:inline-block">Book Appointment →</div></div>
+      </div>
+      <div class="dcard-info"><div class="dcard-niche">Nail Salon</div><div class="dcard-name">Luxe Nail Studio</div><div class="dcard-cta">View demo <span>↗</span></div></div>
+    </a>
+    <a class="dcard" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-landscaping.html" target="_blank">
+      <div class="dcard-screen" style="background:linear-gradient(135deg,#061a09 0%,#0d2e13 100%)">
+        <div class="dcard-bar"><div class="dcard-dots"><span></span><span></span><span></span></div><div class="dcard-url">greenedgelandscaping.com</div></div>
+        <div style="padding:12px;font-family:'Syne',sans-serif"><div style="font-size:10px;color:#4ade80;font-weight:800;margin-bottom:4px">🌿 Green Edge Landscaping</div><div style="font-size:13px;font-weight:800;line-height:1.2;color:#fff">Maryland Lawn &amp; Landscape</div><div style="margin-top:8px;background:#4ade80;color:#000;font-size:9px;font-weight:700;padding:4px 10px;border-radius:4px;display:inline-block">Get Free Estimate →</div></div>
+      </div>
+      <div class="dcard-info"><div class="dcard-niche">Landscaping</div><div class="dcard-name">Green Edge Landscaping</div><div class="dcard-cta">View demo <span>↗</span></div></div>
+    </a>
+    <a class="dcard" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-auto-detailing.html" target="_blank">
+      <div class="dcard-screen" style="background:linear-gradient(135deg,#120909 0%,#261212 100%)">
+        <div class="dcard-bar"><div class="dcard-dots"><span></span><span></span><span></span></div><div class="dcard-url">shineprodetailing.com</div></div>
+        <div style="padding:12px;font-family:'Syne',sans-serif"><div style="font-size:10px;color:#fb923c;font-weight:800;margin-bottom:4px">🚗 Shine Pro Detailing</div><div style="font-size:13px;font-weight:800;line-height:1.2;color:#fff">Mobile Auto Detailing DMV</div><div style="margin-top:8px;background:#fb923c;color:#000;font-size:9px;font-weight:700;padding:4px 10px;border-radius:4px;display:inline-block">Book a Detail →</div></div>
+      </div>
+      <div class="dcard-info"><div class="dcard-niche">Auto Detailing</div><div class="dcard-name">Shine Pro Auto Detailing</div><div class="dcard-cta">View demo <span>↗</span></div></div>
+    </a>
+    <a class="dcard" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-house-cleaning.html" target="_blank">
+      <div class="dcard-screen" style="background:linear-gradient(135deg,#071520 0%,#0f2b3d 100%)">
+        <div class="dcard-bar"><div class="dcard-dots"><span></span><span></span><span></span></div><div class="dcard-url">freshstartcleaningco.com</div></div>
+        <div style="padding:12px;font-family:'Syne',sans-serif"><div style="font-size:10px;color:#38bdf8;font-weight:800;margin-bottom:4px">✨ Fresh Start Cleaning</div><div style="font-size:13px;font-weight:800;line-height:1.2;color:#fff">Residential Cleaning DMV</div><div style="margin-top:8px;background:#38bdf8;color:#000;font-size:9px;font-weight:700;padding:4px 10px;border-radius:4px;display:inline-block">Get a Quote →</div></div>
+      </div>
+      <div class="dcard-info"><div class="dcard-niche">House Cleaning</div><div class="dcard-name">Fresh Start Cleaning Co.</div><div class="dcard-cta">View demo <span>↗</span></div></div>
+    </a>
+    <a class="dcard" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-barber.html" target="_blank">
+      <div class="dcard-screen" style="background:linear-gradient(135deg,#0a0a0a 0%,#1c1408 100%)">
+        <div class="dcard-bar"><div class="dcard-dots"><span></span><span></span><span></span></div><div class="dcard-url">thefaderoom.com</div></div>
+        <div style="padding:12px;font-family:'Syne',sans-serif"><div style="font-size:10px;color:#fbbf24;font-weight:800;margin-bottom:4px">✂️ The Fade Room</div><div style="font-size:13px;font-weight:800;line-height:1.2;color:#fff">Maryland's Premier Barber</div><div style="margin-top:8px;background:#fbbf24;color:#000;font-size:9px;font-weight:700;padding:4px 10px;border-radius:4px;display:inline-block">Book a Cut →</div></div>
+      </div>
+      <div class="dcard-info"><div class="dcard-niche">Barbershop</div><div class="dcard-name">The Fade Room</div><div class="dcard-cta">View demo <span>↗</span></div></div>
+    </a>
+  </div>
+</div>
+
 <!-- PORTFOLIO -->
 <section class="sec" style="border-top:1px solid var(--b1)">
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:560px;margin:0 auto">
-      <div class="tag">Live Demos — Click to Explore</div>
-      <h2 class="h2">Real sites. Built by me.<br>Click any one.</h2>
-      <p class="sub" style="margin:0 auto">Every Velora site is built custom for your niche, your city, and your customers. These are live — go explore them.</p>
+      <div class="tag">Portfolio — Built by Velora</div>
+      <h2 class="h2">Sites that actually<br><em>rank and convert.</em></h2>
+      <p class="sub" style="margin:0 auto">Each one built custom for a specific niche, city, and customer — not a template. Click any card to explore the full site.</p>
     </div>
     <div class="port-grid">
       <a class="port-card ri" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-hvac.html" target="_blank" style="text-decoration:none;display:block">
@@ -739,10 +840,10 @@ footer small{font-size:12px;color:var(--mu)}
 <!-- STATS -->
 <section class="stats-s" id="results">
   <div class="sg">
-    <div class="sb ri"><div class="num" data-t="3" data-s="×">0×</div><div class="lbl">More leads captured vs.<br>a standard website</div></div>
-    <div class="sb ri ri-d1"><div class="num" data-t="7" data-s=" days">0 days</div><div class="lbl">Average time from<br>strategy call to live site</div></div>
-    <div class="sb ri ri-d2"><div class="num" data-t="50" data-s="%">0%</div><div class="lbl">Of visitors engage<br>with the AI chatbot</div></div>
-    <div class="sb ri ri-d3"><div class="num" data-s="/7">24</div><div class="lbl">Hours your site works<br>capturing &amp; qualifying leads</div></div>
+    <div class="sb ri"><span class="sb-icon">📬</span><div class="num" data-t="3" data-s="×">0×</div><div class="lbl">More leads captured vs.<br>a standard website</div></div>
+    <div class="sb ri ri-d1"><span class="sb-icon">⚡</span><div class="num" data-t="7" data-s=" days">0 days</div><div class="lbl">Average time from<br>strategy call to live site</div></div>
+    <div class="sb ri ri-d2"><span class="sb-icon">🤖</span><div class="num" data-t="50" data-s="%">0%</div><div class="lbl">Of visitors engage<br>with the AI chatbot</div></div>
+    <div class="sb ri ri-d3"><span class="sb-icon">🕐</span><div class="num" data-s="/7">24</div><div class="lbl">Hours your site works<br>capturing &amp; qualifying leads</div></div>
   </div>
 </section>
 
@@ -830,17 +931,29 @@ footer small{font-size:12px;color:var(--mu)}
   </div>
 </section>
 
+<!-- TAGLINE DIVIDER -->
+<div style="padding:52px 0;border-top:1px solid var(--b1)">
+  <div class="tdiv ri">
+    <div class="tdiv-line"></div>
+    <div class="tdiv-txt">Every site built by <strong>one person</strong> who actually cares about your results.</div>
+    <div class="tdiv-line"></div>
+  </div>
+</div>
+
 <!-- ABOUT -->
-<section class="sec" id="about" style="border-top:1px solid var(--b1)">
+<section class="sec" id="about" style="border-top:1px solid var(--b1);padding-top:52px">
   <div class="wrap">
     <div class="about-grid">
-      <div class="about-card ri">
+      <div class="about-card ri" style="background:linear-gradient(135deg,var(--s2) 0%,var(--s1) 100%);border-color:var(--acb)">
         <div style="position:relative;z-index:1">
-          <div class="about-av">A</div>
+          <div class="about-av" style="background:linear-gradient(135deg,var(--ac) 0%,var(--ac2) 100%);color:#000;font-weight:900;box-shadow:0 8px 32px rgba(245,158,11,.35)">A</div>
           <div class="about-name">Alejandro Espinoza</div>
           <div class="about-role">Founder · Age 18 · Bowie, MD</div>
-          <div style="font-size:12px;color:var(--mu2);margin-bottom:18px;line-height:1.6">"I started this because I kept watching great local businesses lose customers to competitors with better websites. I knew I could fix that."</div>
-          <div class="about-sts">
+          <div class="about-card-inner">
+            <div style="font-size:13px;color:var(--mu2);margin-bottom:14px;line-height:1.7;font-family:'Instrument Serif',serif;font-style:italic;font-size:15px">"I started Velora because I kept watching great local businesses lose customers to competitors with better websites. I knew I could fix that — so I did."</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ac);font-weight:700"><span style="width:20px;height:1px;background:var(--ac);display:inline-block"></span>Alejandro Espinoza, Founder</div>
+          </div>
+          <div class="about-sts" style="margin-top:20px">
             <div class="about-st"><div class="n">10+</div><div class="l">Sites Built</div></div>
             <div class="about-st"><div class="n">7</div><div class="l">Day Delivery</div></div>
             <div class="about-st"><div class="n">DMV</div><div class="l">Local &amp; On-Call</div></div>
@@ -871,7 +984,7 @@ footer small{font-size:12px;color:var(--mu)}
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="sec" id="testimonials" style="border-top:1px solid var(--b1)">
+<section class="sec sec-alt" id="testimonials" style="border-top:1px solid var(--b1)">
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:540px;margin:0 auto">
       <div class="tag">Client Results</div>
@@ -966,7 +1079,7 @@ footer small{font-size:12px;color:var(--mu)}
 </section>
 
 <!-- PRICING -->
-<section class="sec" id="pricing" style="border-top:1px solid var(--b1)">
+<section class="sec sec-alt" id="pricing" style="border-top:1px solid var(--b1)">
   <div class="wrap">
     <div class="ph ri">
       <div class="tag">Transparent Pricing</div>
