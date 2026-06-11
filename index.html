@@ -562,7 +562,8 @@ footer small{font-size:12px;color:var(--mu)}
   .sa-regions{grid-template-columns:1fr}
   .port-grid{grid-template-columns:1fr 1fr}
   .about-grid{grid-template-columns:1fr;gap:36px}
-  .explore-grid{grid-template-columns:1fr!important}
+  .explore-grid{grid-template-columns:repeat(2,1fr)!important}
+  .store-grid{grid-template-columns:1fr!important;max-width:440px;margin-left:auto;margin-right:auto}
 }
 @media(max-width:660px){
   .sec{padding:72px 0}
@@ -585,6 +586,33 @@ footer small{font-size:12px;color:var(--mu)}
 .ti i[data-lucide]{width:13px;height:13px;stroke-width:2.5;color:var(--ac);flex-shrink:0}
 /* GSAP overrides — disable CSS transitions on GSAP-controlled elements */
 .gsap-hero .ri{opacity:1;transform:none;transition:none}
+
+/* DIRECTIONAL SLIDE-IN (CSS fallback; GSAP takes over when loaded) */
+.ri-left{opacity:0;transform:translateX(-34px);transition:opacity .65s ease,transform .65s ease}
+.ri-right{opacity:0;transform:translateX(34px);transition:opacity .65s ease,transform .65s ease}
+.ri-left.vis,.ri-right.vis{opacity:1;transform:none}
+
+/* STORE SECTION */
+.store-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.store-card{background:var(--s1);border:1px solid var(--b1);border-radius:22px;padding:34px 28px;display:flex;flex-direction:column;transition:transform .32s,box-shadow .32s,border-color .22s;position:relative;overflow:hidden}
+.store-card:hover{transform:translateY(-6px);box-shadow:0 28px 72px rgba(0,0,0,.55);border-color:var(--acb)}
+.store-card.featured{background:linear-gradient(148deg,rgba(245,158,11,.08),var(--s1) 60%);border-color:var(--acb)}
+.store-tier{display:inline-block;background:var(--acd);border:1px solid var(--acb);color:var(--ac);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:16px}
+.store-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.025em;margin-bottom:10px}
+.store-cost{font-family:'Plus Jakarta Sans',sans-serif;font-size:44px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:4px}
+.store-cost sup{font-size:22px;vertical-align:top;margin-top:6px;display:inline-block}
+.store-freq{font-size:12px;color:var(--mu2);margin-bottom:18px}
+.store-items{list-style:none;display:flex;flex-direction:column;gap:10px;flex:1;margin-bottom:22px}
+.store-items li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--mu2);line-height:1.4}
+.store-items li::before{content:'✓';color:var(--ac);font-weight:800;font-size:12px;flex-shrink:0;margin-top:1px}
+.store-sep{height:1px;background:var(--b1);margin-bottom:14px}
+.store-opt{font-size:11px;color:var(--mu);margin-bottom:20px;line-height:1.5}
+.store-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--ac);color:#060606;font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;padding:14px 22px;border-radius:12px;text-decoration:none;transition:background .18s,transform .15s;margin-top:auto}
+.store-btn:hover{background:var(--ac2);transform:translateY(-1px)}
+.store-btn.ghost{background:transparent;color:var(--ac);border:1.5px solid var(--acb)}
+.store-btn.ghost:hover{background:var(--acd)}
+.store-badge{position:absolute;top:22px;right:22px;background:var(--ac);color:#060606;font-size:10px;font-weight:800;letter-spacing:.04em;padding:4px 12px;border-radius:100px}
+.store-secure{text-align:center;font-size:12px;color:var(--mu);margin-top:22px}
 </style>
 <!-- GSAP + ScrollTrigger -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -645,6 +673,7 @@ footer small{font-size:12px;color:var(--mu)}
     <div class="nl">
       <a href="#how">How It Works</a>
       <a href="#portfolio">Demos</a>
+      <a href="#store">Packages</a>
       <a href="#pricing">Pricing</a>
       <a href="https://velora.associates/brochure" target="_blank">Brochure</a>
       <a href="#faq">FAQ</a>
@@ -658,6 +687,7 @@ footer small{font-size:12px;color:var(--mu)}
 <div class="mmenu" id="mmenu">
   <a href="#how" onclick="cm()">How It Works</a>
   <a href="#portfolio" onclick="cm()">Demos</a>
+  <a href="#store" onclick="cm()">Packages</a>
   <a href="#pricing" onclick="cm()">Pricing</a>
   <a href="https://velora.associates/brochure" target="_blank" onclick="cm()">Brochure ↗</a>
   <a href="#faq" onclick="cm()">FAQ</a>
@@ -890,35 +920,122 @@ footer small{font-size:12px;color:var(--mu)}
       <h2 class="h2" style="margin-bottom:10px">Everything you need<br>in one place.</h2>
       <p class="sub" style="margin:0 auto">Jump to whatever's most useful for you right now.</p>
     </div>
-    <div class="ri explore-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-      <a href="https://velora.associates/brochure" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:30px 26px;transition:border-color .2s,transform .3s,box-shadow .3s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
-        <div style="width:48px;height:48px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:22px">📋</div>
+    <div class="ri explore-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <a href="https://velora.associates/brochure" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:28px 22px;transition:border-color .2s,transform .3s,box-shadow .3s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
+        <div style="width:46px;height:46px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:20px">📋</div>
         <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">Full Overview</div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--tx);margin-bottom:6px">View the Brochure</div>
-          <div style="font-size:13px;color:var(--mu2);line-height:1.65">Pricing, packages, what's included, and how we work — all in one clean PDF-ready page.</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">Full Overview</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--tx);margin-bottom:6px">View the Brochure</div>
+          <div style="font-size:12px;color:var(--mu2);line-height:1.65">Pricing, packages, and how we work — all in one clean page.</div>
         </div>
-        <div style="font-size:13px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">Open Brochure <span>↗</span></div>
+        <div style="font-size:12px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">Open Brochure <span>↗</span></div>
       </a>
-      <a href="#portfolio" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:30px 26px;transition:border-color .2s,transform .3s,box-shadow .3s" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
-        <div style="width:48px;height:48px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:22px">🖥️</div>
+      <a href="#portfolio" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:28px 22px;transition:border-color .2s,transform .3s,box-shadow .3s" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
+        <div style="width:46px;height:46px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:20px">🖥️</div>
         <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">Live Examples</div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--tx);margin-bottom:6px">Browse the Demos</div>
-          <div style="font-size:13px;color:var(--mu2);line-height:1.65">See 6 fully working demo sites built for HVAC, barbershops, nail salons, landscapers, and more.</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">Live Examples</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--tx);margin-bottom:6px">Browse the Demos</div>
+          <div style="font-size:12px;color:var(--mu2);line-height:1.65">6 fully working demo sites across HVAC, salons, landscaping &amp; more.</div>
         </div>
-        <div style="font-size:13px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">View Demos <span>↓</span></div>
+        <div style="font-size:12px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">View Demos <span>↓</span></div>
       </a>
-      <a href="https://calendly.com/alejandroezpi2007/30min" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:linear-gradient(135deg,rgba(245,158,11,.08),var(--s1));border:1px solid var(--acb);border-radius:18px;padding:30px 26px;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="width:48px;height:48px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:22px">📞</div>
+      <a href="#store" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:28px 22px;transition:border-color .2s,transform .3s,box-shadow .3s" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
+        <div style="width:46px;height:46px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:20px">🛒</div>
         <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">Free · No Commitment</div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--tx);margin-bottom:6px">Book a Free Call</div>
-          <div style="font-size:13px;color:var(--mu2);line-height:1.65">20 minutes. I'll walk you through exactly what I'd build for your business — no pressure, no pitch.</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">Buy Online · Stripe</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--tx);margin-bottom:6px">Get Your Package</div>
+          <div style="font-size:12px;color:var(--mu2);line-height:1.65">Launch $799 · Pro $1,999 · Elite $3,999. Secure checkout, live in 7 days.</div>
         </div>
-        <div style="font-size:13px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">Pick a Time <span>→</span></div>
+        <div style="font-size:12px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">Order Now <span>↓</span></div>
+      </a>
+      <a href="https://calendly.com/alejandroezpi2007/30min" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:linear-gradient(135deg,rgba(245,158,11,.08),var(--s1));border:1px solid var(--acb);border-radius:18px;padding:28px 22px;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="width:46px;height:46px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:20px">📞</div>
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">Free · No Commitment</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--tx);margin-bottom:6px">Book a Free Call</div>
+          <div style="font-size:12px;color:var(--mu2);line-height:1.65">20 minutes. I'll walk you through exactly what I'd build for your business.</div>
+        </div>
+        <div style="font-size:12px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">Pick a Time <span>→</span></div>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- STORE / PACKAGES -->
+<section class="sec" id="store" style="border-top:1px solid var(--b1)">
+  <div class="wrap">
+    <div class="ri" style="text-align:center;max-width:580px;margin:0 auto">
+      <div class="tag">Order Online — Secure Checkout</div>
+      <h2 class="h2">Pick your package.<br><em>Go live in 7 days.</em></h2>
+      <p class="sub" style="margin:0 auto">50% deposit to start, balance due when you approve your site. Includes AI chatbot, mobile design, SEO, and lead capture — out of the box.</p>
+    </div>
+    <div class="store-grid">
+
+      <!-- LAUNCH -->
+      <div class="store-card ri">
+        <div class="store-tier">Starter</div>
+        <div class="store-name">Launch</div>
+        <div class="store-cost"><sup>$</sup>799</div>
+        <div class="store-freq">one-time build fee · live in 7 days</div>
+        <ul class="store-items">
+          <li>5-page custom website</li>
+          <li>AI chatbot (pre-set answers)</li>
+          <li>Lead capture + contact form</li>
+          <li>Google Maps + reviews embed</li>
+          <li>Basic SEO setup</li>
+          <li>Mobile-responsive design</li>
+          <li>1 round of revisions</li>
+        </ul>
+        <div class="store-sep"></div>
+        <div class="store-opt">Optional: $199/mo hosting &amp; AI maintenance</div>
+        <a href="https://buy.stripe.com/6oU00d0cab4LgZf7Hh8Ra01" target="_blank" class="store-btn ghost">Get Started →</a>
+      </div>
+
+      <!-- PRO (featured) -->
+      <div class="store-card featured ri ri-d1">
+        <div class="store-badge">Most Popular</div>
+        <div class="store-tier">Best Value</div>
+        <div class="store-name">Pro</div>
+        <div class="store-cost"><sup>$</sup>1,999</div>
+        <div class="store-freq">one-time build fee · live in 7 days</div>
+        <ul class="store-items">
+          <li>Up to 10 pages</li>
+          <li>AI chatbot — trained on your business</li>
+          <li>AI booking &amp; scheduling system</li>
+          <li>Full SEO optimization</li>
+          <li>Google reviews integration</li>
+          <li>Monthly analytics report</li>
+          <li>Priority support</li>
+          <li>2 rounds of revisions</li>
+        </ul>
+        <div class="store-sep"></div>
+        <div class="store-opt">Optional: $349/mo hosting, reports &amp; AI maintenance</div>
+        <a href="https://buy.stripe.com/aFa00df74c8PcIZ8Ll8Ra00" target="_blank" class="store-btn">Buy Now — $1,999 →</a>
+      </div>
+
+      <!-- ELITE -->
+      <div class="store-card ri ri-d2">
+        <div class="store-tier" style="color:#60c8f0;background:rgba(96,200,240,.08);border-color:rgba(96,200,240,.28)">Agency</div>
+        <div class="store-name">Elite</div>
+        <div class="store-cost" style="color:#60c8f0"><sup style="color:#60c8f0">$</sup>3,999</div>
+        <div class="store-freq">one-time build fee · live in 14 days</div>
+        <ul class="store-items">
+          <li>Unlimited pages</li>
+          <li>Custom AI chatbot + automations</li>
+          <li>CRM integration (HubSpot / Zoho)</li>
+          <li>Email marketing automation</li>
+          <li>Full SEO + content strategy</li>
+          <li>Monthly strategy call</li>
+          <li>Priority 24hr support</li>
+          <li>3 rounds of revisions</li>
+        </ul>
+        <div class="store-sep"></div>
+        <div class="store-opt">Optional: $499/mo full management &amp; priority support</div>
+        <a href="#contact" class="store-btn ghost" style="border-color:rgba(96,200,240,.3);color:#60c8f0">Let's Talk →</a>
+      </div>
+
+    </div>
+    <p class="store-secure ri">🔒 Secure checkout via Stripe · 50% deposit to start · Balance due on launch day · You own the site forever</p>
   </div>
 </section>
 
@@ -1018,7 +1135,7 @@ footer small{font-size:12px;color:var(--mu)}
 <section class="sec" id="about" style="border-top:1px solid var(--b1);padding-top:52px">
   <div class="wrap">
     <div class="about-grid">
-      <div class="about-card ri" style="background:linear-gradient(135deg,var(--s2) 0%,var(--s1) 100%);border-color:var(--acb)">
+      <div class="about-card ri-left" style="background:linear-gradient(135deg,var(--s2) 0%,var(--s1) 100%);border-color:var(--acb)">
         <div style="position:relative;z-index:1">
           <div class="about-av" style="background:linear-gradient(135deg,var(--ac) 0%,var(--ac2) 100%);color:#000;font-weight:900;box-shadow:0 8px 32px rgba(245,158,11,.35)">C</div>
           <div class="about-name">Cesar Espinoza</div>
@@ -1034,7 +1151,7 @@ footer small{font-size:12px;color:var(--mu)}
           </div>
         </div>
       </div>
-      <div class="about-txt ri ri-d1">
+      <div class="about-txt ri-right">
         <div class="tag">Who's Building Your Site</div>
         <h2>Not an agency.<br><em>A person.</em></h2>
         <p>I'm 18 years old, from Bowie, MD — and I build every site myself. When you work with Velora, there are no account managers, no overseas teams, no six-week timelines. Just me, moving fast, building something that actually works.</p>
@@ -1347,7 +1464,7 @@ footer small{font-size:12px;color:var(--mu)}
 <section class="sec" id="contact" style="border-top:1px solid var(--b1);padding-top:80px">
   <div class="wrap">
     <div class="cg">
-      <div class="ci2 ri">
+      <div class="ci2 ri-left">
         <h2>Let's build something that <em>earns.</em></h2>
         <p>Book a free 20-minute strategy call and I'll walk you through exactly what I'd build for your business — no obligation, no hard sell, just a clear plan.</p>
         <div class="clist">
@@ -1359,7 +1476,7 @@ footer small{font-size:12px;color:var(--mu)}
           <div class="cit"><div class="cico"><i data-lucide="shield-check"></i></div><div><div class="clb">No long-term contracts</div><div class="clv">Month-to-month, cancel anytime</div></div></div>
         </div>
       </div>
-      <div class="cform ri ri-d1">
+      <div class="cform ri-right">
         <div class="ctabs">
           <button class="ctab active" onclick="switchCTab(this,'tab-cal')">📅 Book a Call</button>
           <button class="ctab" onclick="switchCTab(this,'tab-msg')">✉️ Send a Message</button>
@@ -1718,6 +1835,31 @@ window.addEventListener('load',function(){
     {opacity:1,scale:1,y:0,duration:.65,ease:'back.out(1.3)',stagger:.1,
      scrollTrigger:{trigger:'.pg2',start:'top 85%'}}
   );
+
+  /* Store cards pop */
+  gsap.fromTo('.store-card',
+    {opacity:0,scale:.94,y:24},
+    {opacity:1,scale:1,y:0,duration:.65,ease:'back.out(1.3)',stagger:.12,
+     scrollTrigger:{trigger:'.store-grid',start:'top 85%'}}
+  );
+
+  /* Directional slide-ins — left */
+  document.querySelectorAll('.ri-left').forEach(function(el){
+    gsap.fromTo(el,
+      {opacity:0,x:-52},
+      {opacity:1,x:0,duration:.8,ease:'power2.out',
+       scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}}
+    );
+  });
+
+  /* Directional slide-ins — right */
+  document.querySelectorAll('.ri-right').forEach(function(el){
+    gsap.fromTo(el,
+      {opacity:0,x:52},
+      {opacity:1,x:0,duration:.8,ease:'power2.out',
+       scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}}
+    );
+  });
 });
 </script>
 </body>
