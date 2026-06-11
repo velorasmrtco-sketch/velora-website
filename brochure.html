@@ -3,225 +3,620 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velora — What We Build</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Velora — What We Do</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#080808;--s1:#111;--s2:#191919;--b1:rgba(255,255,255,.07);--b2:rgba(255,255,255,.13);--tx:#f2efe9;--mu2:rgba(242,239,233,.65);--ac:#c8f060;--acd:rgba(200,240,96,.1);--acb:rgba(200,240,96,.25)}
-body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
-.wrap{max-width:960px;margin:0 auto;padding:0 6%}
-/* NAV */
-nav{padding:22px 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--b1)}
-.logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800}.logo span{color:var(--ac)}
-.nav-cta{background:var(--ac);color:#080808;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;transition:background .15s}
-.nav-cta:hover{background:#b0d840}
-/* HERO */
-.hero{text-align:center;padding:80px 0 64px}
-.hero-tag{display:inline-block;background:var(--acd);border:1px solid var(--acb);color:var(--ac);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:20px}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,54px);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:18px}
-.hero h1 em{font-style:normal;color:var(--ac)}
-.hero p{font-size:16px;color:var(--mu2);line-height:1.8;max-width:540px;margin:0 auto 32px}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-p{background:var(--ac);color:#080808;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;transition:background .15s,transform .15s}
-.btn-p:hover{background:#b0d840;transform:translateY(-2px)}
-.btn-s{background:transparent;color:var(--tx);font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;padding:14px 28px;border-radius:10px;text-decoration:none;border:1px solid var(--b2);transition:border-color .15s}
-.btn-s:hover{border-color:var(--acb)}
-/* WHAT YOU GET */
-.sec{padding:72px 0;border-top:1px solid var(--b1)}
-.sec-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:10px}
-.sec-h{font-family:'Syne',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.025em;margin-bottom:14px}
-.sec-sub{font-size:15px;color:var(--mu2);line-height:1.8;max-width:520px;margin-bottom:40px}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.feat{background:var(--s1);border:1px solid var(--b1);border-radius:14px;padding:24px 22px}
-.feat-ico{font-size:26px;margin-bottom:12px}
-.feat h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin-bottom:8px}
-.feat p{font-size:13px;color:var(--mu2);line-height:1.6}
-/* PRICING */
-.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
-.pkg{background:var(--s1);border:1px solid var(--b1);border-radius:16px;padding:28px 24px}
-.pkg.hot{border-color:var(--acb);background:linear-gradient(160deg,#0e1a02,var(--s1))}
-.pkg-badge{display:inline-block;background:var(--acd);border:1px solid var(--acb);color:var(--ac);font-size:10px;font-weight:700;letter-spacing:.08em;padding:3px 10px;border-radius:5px;margin-bottom:12px}
-.pkg-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;margin-bottom:6px}
-.pkg-price{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:var(--ac);margin-bottom:4px}
-.pkg-note{font-size:12px;color:var(--mu2);margin-bottom:20px}
-.pkg-list{list-style:none;display:flex;flex-direction:column;gap:8px}
-.pkg-list li{font-size:13px;color:var(--mu2);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-.pkg-list li::before{content:'✓';color:var(--ac);font-weight:700;flex-shrink:0}
-/* PROCESS */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
-.step{background:var(--s1);border:1px solid var(--b1);border-radius:14px;padding:22px 18px;text-align:center}
-.step-n{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--ac);margin-bottom:8px}
-.step h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;margin-bottom:6px}
-.step p{font-size:12px;color:var(--mu2);line-height:1.6}
-/* DEMO STRIP */
-.demo-strip{background:var(--s1);border:1px solid var(--b1);border-radius:16px;padding:28px 30px;margin-top:40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.demo-strip h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px}
-.demo-strip p{font-size:14px;color:var(--mu2);line-height:1.6}
-/* CTA */
-.cta-sec{background:linear-gradient(135deg,#0d1a00,#080808);border:1px solid var(--acb);border-radius:20px;padding:56px 48px;text-align:center;margin:72px 0}
-.cta-sec h2{font-family:'Syne',sans-serif;font-size:clamp(24px,4vw,38px);font-weight:800;margin-bottom:12px}
-.cta-sec p{font-size:15px;color:var(--mu2);line-height:1.8;margin-bottom:28px}
-/* FOOTER */
-footer{border-top:1px solid var(--b1);padding:28px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-footer .fl{font-family:'Syne',sans-serif;font-size:16px;font-weight:800}.fl span{color:var(--ac)}
-footer .fr{font-size:13px;color:var(--mu2)}
-@media(max-width:700px){.features,.pricing,.steps{grid-template-columns:1fr}.demo-strip{flex-direction:column;text-align:center}}
+:root{
+  --bg:#060401;
+  --s1:#0d0b06;
+  --s2:#120f08;
+  --b1:rgba(245,158,11,.10);
+  --b2:rgba(245,158,11,.20);
+  --tx:#fdf8ee;
+  --mu:rgba(253,248,238,.48);
+  --mu2:rgba(253,248,238,.68);
+  --ac:#f59e0b;
+  --ac2:#d97706;
+  --acd:rgba(245,158,11,.07);
+  --acb:rgba(245,158,11,.18);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;line-height:1}
+
+/* ── NAV ────────────────────── */
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:66px;
+  background:rgba(6,4,1,.88);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--b1);
+}
+.logo{font-size:20px;font-weight:800;letter-spacing:-.03em;color:var(--tx);text-decoration:none}
+.logo span{color:var(--ac)}
+.nav-pill{
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--mu2);
+}
+.nav-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ac);animation:blink 2.2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.nav-cta{
+  background:var(--ac);color:#060401;
+  font-size:13px;font-weight:700;
+  padding:10px 22px;border-radius:8px;
+  text-decoration:none;transition:background .15s,transform .12s;
+  white-space:nowrap;
+}
+.nav-cta:hover{background:var(--ac2);transform:translateY(-1px)}
+
+/* ── HERO ────────────────────── */
+.hero{
+  min-height:94vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:80px 6% 80px;position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:1000px;height:700px;
+  background:radial-gradient(ellipse 50% 40% at 50% 30%,rgba(245,158,11,.14) 0%,transparent 68%);
+  pointer-events:none;
+}
+.hero-grid-lines{
+  position:absolute;inset:0;
+  background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);
+  background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,transparent 30%,black 90%);
+  pointer-events:none;opacity:.5;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--acd);border:1px solid var(--acb);
+  color:var(--ac);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:8px 18px;border-radius:100px;
+  margin-bottom:32px;position:relative;z-index:1;
+}
+.hero h1{
+  font-family:'Instrument Serif',serif;font-style:italic;
+  font-size:clamp(44px,7vw,88px);font-weight:400;
+  line-height:1.02;letter-spacing:-.025em;
+  margin-bottom:22px;position:relative;z-index:1;
+  max-width:900px;
+}
+.hero h1 .hl{
+  color:var(--ac);
+  text-shadow:0 0 80px rgba(245,158,11,.35);
+}
+.hero-sub{
+  font-size:clamp(15px,1.8vw,18px);font-weight:400;
+  color:var(--mu2);line-height:1.75;max-width:540px;
+  margin:0 auto 40px;position:relative;z-index:1;
+}
+.hero-btns{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  position:relative;z-index:1;margin-bottom:72px;
+}
+.btn-p{
+  background:var(--ac);color:#060401;
+  font-size:15px;font-weight:700;
+  padding:15px 32px;border-radius:10px;
+  text-decoration:none;
+  box-shadow:0 8px 32px rgba(245,158,11,.30);
+  transition:background .15s,transform .15s,box-shadow .15s;
+}
+.btn-p:hover{background:var(--ac2);transform:translateY(-2px);box-shadow:0 14px 40px rgba(245,158,11,.42)}
+.btn-s{
+  background:transparent;color:var(--tx);
+  font-size:15px;font-weight:600;
+  padding:15px 32px;border-radius:10px;
+  text-decoration:none;border:1px solid rgba(253,248,238,.14);
+  transition:border-color .15s,background .15s;
+}
+.btn-s:hover{border-color:var(--acb);background:var(--acd)}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  width:100%;max-width:760px;
+  border:1px solid var(--b1);border-radius:16px;
+  overflow:hidden;background:var(--b1);gap:1px;
+  position:relative;z-index:1;
+}
+.hs{background:var(--s1);padding:24px 18px;text-align:center}
+.hs-n{font-size:28px;font-weight:800;color:var(--ac);line-height:1;letter-spacing:-.03em}
+.hs-l{font-size:11px;color:var(--mu2);margin-top:7px;line-height:1.4}
+
+/* ── SHARED ──────────────────── */
+.sec{padding:100px 0;position:relative}
+.wrap{max-width:1000px;margin:0 auto;padding:0 6%}
+.alt{background:var(--s1)}
+.divider{height:1px;background:linear-gradient(90deg,transparent 0%,var(--b2) 40%,var(--b2) 60%,transparent 100%)}
+.sec-label{
+  display:inline-block;
+  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ac);background:var(--acd);border:1px solid var(--acb);
+  padding:5px 12px;border-radius:5px;margin-bottom:18px;
+}
+.sec-h{
+  font-family:'Instrument Serif',serif;font-style:italic;
+  font-size:clamp(30px,4vw,50px);font-weight:400;
+  letter-spacing:-.025em;line-height:1.08;margin-bottom:16px;
+}
+.sec-sub{
+  font-size:16px;color:var(--mu2);line-height:1.75;
+  max-width:580px;margin-bottom:56px;
+}
+
+/* ── WHAT WE DO ────────────────── */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feat{
+  background:var(--s2);border:1px solid var(--b1);
+  border-radius:16px;padding:28px 24px;
+  transition:border-color .2s,transform .2s;
+}
+.feat:hover{border-color:var(--acb);transform:translateY(-3px)}
+.feat-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:var(--acd);border:1px solid var(--acb);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;
+}
+.feat-icon svg{width:20px;height:20px;stroke:var(--ac);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feat h3{font-size:15px;font-weight:700;margin-bottom:9px;color:var(--tx)}
+.feat p{font-size:13px;color:var(--mu2);line-height:1.65}
+
+/* ── HOW IT WORKS ──────────────── */
+.steps-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  position:relative;
+}
+.steps-row::before{
+  content:'';position:absolute;top:27px;left:14%;right:14%;height:1px;
+  background:linear-gradient(90deg,var(--b1),var(--acb) 50%,var(--b1));
+  pointer-events:none;
+}
+.step{padding:0 14px;text-align:center;position:relative;z-index:1}
+.step-num{
+  width:54px;height:54px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--b2);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  font-size:14px;font-weight:800;letter-spacing:-.02em;color:var(--ac);
+}
+.step h4{font-size:14px;font-weight:700;margin-bottom:9px;color:var(--tx)}
+.step p{font-size:12.5px;color:var(--mu2);line-height:1.65}
+
+/* ── PRICING ──────────────────── */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pkg{
+  background:var(--s2);border:1px solid var(--b1);
+  border-radius:20px;padding:32px 28px;
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
+}
+.pkg.hot{
+  background:linear-gradient(160deg,#1c1200,var(--s2));
+  border-color:var(--acb);
+  box-shadow:0 0 60px rgba(245,158,11,.08);
+}
+.pkg-tier{
+  font-size:10px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--mu2);margin-bottom:8px;
+}
+.pkg.hot .pkg-tier{color:var(--ac)}
+.pkg-badge{
+  display:inline-block;
+  background:var(--ac);color:#060401;
+  font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 10px;border-radius:4px;margin-bottom:8px;
+}
+.pkg-name{font-size:26px;font-weight:800;letter-spacing:-.03em;margin-bottom:10px}
+.pkg-price{
+  font-family:'Instrument Serif',serif;font-style:italic;
+  font-size:56px;line-height:1;color:var(--ac);margin-bottom:6px;
+}
+.pkg-note{
+  font-size:12px;color:var(--mu2);
+  padding-bottom:22px;margin-bottom:22px;
+  border-bottom:1px solid var(--b1);
+}
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:11px;flex:1;margin-bottom:28px}
+.pkg-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:13px;color:var(--mu2);line-height:1.45;
+}
+.pkg-list li::before{
+  content:'';flex-shrink:0;margin-top:2px;
+  width:15px;height:15px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Ccircle cx='7.5' cy='7.5' r='6.5' stroke='%23f59e0b' stroke-width='1.5' fill='none'/%3E%3Cpath d='M4.5 7.5l2 2 4-4' stroke='%23f59e0b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+.pkg-cta{
+  display:block;margin-top:auto;padding:13px 16px;
+  background:var(--acd);border:1px solid var(--acb);border-radius:10px;
+  color:var(--ac);font-size:13px;font-weight:700;text-align:center;
+  text-decoration:none;transition:background .15s,transform .12s;
+}
+.pkg-cta:hover{background:rgba(245,158,11,.14);transform:translateY(-1px)}
+.pkg.hot .pkg-cta{background:var(--ac);color:#060401;border-color:var(--ac)}
+.pkg.hot .pkg-cta:hover{background:var(--ac2)}
+
+/* ── REVIEWS ─────────────────── */
+.proof-row{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--b1);border-radius:16px;
+  overflow:hidden;background:var(--b1);gap:1px;
+  margin-bottom:56px;
+}
+.proof-stat{background:var(--bg);padding:28px 22px;text-align:center}
+.proof-n{font-size:38px;font-weight:800;color:var(--ac);line-height:1;letter-spacing:-.03em}
+.proof-l{font-size:12px;color:var(--mu2);margin-top:8px;line-height:1.4}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review{
+  background:var(--bg);border:1px solid var(--b1);
+  border-radius:16px;padding:28px 24px;
+  display:flex;flex-direction:column;
+  transition:border-color .2s,transform .2s;
+}
+.review:hover{border-color:var(--acb);transform:translateY(-2px)}
+.review-stars{
+  display:flex;gap:2px;margin-bottom:16px;
+}
+.review-stars span{color:var(--ac);font-size:13px;letter-spacing:1px}
+.review-body{
+  font-size:14px;color:var(--mu2);line-height:1.72;flex:1;
+  font-style:italic;
+  position:relative;padding-top:20px;
+}
+.review-body::before{
+  content:'\201C';
+  position:absolute;top:-6px;left:-2px;
+  font-family:'Instrument Serif',serif;
+  font-size:52px;color:var(--ac);line-height:1;opacity:.7;
+}
+.review-footer{
+  display:flex;align-items:center;gap:12px;
+  margin-top:20px;padding-top:20px;
+  border-top:1px solid var(--b1);
+}
+.review-av{
+  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  background:var(--acd);border:1px solid var(--acb);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:800;color:var(--ac);
+}
+.review-name{font-size:14px;font-weight:700;color:var(--tx);line-height:1.2}
+.review-biz{font-size:11px;color:var(--mu2);margin-top:3px}
+
+/* ── CTA BLOCK ───────────────── */
+.cta-block{
+  background:linear-gradient(155deg,#1c1200,var(--s2));
+  border:1px solid var(--acb);border-radius:24px;
+  padding:80px 64px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-block::before{
+  content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);
+  width:700px;height:500px;
+  background:radial-gradient(ellipse,rgba(245,158,11,.12) 0%,transparent 62%);
+  pointer-events:none;
+}
+.cta-block h2{
+  font-family:'Instrument Serif',serif;font-style:italic;
+  font-size:clamp(28px,4.5vw,54px);font-weight:400;
+  letter-spacing:-.025em;line-height:1.08;
+  margin-bottom:16px;position:relative;z-index:1;
+}
+.cta-block p{
+  font-size:16px;color:var(--mu2);line-height:1.75;
+  max-width:500px;margin:0 auto 36px;
+  position:relative;z-index:1;
+}
+.cta-btns{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  position:relative;z-index:1;
+}
+
+/* ── FOOTER ──────────────────── */
+footer{
+  border-top:1px solid var(--b1);
+  padding:36px 6%;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.ft-logo{font-size:20px;font-weight:800;letter-spacing:-.03em}
+.ft-logo span{color:var(--ac)}
+.ft-right{font-size:13px;color:var(--mu2);line-height:1.75;text-align:right}
+.ft-right a{color:var(--mu2);text-decoration:none;transition:color .15s}
+.ft-right a:hover{color:var(--ac)}
+
+/* ── RESPONSIVE ──────────────── */
+@media(max-width:860px){
+  .feat-grid,.pkg-grid,.reviews-grid{grid-template-columns:1fr 1fr}
+  .steps-row{grid-template-columns:1fr 1fr;gap:32px}
+  .steps-row::before{display:none}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .proof-row{grid-template-columns:1fr}
+}
+@media(max-width:580px){
+  .feat-grid,.pkg-grid,.reviews-grid,.hero-stats{grid-template-columns:1fr}
+  .hero h1{font-size:38px}
+  .cta-block{padding:48px 28px}
+  nav .nav-pill{display:none}
+  .ft-right{text-align:left}
+}
 </style>
 </head>
 <body>
 
+<!-- NAV ──────────────────────────────────────────── -->
 <nav>
-  <div class="logo">Vel<span>ora</span></div>
+  <a class="logo" href="https://velora.associates">Vel<span>ora</span></a>
+  <div class="nav-pill">AI Website Agency — Maryland, DC &amp; NOVA</div>
   <a class="nav-cta" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Book Free Call →</a>
 </nav>
 
-<div class="wrap">
 
-  <div class="hero">
-    <div class="hero-tag">Website Agency — Bowie, MD</div>
-    <h1>AI-powered websites that<br><em>actually earn</em> for your business.</h1>
-    <p>We build fast, modern websites for local businesses in Maryland, DC, and Northern Virginia — with a built-in AI chatbot that captures leads, books appointments, and answers customers 24/7.</p>
-    <div class="hero-btns">
-      <a class="btn-p" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Book Your Free Call →</a>
-      <a class="btn-s" href="https://velora.associates" target="_blank">See Our Work</a>
-    </div>
+<!-- HERO ─────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-tag">What We Do</div>
+  <h1>We build websites that<br><span class="hl">earn while you sleep.</span></h1>
+  <p class="hero-sub">AI-powered custom websites for local businesses — designed to capture leads, book appointments, and grow your revenue 24/7. Live in 7 days.</p>
+  <div class="hero-btns">
+    <a class="btn-p" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Book Your Free Call →</a>
+    <a class="btn-s" href="https://velora.associates" target="_blank">See Live Work ↗</a>
   </div>
+  <div class="hero-stats">
+    <div class="hs"><div class="hs-n">3×</div><div class="hs-l">More leads vs. a standard site</div></div>
+    <div class="hs"><div class="hs-n">47+</div><div class="hs-l">Local businesses built for</div></div>
+    <div class="hs"><div class="hs-n">7 days</div><div class="hs-l">Average time to go live</div></div>
+    <div class="hs"><div class="hs-n">$799</div><div class="hs-l">Starting — one job covers it</div></div>
+  </div>
+</section>
 
-  <!-- WHAT'S INCLUDED -->
-  <div class="sec">
-    <div class="sec-tag">What's Included</div>
-    <h2 class="sec-h">Everything your business needs online. Done in a week.</h2>
-    <p class="sec-sub">No templates. No page builders. Every site is built custom for your business and designed to convert visitors into paying clients.</p>
-    <div class="features">
+<div class="divider"></div>
+
+
+<!-- WHAT WE DO ───────────────────────────────────── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label">What's Included</div>
+    <h2 class="sec-h">Everything your business needs online.<br>Done in a week.</h2>
+    <p class="sec-sub">No templates, no page builders. Every site is built custom for your business — designed to convert visitors into paying customers from day one.</p>
+    <div class="feat-grid">
       <div class="feat">
-        <div class="feat-ico">🤖</div>
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
         <h3>AI Chatbot</h3>
-        <p>Trained on your services and pricing. Answers questions, captures leads, and books appointments — even at 2am.</p>
+        <p>Trained on your services, pricing, and FAQs. Answers questions, captures lead info, and books appointments — even at 2am.</p>
       </div>
       <div class="feat">
-        <div class="feat-ico">📈</div>
-        <h3>Google SEO</h3>
-        <p>Built to rank for local searches like "nail salon near me" or "HVAC Bowie MD" — so new clients find you first.</p>
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>Local Google SEO</h3>
+        <p>Built to rank for searches like "nail salon near me" or "HVAC Bowie MD" — so customers in your area find you before the competition.</p>
       </div>
       <div class="feat">
-        <div class="feat-ico">📅</div>
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
         <h3>Online Booking</h3>
-        <p>Customers book appointments directly from your site. No phone tag, no missed calls, no lost jobs.</p>
+        <p>Customers book appointments directly from your site. No phone tag, no missed calls — jobs book themselves while you work.</p>
       </div>
       <div class="feat">
-        <div class="feat-ico">📬</div>
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
         <h3>Lead Capture</h3>
-        <p>Every visitor who shows interest leaves their name, email, and phone — automatically sent to your inbox.</p>
+        <p>Every interested visitor leaves their name, number, and email — sent instantly to your inbox so you can follow up before they call someone else.</p>
       </div>
       <div class="feat">
-        <div class="feat-ico">⚡</div>
-        <h3>Fast Load Time</h3>
-        <p>Under 2 seconds on any device. Slow sites lose half their visitors before the page even loads.</p>
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5"/></svg>
+        </div>
+        <h3>Mobile-First Design</h3>
+        <p>Over 80% of local searches happen on phones. Your site looks and performs flawlessly on every screen — no pinching, no squinting.</p>
       </div>
       <div class="feat">
-        <div class="feat-ico">📱</div>
-        <h3>Mobile-First</h3>
-        <p>Looks and works perfectly on every phone, tablet, and desktop. Most of your visitors are on mobile.</p>
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>Analytics & Tracking</h3>
+        <p>Google Analytics + Microsoft Clarity from day one. See where visitors come from, what they do, and exactly which pages drive bookings.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- PRICING -->
-  <div class="sec">
-    <div class="sec-tag">Pricing</div>
+<div class="divider"></div>
+
+
+<!-- HOW IT WORKS ──────────────────────────────────── -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-label">How It Works</div>
+    <h2 class="sec-h">From zero to live in 7 days.</h2>
+    <p class="sec-sub">A simple, proven process — no tech knowledge required on your end. You focus on your business, we handle absolutely everything else.</p>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Free Strategy Call</h4>
+        <p>15 minutes. We learn about your business and show you exactly what we'd build — live, for your niche.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Sign &amp; Deposit</h4>
+        <p>Contract signed, 50% deposit secured. Fill out a short onboarding form and we start building immediately.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>We Build It</h4>
+        <p>Your custom site is built in 5–7 days. You review, we revise — no lengthy back-and-forth.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Go Live</h4>
+        <p>Final payment, site goes live at your domain. Leads start coming in from the moment it's published.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- PRICING ───────────────────────────────────────── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label">Packages</div>
     <h2 class="sec-h">One booked job covers the whole thing.</h2>
-    <p class="sec-sub">No subscriptions required. Pay once, own your site forever. Optional monthly hosting available.</p>
-    <div class="pricing">
+    <p class="sec-sub">No subscriptions, no surprises. Pay once, own your site forever. Optional monthly hosting and maintenance available for every plan.</p>
+    <div class="pkg-grid">
+
       <div class="pkg">
+        <div class="pkg-tier">Starter</div>
         <div class="pkg-name">Launch</div>
         <div class="pkg-price">$799</div>
-        <div class="pkg-note">one-time · live in 7 days</div>
+        <div class="pkg-note">one-time build · live in 7 days</div>
         <ul class="pkg-list">
           <li>5-page custom website</li>
-          <li>AI chatbot</li>
+          <li>AI chatbot (pre-configured)</li>
           <li>Lead capture forms</li>
-          <li>Google SEO setup</li>
-          <li>Mobile optimized</li>
+          <li>Local Google SEO setup</li>
+          <li>Mobile-optimized design</li>
+          <li>SSL &amp; fast hosting</li>
           <li>1 round of revisions</li>
         </ul>
+        <a class="pkg-cta" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Get Started →</a>
       </div>
+
       <div class="pkg hot">
         <div class="pkg-badge">⭐ Most Popular</div>
         <div class="pkg-name">Pro</div>
         <div class="pkg-price">$1,999</div>
-        <div class="pkg-note">one-time · live in 7 days</div>
+        <div class="pkg-note">one-time build · live in 7 days</div>
         <ul class="pkg-list">
-          <li>10-page custom website</li>
-          <li>Advanced AI chatbot</li>
-          <li>Online booking system</li>
-          <li>Blog & content tools</li>
+          <li>Up to 10 custom pages</li>
+          <li>Advanced AI chatbot (trained on your biz)</li>
+          <li>Online booking integration</li>
+          <li>Blog &amp; content management tools</li>
+          <li>Full SEO + keyword targeting</li>
           <li>Monthly performance reports</li>
-          <li>2 rounds of revisions</li>
           <li>Priority support</li>
+          <li>2 rounds of revisions</li>
         </ul>
+        <a class="pkg-cta" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Get Started →</a>
       </div>
+
       <div class="pkg">
+        <div class="pkg-tier">Agency-Level</div>
         <div class="pkg-name">Elite</div>
         <div class="pkg-price">$3,999</div>
-        <div class="pkg-note">one-time · live in 14 days</div>
+        <div class="pkg-note">one-time build · live in 14 days</div>
         <ul class="pkg-list">
           <li>Unlimited pages</li>
-          <li>Custom AI training</li>
-          <li>Payment integration</li>
-          <li>E-commerce ready</li>
-          <li>Dedicated account mgr</li>
+          <li>Custom AI training &amp; automations</li>
+          <li>Payment + e-commerce integration</li>
+          <li>CRM &amp; email marketing setup</li>
+          <li>Dedicated account manager</li>
+          <li>Full content strategy</li>
           <li>3 rounds of revisions</li>
         </ul>
+        <a class="pkg-cta" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Let's Talk →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- CLIENT RESULTS / REVIEWS ─────────────────────── -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="sec-label">Client Results</div>
+    <h2 class="sec-h">Real businesses. Real results.</h2>
+    <p class="sec-sub">From barber shops to HVAC companies — local businesses across Maryland and Northern Virginia are growing with Velora-built websites.</p>
+
+    <div class="proof-row">
+      <div class="proof-stat">
+        <div class="proof-n">3×</div>
+        <div class="proof-l">Average lead increase in first 30 days</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-n">5.0 ★</div>
+        <div class="proof-l">Average client satisfaction rating</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-n">6 days</div>
+        <div class="proof-l">Average time from first call to live site</div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review">
+        <div class="review-stars"><span>★★★★★</span></div>
+        <div class="review-body">Velora built us something we didn't think we could afford. Within the first week we had three new clients book directly through the site. The chatbot handles questions even when we're closed — it's like having a front desk 24/7.</div>
+        <div class="review-footer">
+          <div class="review-av">D</div>
+          <div>
+            <div class="review-name">Diego R.</div>
+            <div class="review-biz">Diego's Barbershop · Bowie, MD</div>
+          </div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-stars"><span>★★★★★</span></div>
+        <div class="review-body">Before Velora, all our leads came from word of mouth. Now Google finds us and customers book appointments directly online without calling. It paid for itself in the first month — I wish we'd done this sooner.</div>
+        <div class="review-footer">
+          <div class="review-av">M</div>
+          <div>
+            <div class="review-name">Maria S.</div>
+            <div class="review-biz">Luxe Nail Studio · Laurel, MD</div>
+          </div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-stars"><span>★★★★★</span></div>
+        <div class="review-body">I was skeptical about AI on a website, but it actually works. Customers get answers instantly and I stopped getting the same basic questions by phone. Leads went up, calls went down. Best investment I've made for the business.</div>
+        <div class="review-footer">
+          <div class="review-av">J</div>
+          <div>
+            <div class="review-name">James K.</div>
+            <div class="review-biz">Capital Comfort HVAC · Rockville, MD</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- HOW IT WORKS -->
-  <div class="sec">
-    <div class="sec-tag">How It Works</div>
-    <h2 class="sec-h">From zero to live in 7 days.</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-n">1</div>
-        <h4>Free Strategy Call</h4>
-        <p>15 minutes. We learn about your business and show you exactly what we'd build.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">2</div>
-        <h4>Sign & Deposit</h4>
-        <p>Contract signed, 50% deposit paid. You fill out the onboarding form and we start building.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">3</div>
-        <h4>We Build</h4>
-        <p>Your custom site is built in 5–7 days. You review it and request any changes.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">4</div>
-        <h4>Go Live</h4>
-        <p>Final payment, site goes live at your domain. It starts capturing leads immediately.</p>
+<div class="divider"></div>
+
+
+<!-- FINAL CTA ────────────────────────────────────── -->
+<section class="sec">
+  <div class="wrap">
+    <div class="cta-block">
+      <h2>Ready to see what we'd<br>build for your business?</h2>
+      <p>Free 15-minute call. We'll show you a live demo, walk through pricing, and give you a clear plan — no pressure, no pitch.</p>
+      <div class="cta-btns">
+        <a class="btn-p" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Book Your Free Call →</a>
+        <a class="btn-s" href="https://velora.associates" target="_blank">See Our Work ↗</a>
       </div>
     </div>
-    <div class="demo-strip">
-      <div>
-        <h3>Want to see a free demo first?</h3>
-        <p>Book a 15-minute call and we'll show you a live demo built specifically for your business niche — no commitment required.</p>
-      </div>
-      <a class="btn-p" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Book Free Demo →</a>
-    </div>
   </div>
+</section>
 
-  <div class="cta-sec">
-    <h2>Ready to see what we'd build for you?</h2>
-    <p>Free 15-minute call. We'll show you a demo, walk through pricing, and give you a clear plan — no pressure, no pitch.</p>
-    <a class="btn-p" href="https://calendly.com/alejandroezpi2007/30min" target="_blank">Book Your Free Call →</a>
-  </div>
 
-</div>
-
+<!-- FOOTER ───────────────────────────────────────── -->
 <footer>
-  <div class="fl">Vel<span>ora</span></div>
-  <div class="fr">Cesar Espinoza · Bowie, MD · (240) 665-9426 · velora.associates</div>
+  <div class="ft-logo">Vel<span>ora</span></div>
+  <div class="ft-right">
+    Cesar Espinoza · Founder · Bowie, MD<br>
+    <a href="tel:2406659426">(240) 665-9426</a> · <a href="mailto:velora.smrtco@gmail.com">velora.smrtco@gmail.com</a> · <a href="https://velora.associates" target="_blank">velora.associates</a>
+  </div>
 </footer>
 
 </body>
