@@ -592,6 +592,19 @@ footer small{font-size:12px;color:var(--mu)}
 .ri-right{opacity:0;transform:translateX(34px);transition:opacity .65s ease,transform .65s ease}
 .ri-left.vis,.ri-right.vis{opacity:1;transform:none}
 
+/* PAGE-VIEW SYSTEM */
+.pv{display:none}
+.pv.pv-act{display:block;animation:pvIn .32s cubic-bezier(.25,.46,.45,.94)}
+@keyframes pvIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+/* Nav active indicator */
+.nl a.nav-on{color:var(--tx);position:relative}
+.nl a.nav-on::after{content:'';position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--ac);border-radius:1px}
+/* Page section labels */
+.pv-label{padding:28px 0 0;border-bottom:1px solid var(--b1)}
+.pv-label .wrap{display:flex;align-items:center;gap:10px;padding-bottom:22px}
+.pv-crumb{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mu2)}
+.pv-crumb strong{color:var(--ac)}
+
 /* STORE SECTION */
 .store-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
 .store-card{background:var(--s1);border:1px solid var(--b1);border-radius:22px;padding:34px 28px;display:flex;flex-direction:column;transition:transform .32s,box-shadow .32s,border-color .22s;position:relative;overflow:hidden}
@@ -669,14 +682,13 @@ footer small{font-size:12px;color:var(--mu)}
 <!-- HEADER -->
 <header>
   <nav>
-    <a href="#home" class="logo">Vel<span>ora</span></a>
+    <a href="#" class="logo" onclick="showPage('pv-home');return false">Vel<span>ora</span></a>
     <div class="nl">
-      <a href="#how">How It Works</a>
-      <a href="#portfolio">Demos</a>
-      <a href="#store">Packages</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#" data-pv="pv-how" onclick="showPage('pv-how');return false">How It Works</a>
+      <a href="#" data-pv="pv-home" onclick="showPage('pv-home','#portfolio');return false">Demos</a>
+      <a href="#" data-pv="pv-pricing" onclick="showPage('pv-pricing');return false">Pricing</a>
       <a href="https://velora.associates/brochure" target="_blank">Brochure</a>
-      <a href="#faq">FAQ</a>
+      <a href="#" data-pv="pv-faq" onclick="showPage('pv-faq');return false">FAQ</a>
     </div>
     <a href="https://calendly.com/alejandroezpi2007/30min" target="_blank" class="ncta">Book a Free Call →</a>
     <div class="hbg" id="hbg" onclick="toggleMenu()" aria-label="Menu">
@@ -685,16 +697,18 @@ footer small{font-size:12px;color:var(--mu)}
   </nav>
 </header>
 <div class="mmenu" id="mmenu">
-  <a href="#how" onclick="cm()">How It Works</a>
-  <a href="#portfolio" onclick="cm()">Demos</a>
-  <a href="#store" onclick="cm()">Packages</a>
-  <a href="#pricing" onclick="cm()">Pricing</a>
+  <a href="#" onclick="showPage('pv-how');cm()">How It Works</a>
+  <a href="#" onclick="showPage('pv-home','#portfolio');cm()">Demos</a>
+  <a href="#" onclick="showPage('pv-pricing');cm()">Pricing</a>
   <a href="https://velora.associates/brochure" target="_blank" onclick="cm()">Brochure ↗</a>
-  <a href="#faq" onclick="cm()">FAQ</a>
+  <a href="#" onclick="showPage('pv-faq');cm()">FAQ</a>
+  <a href="#" onclick="showPage('pv-contact');cm()">Contact</a>
   <a href="https://calendly.com/alejandroezpi2007/30min" target="_blank" class="mcta" onclick="cm()">Book a Free Call →</a>
 </div>
 
 <main>
+
+<div class="pv pv-act" id="pv-home">
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -721,7 +735,7 @@ footer small{font-size:12px;color:var(--mu)}
       <p class="hero-sub ri ri-d2">I build every site myself — no outsourcing, no templates. Your business gets a custom site that ranks on Google and books customers while you're on the job in <strong>Maryland, DC &amp; Northern Virginia.</strong></p>
       <div class="acts ri ri-d3">
         <a href="https://calendly.com/alejandroezpi2007/30min" target="_blank" class="btn">Book a Free Call →</a>
-        <a href="#portfolio" class="btn-o">See Live Demos</a>
+        <a href="#" class="btn-o" onclick="showPage('pv-home','#portfolio');return false">See Live Demos</a>
       </div>
       <div class="trust ri ri-d4">
         <div class="ti"><div class="d"></div>Live in 7 days</div>
@@ -930,7 +944,7 @@ footer small{font-size:12px;color:var(--mu)}
         </div>
         <div style="font-size:12px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">Open Brochure <span>↗</span></div>
       </a>
-      <a href="#portfolio" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:28px 22px;transition:border-color .2s,transform .3s,box-shadow .3s" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
+      <a href="#" onclick="showPage('pv-home','#portfolio');return false" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:28px 22px;transition:border-color .2s,transform .3s,box-shadow .3s" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
         <div style="width:46px;height:46px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:20px">🖥️</div>
         <div>
           <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">Live Examples</div>
@@ -939,7 +953,7 @@ footer small{font-size:12px;color:var(--mu)}
         </div>
         <div style="font-size:12px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">View Demos <span>↓</span></div>
       </a>
-      <a href="#store" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:28px 22px;transition:border-color .2s,transform .3s,box-shadow .3s" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
+      <a href="#" onclick="showPage('pv-pricing');return false" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:28px 22px;transition:border-color .2s,transform .3s,box-shadow .3s" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
         <div style="width:46px;height:46px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:20px">🛒</div>
         <div>
           <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">Buy Online · Stripe</div>
@@ -961,83 +975,10 @@ footer small{font-size:12px;color:var(--mu)}
   </div>
 </section>
 
-<!-- STORE / PACKAGES -->
-<section class="sec" id="store" style="border-top:1px solid var(--b1)">
-  <div class="wrap">
-    <div class="ri" style="text-align:center;max-width:580px;margin:0 auto">
-      <div class="tag">Order Online — Secure Checkout</div>
-      <h2 class="h2">Pick your package.<br><em>Go live in 7 days.</em></h2>
-      <p class="sub" style="margin:0 auto">50% deposit to start, balance due when you approve your site. Includes AI chatbot, mobile design, SEO, and lead capture — out of the box.</p>
-    </div>
-    <div class="store-grid">
+</div><!-- /pv-home -->
 
-      <!-- LAUNCH -->
-      <div class="store-card ri">
-        <div class="store-tier">Starter</div>
-        <div class="store-name">Launch</div>
-        <div class="store-cost"><sup>$</sup>799</div>
-        <div class="store-freq">one-time build fee · live in 7 days</div>
-        <ul class="store-items">
-          <li>5-page custom website</li>
-          <li>AI chatbot (pre-set answers)</li>
-          <li>Lead capture + contact form</li>
-          <li>Google Maps + reviews embed</li>
-          <li>Basic SEO setup</li>
-          <li>Mobile-responsive design</li>
-          <li>1 round of revisions</li>
-        </ul>
-        <div class="store-sep"></div>
-        <div class="store-opt">Optional: $199/mo hosting &amp; AI maintenance</div>
-        <a href="https://buy.stripe.com/6oU00d0cab4LgZf7Hh8Ra01" target="_blank" class="store-btn ghost">Get Started →</a>
-      </div>
-
-      <!-- PRO (featured) -->
-      <div class="store-card featured ri ri-d1">
-        <div class="store-badge">Most Popular</div>
-        <div class="store-tier">Best Value</div>
-        <div class="store-name">Pro</div>
-        <div class="store-cost"><sup>$</sup>1,999</div>
-        <div class="store-freq">one-time build fee · live in 7 days</div>
-        <ul class="store-items">
-          <li>Up to 10 pages</li>
-          <li>AI chatbot — trained on your business</li>
-          <li>AI booking &amp; scheduling system</li>
-          <li>Full SEO optimization</li>
-          <li>Google reviews integration</li>
-          <li>Monthly analytics report</li>
-          <li>Priority support</li>
-          <li>2 rounds of revisions</li>
-        </ul>
-        <div class="store-sep"></div>
-        <div class="store-opt">Optional: $349/mo hosting, reports &amp; AI maintenance</div>
-        <a href="https://buy.stripe.com/aFa00df74c8PcIZ8Ll8Ra00" target="_blank" class="store-btn">Buy Now — $1,999 →</a>
-      </div>
-
-      <!-- ELITE -->
-      <div class="store-card ri ri-d2">
-        <div class="store-tier" style="color:#60c8f0;background:rgba(96,200,240,.08);border-color:rgba(96,200,240,.28)">Agency</div>
-        <div class="store-name">Elite</div>
-        <div class="store-cost" style="color:#60c8f0"><sup style="color:#60c8f0">$</sup>3,999</div>
-        <div class="store-freq">one-time build fee · live in 14 days</div>
-        <ul class="store-items">
-          <li>Unlimited pages</li>
-          <li>Custom AI chatbot + automations</li>
-          <li>CRM integration (HubSpot / Zoho)</li>
-          <li>Email marketing automation</li>
-          <li>Full SEO + content strategy</li>
-          <li>Monthly strategy call</li>
-          <li>Priority 24hr support</li>
-          <li>3 rounds of revisions</li>
-        </ul>
-        <div class="store-sep"></div>
-        <div class="store-opt">Optional: $499/mo full management &amp; priority support</div>
-        <a href="#contact" class="store-btn ghost" style="border-color:rgba(96,200,240,.3);color:#60c8f0">Let's Talk →</a>
-      </div>
-
-    </div>
-    <p class="store-secure ri">🔒 Secure checkout via Stripe · 50% deposit to start · Balance due on launch day · You own the site forever</p>
-  </div>
-</section>
+<div class="pv" id="pv-how">
+<div class="pv-label"><div class="wrap"><div class="pv-crumb">Velora — <strong>How It Works</strong></div></div></div>
 
 <!-- HOW IT WORKS -->
 <section class="sec" id="how">
@@ -1173,6 +1114,11 @@ footer small{font-size:12px;color:var(--mu)}
     </div>
   </div>
 </section>
+
+</div><!-- /pv-how -->
+
+<div class="pv" id="pv-pricing">
+<div class="pv-label"><div class="wrap"><div class="pv-crumb">Velora — <strong>Pricing</strong></div></div></div>
 
 <!-- TESTIMONIALS -->
 <section class="sec sec-alt" id="testimonials" style="border-top:1px solid var(--b1)">
@@ -1385,11 +1331,16 @@ footer small{font-size:12px;color:var(--mu)}
           <li><span class="ck">✓</span>Monthly strategy call</li>
           <li><span class="ck">✓</span>Priority 24hr support</li>
         </ul>
-        <a href="#contact" class="pb bl">Let's Talk →</a>
+        <a href="#" onclick="showPage('pv-contact');return false" class="pb bl">Let's Talk →</a>
       </div>
     </div>
   </div>
 </section>
+
+</div><!-- /pv-pricing -->
+
+<div class="pv" id="pv-faq">
+<div class="pv-label"><div class="wrap"><div class="pv-crumb">Velora — <strong>FAQ</strong></div></div></div>
 
 <!-- FAQ -->
 <section class="sec" id="faq" style="border-top:1px solid var(--b1)">
@@ -1443,6 +1394,11 @@ footer small{font-size:12px;color:var(--mu)}
     <p class="sa-note ri">Don't see your city? <span>We serve the entire DMV area</span> — just reach out.</p>
   </div>
 </section>
+
+</div><!-- /pv-faq -->
+
+<div class="pv" id="pv-contact">
+<div class="pv-label"><div class="wrap"><div class="pv-crumb">Velora — <strong>Contact</strong></div></div></div>
 
 <!-- CTA BANNER -->
 <section class="ctas">
@@ -1505,6 +1461,8 @@ footer small{font-size:12px;color:var(--mu)}
   </div>
 </section>
 
+</div><!-- /pv-contact -->
+
 </main>
 
 <footer>
@@ -1515,10 +1473,10 @@ footer small{font-size:12px;color:var(--mu)}
         <small style="display:block;margin-top:5px">📍 Bowie, MD — Serving Maryland, DC &amp; Northern Virginia</small>
       </div>
       <div class="flinks">
-        <a href="#how">How it Works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <a href="#" onclick="showPage('pv-how');return false">How it Works</a>
+        <a href="#" onclick="showPage('pv-pricing');return false">Pricing</a>
+        <a href="#" onclick="showPage('pv-faq');return false">FAQ</a>
+        <a href="#" onclick="showPage('pv-contact');return false">Contact</a>
         <a href="https://tiktok.com/@velora.co4" target="_blank">TikTok</a>
         <a href="https://velora.associates/brochure" target="_blank">Brochure</a>
       </div>
@@ -1528,6 +1486,24 @@ footer small{font-size:12px;color:var(--mu)}
 </footer>
 
 <script>
+/* --- PAGE NAVIGATION --- */
+function showPage(id, anchor) {
+  document.querySelectorAll('.pv').forEach(function(p){p.classList.remove('pv-act');});
+  var el = document.getElementById(id);
+  if (el) el.classList.add('pv-act');
+  // Update active nav state
+  document.querySelectorAll('.nl a[data-pv], .mmenu a[data-pv]').forEach(function(a){a.classList.remove('nav-on');});
+  document.querySelectorAll('[data-pv="'+id+'"]').forEach(function(a){a.classList.add('nav-on');});
+  if (anchor) {
+    var target = document.querySelector(anchor);
+    if (target) { setTimeout(function(){target.scrollIntoView({behavior:'smooth',block:'start'});},60); }
+  } else {
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  // Re-run GSAP scroll triggers for new content
+  if(typeof ScrollTrigger!=='undefined') ScrollTrigger.refresh();
+}
+
 /* --- NAV --- */
 function toggleMenu(){var h=document.getElementById('hbg'),m=document.getElementById('mmenu');h.classList.toggle('open');m.classList.toggle('open');}
 function cm(){document.getElementById('hbg').classList.remove('open');document.getElementById('mmenu').classList.remove('open');}
