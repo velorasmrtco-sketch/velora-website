@@ -699,6 +699,62 @@ footer small{font-size:12px;color:var(--mu)}
 .rv-badge{display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:var(--ac);padding:3px 9px;border-radius:100px;margin-top:5px}
 @media(max-width:900px){.rv-grid{grid-template-columns:1fr}.rv-proof-bar{grid-template-columns:1fr 1fr}}
 
+/* ─── CUSTOM CURSOR ──────────────────────────── */
+body{cursor:none}
+.cur-dot{position:fixed;width:7px;height:7px;background:var(--ac);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);will-change:left,top;transition:width .12s,height .12s,opacity .2s}
+.cur-ring{position:fixed;width:34px;height:34px;border:1.5px solid rgba(245,158,11,.4);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);will-change:left,top;transition:width .3s,height .3s,border-color .3s,opacity .3s}
+.cur-dot.big{width:14px;height:14px;background:var(--ac);mix-blend-mode:difference}
+.cur-ring.big{width:56px;height:56px;border-color:rgba(245,158,11,.75)}
+@media(hover:none),(pointer:coarse){.cur-dot,.cur-ring{display:none}body{cursor:auto}}
+
+/* ─── SKILLS SECTION ─────────────────────────── */
+.skills-sec{padding:100px 0;border-top:1px solid var(--b1)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.sk-card{background:var(--s1);border:1px solid var(--b1);border-radius:20px;padding:30px 26px;display:flex;align-items:center;gap:20px;transition:border-color .25s,transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.sk-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 50%,rgba(245,158,11,.06) 0%,transparent 65%);opacity:0;transition:opacity .3s}
+.sk-card:hover{border-color:var(--acb);transform:translateY(-3px);box-shadow:0 20px 65px rgba(0,0,0,.5)}
+.sk-card:hover::before{opacity:1}
+.sk-ring-wrap{position:relative;flex-shrink:0;width:68px;height:68px}
+.sk-ring-svg{width:68px;height:68px;overflow:visible}
+.sk-ring-bg{fill:none;stroke:var(--b2);stroke-width:4;stroke-linecap:round}
+.sk-ring-fill{fill:none;stroke:var(--ac);stroke-width:4;stroke-linecap:round;transform-origin:50% 50%;transform:rotate(-90deg);stroke-dasharray:175.9;stroke-dashoffset:175.9;transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1);will-change:stroke-dashoffset}
+.sk-pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:800;color:var(--ac)}
+.sk-label h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;color:var(--tx);margin-bottom:4px;line-height:1.25}
+.sk-label p{font-size:12px;color:var(--mu2);line-height:1.65}
+@media(max-width:860px){.skills-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.skills-grid{grid-template-columns:1fr}}
+
+/* ─── DEMO TEASER (home page) ────────────────── */
+.dt-sec{padding:100px 0;border-top:1px solid var(--b1)}
+.dt-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;flex-wrap:wrap;gap:24px}
+.dt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px}
+.dt-card{background:var(--s1);border:1px solid var(--b1);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .25s,transform .35s,box-shadow .35s;display:block;position:relative}
+.dt-card:hover{border-color:var(--acb);transform:translateY(-5px);box-shadow:0 28px 80px rgba(0,0,0,.6)}
+.dt-screen{height:148px;overflow:hidden;position:relative;display:flex;flex-direction:column}
+.dt-info{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dt-niche{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mu2);margin-bottom:2px}
+.dt-name{font-size:13px;font-weight:700;color:var(--tx)}
+.dt-arr{width:28px;height:28px;border-radius:50%;background:var(--s2);border:1px solid var(--b1);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--mu2);flex-shrink:0;transition:background .2s,color .2s,transform .2s}
+.dt-card:hover .dt-arr{background:var(--ac);color:#000;transform:rotate(45deg)}
+.dt-all{display:flex;align-items:center;justify-content:center;gap:12px;padding:22px;background:var(--s1);border:1px dashed var(--acb);border-radius:20px;text-decoration:none;color:var(--tx);transition:background .25s,border-color .25s,transform .3s;font-weight:700;font-size:14px}
+.dt-all:hover{background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.6);transform:translateY(-2px)}
+@media(max-width:860px){.dt-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.dt-grid{grid-template-columns:1fr}}
+
+/* ─── GLITCH TEXT ─────────────────────────────── */
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-g);position:absolute;inset:0;background:transparent;pointer-events:none}
+.glitch::before{color:rgba(245,80,80,.9);clip-path:polygon(0 20%,100% 20%,100% 40%,0 40%);animation:glitch1 5s infinite linear}
+.glitch::after{color:rgba(60,200,245,.9);clip-path:polygon(0 65%,100% 65%,100% 80%,0 80%);animation:glitch2 5s infinite linear}
+@keyframes glitch1{0%,82%,100%{transform:translateX(0);opacity:0}84%{transform:translateX(-4px);opacity:.9}87%{transform:translateX(3px);opacity:.6}90%{transform:translateX(-1px);opacity:1}93%{transform:translateX(2px);opacity:.4}96%{transform:translateX(0);opacity:0}}
+@keyframes glitch2{0%,85%,100%{transform:translateX(0);opacity:0}87%{transform:translateX(4px);opacity:.7}90%{transform:translateX(-3px);opacity:.5}93%{transform:translateX(2px);opacity:.9}96%{transform:translateX(-1px);opacity:.3}99%{transform:translateX(0);opacity:0}}
+
+/* ─── MAGNETIC BUTTON ─────────────────────────── */
+.btn,.btn-o,.ncta{transition:transform .15s cubic-bezier(.25,.46,.45,.94),background .2s,color .2s,border-color .2s,box-shadow .3s}
+
+/* ─── TILT CARD ───────────────────────────────── */
+.tilt{transform-style:preserve-3d;will-change:transform;transition:transform .1s ease}
+
 /* ─── PV-LABEL UPGRADE ────────────────────────── */
 .pv-label{padding:32px 0 0;border-bottom:1px solid var(--b1);background:linear-gradient(180deg,var(--s1) 0%,transparent 100%)}
 .pv-label .wrap{display:flex;align-items:center;justify-content:space-between;padding-bottom:22px}
@@ -758,6 +814,10 @@ footer small{font-size:12px;color:var(--mu)}
   <button class="vbot-btn" onclick="toggleBot()" id="vbotBtn">💬<span class="vbot-notify" id="vbotDot">1</span></button>
 </div>
 
+<!-- CUSTOM CURSOR -->
+<div class="cur-dot" id="curDot"></div>
+<div class="cur-ring" id="curRing"></div>
+
 <!-- FLOATING CTA -->
 <div class="fcta" id="fcta"><a href="https://calendly.com/alejandroezpi2007/30min" target="_blank"><span class="fdot"></span>Book Free Call</a></div>
 
@@ -779,7 +839,7 @@ footer small{font-size:12px;color:var(--mu)}
     <a href="#" class="logo" onclick="showPage('pv-home');return false">Vel<span>ora</span></a>
     <div class="nl">
       <a href="#" data-pv="pv-how" onclick="showPage('pv-how');return false">How It Works</a>
-      <a href="#" data-pv="pv-home" onclick="showPage('pv-home','#portfolio');return false">Demos</a>
+      <a href="#" data-pv="pv-demos" onclick="showPage('pv-demos');return false">Demos</a>
       <a href="#" data-pv="pv-pricing" onclick="showPage('pv-pricing');return false">Pricing</a>
       <a href="https://velora.associates/brochure" target="_blank">Brochure</a>
       <a href="#" data-pv="pv-faq" onclick="showPage('pv-faq');return false">FAQ</a>
@@ -792,7 +852,7 @@ footer small{font-size:12px;color:var(--mu)}
 </header>
 <div class="mmenu" id="mmenu">
   <a href="#" onclick="showPage('pv-how');cm()">How It Works</a>
-  <a href="#" onclick="showPage('pv-home','#portfolio');cm()">Demos</a>
+  <a href="#" data-pv="pv-demos" onclick="showPage('pv-demos');cm()">Demos</a>
   <a href="#" onclick="showPage('pv-pricing');cm()">Pricing</a>
   <a href="https://velora.associates/brochure" target="_blank" onclick="cm()">Brochure ↗</a>
   <a href="#" onclick="showPage('pv-faq');cm()">FAQ</a>
@@ -823,13 +883,13 @@ footer small{font-size:12px;color:var(--mu)}
       <h1 class="ri ri-d1">
         <span class="h1-line" style="font-size:clamp(22px,2.8vw,36px);font-weight:800;color:var(--mu2);letter-spacing:-.02em;display:flex;align-items:center;gap:10px;margin-bottom:6px">Built for <span class="rw" style="display:inline-flex;overflow:hidden;height:1.15em;vertical-align:middle"><span class="rw-track" style="font-family:'Instrument Serif',serif;font-style:italic;color:var(--ac);font-size:clamp(24px,3vw,40px)"><span>barbers.</span><span>HVAC companies.</span><span>nail salons.</span><span>auto detailers.</span><span>landscapers.</span><span>house cleaners.</span><span>barbers.</span></span></span></span>
         <span class="h1-line">Websites that</span>
-        <span class="h1-line h1-xl"><span class="grad-text">win leads</span></span>
+        <span class="h1-line h1-xl"><span class="grad-text glitch" data-g="win leads">win leads</span></span>
         <span class="h1-line">while you sleep.</span>
       </h1>
       <p class="hero-sub ri ri-d2">I build every site myself — no outsourcing, no templates. Your business gets a custom site that ranks on Google and books customers while you're on the job in <strong>Maryland, DC &amp; Northern Virginia.</strong></p>
       <div class="acts ri ri-d3">
         <a href="https://calendly.com/alejandroezpi2007/30min" target="_blank" class="btn">Book a Free Call →</a>
-        <a href="#" class="btn-o" onclick="showPage('pv-home','#portfolio');return false">See Live Demos</a>
+        <a href="#" class="btn-o" onclick="showPage('pv-demos');return false">See Live Demos</a>
       </div>
       <div class="trust ri ri-d4">
         <div class="ti"><div class="d"></div>Live in 7 days</div>
@@ -889,8 +949,95 @@ footer small{font-size:12px;color:var(--mu)}
   </div>
 </div>
 
-<!-- DEMO SHOWCASE -->
-<section class="demos-sec" id="portfolio">
+<!-- DEMO TEASER (home page) -->
+<section class="dt-sec" id="portfolio">
+  <div class="wrap">
+    <div class="dt-header">
+      <div class="ri">
+        <div class="tag">6 Live Demo Sites</div>
+        <h2 class="h2" style="margin-bottom:10px">See what we build<br>for your industry.</h2>
+        <p class="sub">Every site is real — fully working, SEO-optimized, AI-powered. Click any to open live.</p>
+      </div>
+      <button class="btn ri ri-d1" onclick="showPage('pv-demos');return false" style="cursor:pointer;border:none;white-space:nowrap;flex-shrink:0">View All 6 Demos →</button>
+    </div>
+    <div class="dt-grid">
+      <!-- HVAC -->
+      <a class="dt-card tilt ri" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-hvac.html" target="_blank">
+        <div class="dt-screen" style="background:linear-gradient(160deg,#040f1e,#0a1e3a,#060f1e)">
+          <div style="display:flex;align-items:center;gap:6px;padding:7px 12px;background:rgba(0,0,0,.55);flex-shrink:0">
+            <span style="width:7px;height:7px;border-radius:50%;background:#ff5f57;display:inline-block"></span><span style="width:7px;height:7px;border-radius:50%;background:#febc2e;display:inline-block;margin:0 3px"></span><span style="width:7px;height:7px;border-radius:50%;background:#28c840;display:inline-block"></span>
+            <div style="flex:1;background:rgba(255,255,255,.07);border-radius:3px;padding:3px 9px;font-size:9px;color:rgba(255,255,255,.35)">capitalcomforthvac.com</div>
+          </div>
+          <div style="flex:1;padding:14px 16px;overflow:hidden">
+            <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f59e0b;margin-bottom:5px">⭐ #1 HVAC — Bowie, MD</div>
+            <div style="font-size:clamp(14px,2vw,18px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px;font-family:'Plus Jakarta Sans',sans-serif">Bowie's Most Trusted<br>Heating &amp; Cooling</div>
+            <div style="font-size:8px;color:rgba(255,255,255,.4);margin-bottom:9px">Same-day · Licensed &amp; Insured · AI Chat 24/7</div>
+            <div style="display:flex;gap:5px">
+              <span style="font-size:8px;background:#f59e0b;color:#000;padding:4px 10px;border-radius:4px;font-weight:700">Free Quote →</span>
+              <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:4px;padding:4px 8px;font-size:10px;font-weight:800;color:#f59e0b">4.9★</div>
+            </div>
+          </div>
+        </div>
+        <div class="dt-info">
+          <div><div class="dt-niche">HVAC · Maryland</div><div class="dt-name">Capital Comfort HVAC</div></div>
+          <div class="dt-arr">↗</div>
+        </div>
+      </a>
+      <!-- Espinoza Contractors — REAL CLIENT -->
+      <a class="dt-card tilt ri ri-d1" href="https://velorasmrtco-sketch.github.io/velora-demos/espinoza-contractors.html" target="_blank" style="border-color:rgba(201,168,76,.3)">
+        <div style="position:absolute;top:9px;left:9px;z-index:10;background:rgba(201,168,76,.18);border:1px solid rgba(201,168,76,.5);color:#c9a84c;font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:100px">✓ Real Client</div>
+        <div class="dt-screen" style="background:linear-gradient(160deg,#060508,#10090e,#08050a)">
+          <div style="display:flex;align-items:center;gap:6px;padding:7px 12px;background:rgba(0,0,0,.55);flex-shrink:0;margin-top:20px">
+            <span style="width:7px;height:7px;border-radius:50%;background:#ff5f57;display:inline-block"></span><span style="width:7px;height:7px;border-radius:50%;background:#febc2e;display:inline-block;margin:0 3px"></span><span style="width:7px;height:7px;border-radius:50%;background:#28c840;display:inline-block"></span>
+            <div style="flex:1;background:rgba(255,255,255,.07);border-radius:3px;padding:3px 9px;font-size:9px;color:rgba(255,255,255,.35)">espinozacontractor.com</div>
+          </div>
+          <div style="flex:1;padding:10px 16px;overflow:hidden">
+            <div style="font-size:9px;font-weight:700;color:#c9a84c;margin-bottom:4px">🏗️ Espinoza Contractors LLC</div>
+            <div style="font-size:clamp(13px,1.8vw,16px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px;font-family:'Plus Jakarta Sans',sans-serif">Herndon VA's #1<br>Remodeling Contractor</div>
+            <div style="display:flex;gap:4px">
+              <span style="font-size:8px;background:#c9a84c;color:#000;padding:4px 10px;border-radius:4px;font-weight:700">Free Estimate →</span>
+              <div style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:4px 8px;font-size:10px;font-weight:800;color:#c9a84c">4.9★</div>
+            </div>
+          </div>
+        </div>
+        <div class="dt-info">
+          <div><div class="dt-niche" style="color:#c9a84c">General Contractor · Herndon, VA</div><div class="dt-name">Espinoza Contractors</div></div>
+          <div class="dt-arr" style="color:#c9a84c">↗</div>
+        </div>
+      </a>
+      <!-- Nail Salon -->
+      <a class="dt-card tilt ri ri-d2" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-nail-salon.html" target="_blank">
+        <div class="dt-screen" style="background:linear-gradient(160deg,#140620,#281040,#1a0a2e)">
+          <div style="display:flex;align-items:center;gap:6px;padding:7px 12px;background:rgba(0,0,0,.55);flex-shrink:0">
+            <span style="width:7px;height:7px;border-radius:50%;background:#ff5f57;display:inline-block"></span><span style="width:7px;height:7px;border-radius:50%;background:#febc2e;display:inline-block;margin:0 3px"></span><span style="width:7px;height:7px;border-radius:50%;background:#28c840;display:inline-block"></span>
+            <div style="flex:1;background:rgba(255,255,255,.07);border-radius:3px;padding:3px 9px;font-size:9px;color:rgba(255,255,255,.35)">luxenailstudio.com</div>
+          </div>
+          <div style="flex:1;padding:14px 16px;overflow:hidden">
+            <div style="font-size:9px;font-weight:700;color:#e879f9;margin-bottom:5px">✦ Luxe Nail Studio — Silver Spring</div>
+            <div style="font-size:clamp(14px,2vw,18px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px;font-family:'Plus Jakarta Sans',sans-serif">Premier Nail Spa<br>Book Online 24/7</div>
+            <div style="display:flex;gap:4px">
+              <span style="font-size:8px;background:#e879f9;color:#000;padding:4px 10px;border-radius:4px;font-weight:700">Book Now →</span>
+              <div style="background:rgba(232,121,249,.1);border:1px solid rgba(232,121,249,.2);border-radius:4px;padding:4px 8px;font-size:10px;font-weight:800;color:#e879f9">5.0★</div>
+            </div>
+          </div>
+        </div>
+        <div class="dt-info">
+          <div><div class="dt-niche">Beauty · Nail Salon</div><div class="dt-name">Luxe Nail Studio</div></div>
+          <div class="dt-arr">↗</div>
+        </div>
+      </a>
+    </div>
+    <button onclick="showPage('pv-demos');return false" class="dt-all ri">
+      <span style="font-size:18px">🖥</span>
+      <span>Browse all 6 demo sites — landscaping, auto detailing, house cleaning + more</span>
+      <span style="color:var(--ac);font-size:16px">→</span>
+    </button>
+  </div>
+</section>
+
+<!-- The full demos gallery is in pv-demos page view -->
+<!-- DEMO SHOWCASE (removed from here — now at pv-demos) -->
+<section class="demos-sec" id="portfolio-placeholder" style="display:none">
   <div class="wrap">
     <div class="demos-hd ri">
       <div class="tag">6 Live Demo Sites — Click Any to Explore</div>
@@ -1212,6 +1359,97 @@ footer small{font-size:12px;color:var(--mu)}
   </div>
 </section>
 
+<!-- SKILLS / CAPABILITIES SECTION -->
+<section class="skills-sec" id="capabilities">
+  <div class="wrap">
+    <div class="ri" style="text-align:center;max-width:560px;margin:0 auto 52px">
+      <div class="tag">Built to Convert</div>
+      <h2 class="h2" style="margin-bottom:12px">Every site ships with<br>these capabilities.</h2>
+      <p class="sub" style="margin:0 auto">Not features — systems. Each one is configured for your specific niche, city, and customer type.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="sk-card tilt ri">
+        <div class="sk-ring-wrap">
+          <svg class="sk-ring-svg" viewBox="0 0 68 68">
+            <circle class="sk-ring-bg" cx="34" cy="34" r="28"/>
+            <circle class="sk-ring-fill" cx="34" cy="34" r="28" data-pct="97"/>
+          </svg>
+          <div class="sk-pct">97%</div>
+        </div>
+        <div class="sk-label">
+          <h4>AI Lead Capture</h4>
+          <p>Chatbot trained on your services — qualifies leads at 2am without you.</p>
+        </div>
+      </div>
+      <div class="sk-card tilt ri ri-d1">
+        <div class="sk-ring-wrap">
+          <svg class="sk-ring-svg" viewBox="0 0 68 68">
+            <circle class="sk-ring-bg" cx="34" cy="34" r="28"/>
+            <circle class="sk-ring-fill" cx="34" cy="34" r="28" data-pct="94"/>
+          </svg>
+          <div class="sk-pct">94%</div>
+        </div>
+        <div class="sk-label">
+          <h4>Local SEO</h4>
+          <p>Schema markup, city pages, and keyword architecture that ranks on Google.</p>
+        </div>
+      </div>
+      <div class="sk-card tilt ri ri-d2">
+        <div class="sk-ring-wrap">
+          <svg class="sk-ring-svg" viewBox="0 0 68 68">
+            <circle class="sk-ring-bg" cx="34" cy="34" r="28"/>
+            <circle class="sk-ring-fill" cx="34" cy="34" r="28" data-pct="96"/>
+          </svg>
+          <div class="sk-pct">96%</div>
+        </div>
+        <div class="sk-label">
+          <h4>Mobile Performance</h4>
+          <p>Sub-2s load time on mobile. 80% of local searches happen on phones.</p>
+        </div>
+      </div>
+      <div class="sk-card tilt ri ri-d1">
+        <div class="sk-ring-wrap">
+          <svg class="sk-ring-svg" viewBox="0 0 68 68">
+            <circle class="sk-ring-bg" cx="34" cy="34" r="28"/>
+            <circle class="sk-ring-fill" cx="34" cy="34" r="28" data-pct="91"/>
+          </svg>
+          <div class="sk-pct">91%</div>
+        </div>
+        <div class="sk-label">
+          <h4>Online Booking</h4>
+          <p>Calendly or custom form — customers book without calling you first.</p>
+        </div>
+      </div>
+      <div class="sk-card tilt ri ri-d2">
+        <div class="sk-ring-wrap">
+          <svg class="sk-ring-svg" viewBox="0 0 68 68">
+            <circle class="sk-ring-bg" cx="34" cy="34" r="28"/>
+            <circle class="sk-ring-fill" cx="34" cy="34" r="28" data-pct="99"/>
+          </svg>
+          <div class="sk-pct">99%</div>
+        </div>
+        <div class="sk-label">
+          <h4>Custom Design</h4>
+          <p>Zero templates. Every site is built from scratch for your brand and niche.</p>
+        </div>
+      </div>
+      <div class="sk-card tilt ri ri-d3">
+        <div class="sk-ring-wrap">
+          <svg class="sk-ring-svg" viewBox="0 0 68 68">
+            <circle class="sk-ring-bg" cx="34" cy="34" r="28"/>
+            <circle class="sk-ring-fill" cx="34" cy="34" r="28" data-pct="88"/>
+          </svg>
+          <div class="sk-pct">88%</div>
+        </div>
+        <div class="sk-label">
+          <h4>Analytics + Tracking</h4>
+          <p>Google Analytics, Search Console, and call tracking — all connected at launch.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- EXPLORE SECTION -->
 <section style="padding:72px 0;border-top:1px solid var(--b1)">
   <div class="wrap">
@@ -1230,14 +1468,14 @@ footer small{font-size:12px;color:var(--mu)}
         </div>
         <div style="font-size:12px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">Open Brochure <span>↗</span></div>
       </a>
-      <a href="#" onclick="showPage('pv-home','#portfolio');return false" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:28px 22px;transition:border-color .2s,transform .3s,box-shadow .3s" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
+      <a href="#" onclick="showPage('pv-demos');return false" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:28px 22px;transition:border-color .2s,transform .3s,box-shadow .3s" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
         <div style="width:46px;height:46px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:20px">🖥️</div>
         <div>
           <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">Live Examples</div>
           <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--tx);margin-bottom:6px">Browse the Demos</div>
           <div style="font-size:12px;color:var(--mu2);line-height:1.65">6 fully working demo sites across HVAC, salons, landscaping &amp; more.</div>
         </div>
-        <div style="font-size:12px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">View Demos <span>↓</span></div>
+        <div style="font-size:12px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:6px;margin-top:auto">View Demos <span>↗</span></div>
       </a>
       <a href="#" onclick="showPage('pv-pricing');return false" style="text-decoration:none;display:flex;flex-direction:column;gap:14px;background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:28px 22px;transition:border-color .2s,transform .3s,box-shadow .3s" onmouseover="this.style.borderColor='var(--acb)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.4)'" onmouseout="this.style.borderColor='';this.style.transform='';this.style.boxShadow=''">
         <div style="width:46px;height:46px;border-radius:12px;background:var(--acd);border:1px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:20px">🛒</div>
@@ -1263,6 +1501,212 @@ footer small{font-size:12px;color:var(--mu)}
 
 </div><!-- /pv-home -->
 
+<!-- ═══════════════════════════════════════════ -->
+<div class="pv" id="pv-demos">
+<div class="pv-label"><div class="wrap"><div class="pv-crumb-row"><button class="pv-back" onclick="showPage('pv-home');return false">← Home</button><span style="color:var(--b2)">|</span><div class="pv-crumb">Velora — <strong>Live Demos</strong></div></div></div></div>
+
+<!-- FULL DEMO SHOWCASE -->
+<section class="demos-sec" style="padding:80px 0 60px">
+  <div class="wrap">
+    <div class="demos-hd ri">
+      <div class="tag">6 Live Demo Sites — Click Any to Explore</div>
+      <h2 class="h2">See exactly what we build<br><em style="color:var(--ac);font-style:normal">for your industry.</em></h2>
+      <p class="sub" style="margin:0 auto">Every demo is a fully working, SEO-optimized website — built for real DMV business types. Click to open live.</p>
+    </div>
+
+    <!-- FEATURED: HVAC -->
+    <a class="demo-feat ri tilt" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-hvac.html" target="_blank">
+      <div class="demo-feat-screen" style="background:linear-gradient(160deg,#040f1e 0%,#0a1e3a 50%,#060f1e 100%)">
+        <div style="display:flex;align-items:center;gap:7px;padding:9px 15px;background:rgba(0,0,0,.55);flex-shrink:0">
+          <div><span style="width:9px;height:9px;border-radius:50%;background:#ff5f57;display:inline-block;margin-right:4px"></span><span style="width:9px;height:9px;border-radius:50%;background:#febc2e;display:inline-block;margin-right:4px"></span><span style="width:9px;height:9px;border-radius:50%;background:#28c840;display:inline-block"></span></div>
+          <div style="flex:1;background:rgba(255,255,255,.07);border-radius:4px;padding:4px 11px;font-size:10px;color:rgba(255,255,255,.35)">capitalcomforthvac.com</div>
+          <span style="font-size:9px;color:#4ade80;font-weight:600">🔒 Secure</span>
+        </div>
+        <div style="flex:1;padding:22px 26px;overflow:hidden">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+            <span style="font-size:13px;font-weight:800;color:#f59e0b;font-family:'Plus Jakarta Sans',sans-serif">Capital Comfort HVAC ⚡</span>
+            <div style="display:flex;gap:10px;align-items:center">
+              <span style="font-size:9px;color:rgba(255,255,255,.45)">Services</span>
+              <span style="font-size:9px;color:rgba(255,255,255,.45)">Reviews</span>
+              <span style="font-size:9px;background:#f59e0b;color:#000;padding:5px 12px;border-radius:5px;font-weight:700">Free Quote</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start">
+            <div>
+              <div style="font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px">⭐ #1 Rated HVAC in Bowie, MD</div>
+              <div style="font-size:clamp(18px,2.5vw,26px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:10px;font-family:'Plus Jakarta Sans',sans-serif">Bowie's Most Trusted<br>Heating &amp; Cooling</div>
+              <div style="font-size:9px;color:rgba(255,255,255,.42);margin-bottom:14px">Same-day service · Licensed &amp; Insured · 10-yr Warranty</div>
+              <div style="display:flex;gap:8px;margin-bottom:14px">
+                <span style="font-size:9px;background:#f59e0b;color:#000;padding:7px 14px;border-radius:5px;font-weight:700">Get Free Quote →</span>
+                <span style="font-size:9px;color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.12);padding:7px 12px;border-radius:5px">Call Now</span>
+              </div>
+              <div style="display:flex;gap:8px">
+                <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:7px;padding:8px 12px;text-align:center;flex:1"><div style="font-size:15px;font-weight:800;color:#f59e0b">4.9★</div><div style="font-size:7px;color:rgba(255,255,255,.35);margin-top:2px">Google</div></div>
+                <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:7px;padding:8px 12px;text-align:center;flex:1"><div style="font-size:15px;font-weight:800;color:#f59e0b">340+</div><div style="font-size:7px;color:rgba(255,255,255,.35);margin-top:2px">Jobs Done</div></div>
+                <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:7px;padding:8px 12px;text-align:center;flex:1"><div style="font-size:15px;font-weight:800;color:#f59e0b">24/7</div><div style="font-size:7px;color:rgba(255,255,255,.35);margin-top:2px">AI Chat</div></div>
+              </div>
+            </div>
+            <div>
+              <div style="background:rgba(4,12,26,.9);border:1px solid rgba(245,158,11,.22);border-radius:12px;padding:13px">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(245,158,11,.1)">
+                  <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#b45309);font-size:9px;font-weight:800;color:#000;display:flex;align-items:center;justify-content:center;flex-shrink:0">AI</div>
+                  <div><div style="font-size:10px;font-weight:700;color:#fff">Capital Comfort AI</div><div style="font-size:8px;color:#4ade80">● Online now</div></div>
+                </div>
+                <div style="background:rgba(255,255,255,.05);border-radius:7px 7px 7px 2px;padding:8px 10px;font-size:9px;color:rgba(255,255,255,.52);margin-bottom:7px;line-height:1.55">Hi! 👋 Need AC repair or a tune-up? I can check availability and book a technician for you. What's your zip?</div>
+                <div style="background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.14);border-radius:7px;padding:7px 10px;font-size:8px;color:rgba(255,255,255,.25)">Type a message…</div>
+              </div>
+              <div style="margin-top:10px;display:flex;align-items:center;gap:8px;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.18);border-radius:8px;padding:8px 12px">
+                <span style="font-size:12px">📬</span>
+                <div style="font-size:9px;color:rgba(255,255,255,.55)"><strong style="color:#4ade80">New lead captured</strong> · John D. requested AC quote</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-feat-info">
+        <div class="demo-feat-badge">⭐ Featured Build</div>
+        <h3>Capital Comfort HVAC</h3>
+        <p>Full HVAC lead machine — local SEO optimized, AI chatbot trained on their services and pricing, same-day booking, and a trust-building 4.9★ Google section that converts visitors.</p>
+        <div class="demo-feat-stats">
+          <div class="dfs"><div class="n">11</div><div class="l">leads in first 30 days</div></div>
+          <div class="dfs"><div class="n">6 days</div><div class="l">call to live site</div></div>
+          <div class="dfs"><div class="n">3×</div><div class="l">more leads vs before</div></div>
+        </div>
+        <span class="demo-feat-link">Open Live Demo ↗</span>
+      </div>
+    </a>
+
+    <!-- DEMO GRID -->
+    <div class="demo-grid ri">
+
+      <!-- Nail Salon -->
+      <a class="demo-card tilt" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-nail-salon.html" target="_blank">
+        <div class="demo-screen" style="background:linear-gradient(160deg,#140620 0%,#281040 55%,#1a0a2e 100%)">
+          <div class="dbar"><div class="ddots"><span></span><span></span><span></span></div><div class="durl">luxenailstudio.com</div></div>
+          <div class="dcontent">
+            <div style="font-size:10px;font-weight:800;color:#e879f9;margin-bottom:6px">✦ Luxe Nail Studio</div>
+            <div style="font-size:17px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px">Silver Spring's<br>Premier Nail Spa</div>
+            <div style="font-size:8px;color:rgba(255,255,255,.38);margin-bottom:10px">Gel · Acrylics · Pedicures · Walk-ins</div>
+            <div style="display:flex;gap:6px;margin-bottom:11px"><span style="font-size:8px;background:#e879f9;color:#fff;padding:5px 11px;border-radius:4px;font-weight:700">Book Now →</span></div>
+            <div style="display:flex;gap:5px">
+              <div style="background:rgba(232,121,249,.1);border:1px solid rgba(232,121,249,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#e879f9">5.0★</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Rating</div></div>
+              <div style="background:rgba(232,121,249,.1);border:1px solid rgba(232,121,249,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#e879f9">200+</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Clients</div></div>
+              <div style="background:rgba(232,121,249,.1);border:1px solid rgba(232,121,249,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#e879f9">24/7</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Booking</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-info"><div class="demo-niche">Beauty · Nail Salon</div><div class="demo-name">Luxe Nail Studio</div><div class="demo-result">Bookings up <strong>40%</strong> in 3 weeks</div></div>
+        <div class="demo-arr">↗</div>
+      </a>
+
+      <!-- Landscaping -->
+      <a class="demo-card tilt" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-landscaping.html" target="_blank">
+        <div class="demo-screen" style="background:linear-gradient(160deg,#030e06 0%,#092015 55%,#06150a 100%)">
+          <div class="dbar"><div class="ddots"><span></span><span></span><span></span></div><div class="durl">greenedgelandscaping.com</div></div>
+          <div class="dcontent">
+            <div style="font-size:10px;font-weight:800;color:#4ade80;margin-bottom:6px">🌿 Green Edge Landscaping</div>
+            <div style="font-size:17px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px">Northern Virginia's<br>Landscaping Pros</div>
+            <div style="font-size:8px;color:rgba(255,255,255,.38);margin-bottom:10px">Lawn · Hardscaping · Snow Removal · Free Estimates</div>
+            <div style="display:flex;gap:6px;margin-bottom:11px"><span style="font-size:8px;background:#4ade80;color:#000;padding:5px 11px;border-radius:4px;font-weight:700">Free Estimate →</span></div>
+            <div style="display:flex;gap:5px">
+              <div style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#4ade80">4.8★</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Google</div></div>
+              <div style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#4ade80">500+</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Properties</div></div>
+              <div style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#4ade80">7 days</div><div style="font-size:7px;color:rgba(255,255,255,.32)">To Live</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-info"><div class="demo-niche">Landscaping · Outdoor</div><div class="demo-name">Green Edge Landscaping</div><div class="demo-result">Live in <strong>6 days</strong>, leads week one</div></div>
+        <div class="demo-arr">↗</div>
+      </a>
+
+      <!-- Espinoza Contractors — REAL CLIENT -->
+      <a class="demo-card tilt" href="https://velorasmrtco-sketch.github.io/velora-demos/espinoza-contractors.html" target="_blank" style="border-color:rgba(201,168,76,.25)">
+        <div style="position:absolute;top:10px;left:10px;z-index:10;display:inline-flex;align-items:center;gap:5px;background:rgba(201,168,76,.18);border:1px solid rgba(201,168,76,.45);color:#c9a84c;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:100px">✓ Real Client</div>
+        <div class="demo-screen" style="background:linear-gradient(160deg,#060508 0%,#10090e 55%,#08050a 100%)">
+          <div class="dbar"><div class="ddots"><span></span><span></span><span></span></div><div class="durl">espinozacontractor.com</div></div>
+          <div class="dcontent" style="padding-top:14px">
+            <div style="font-size:10px;font-weight:800;color:#c9a84c;margin-bottom:6px">🏗️ Espinoza Contractors LLC</div>
+            <div style="font-size:17px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px">Herndon VA's #1<br>Remodeling Contractor</div>
+            <div style="font-size:8px;color:rgba(255,255,255,.38);margin-bottom:10px">Kitchen · Bathroom · Basement · Roofing</div>
+            <div style="display:flex;gap:6px;margin-bottom:11px"><span style="font-size:8px;background:#c9a84c;color:#000;padding:5px 11px;border-radius:4px;font-weight:700">Free Estimate →</span></div>
+            <div style="display:flex;gap:5px">
+              <div style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.22);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#c9a84c">4.9★</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Google</div></div>
+              <div style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.22);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#c9a84c">47</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Reviews</div></div>
+              <div style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.22);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#c9a84c">15+</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Yrs Exp</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-info">
+          <div class="demo-niche" style="display:flex;align-items:center;gap:6px">General Contractor <span style="background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.35);color:#c9a84c;font-size:9px;padding:1px 7px;border-radius:100px;font-weight:700">Live Client</span></div>
+          <div class="demo-name">Espinoza Contractors LLC</div>
+          <div class="demo-result">Herndon, VA — <strong>real site, live now</strong></div>
+        </div>
+        <div class="demo-arr" style="color:#c9a84c">↗</div>
+      </a>
+
+      <!-- Auto Detailing -->
+      <a class="demo-card tilt" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-auto-detailing.html" target="_blank">
+        <div class="demo-screen" style="background:linear-gradient(160deg,#0e0602 0%,#220f06 55%,#160a04 100%)">
+          <div class="dbar"><div class="ddots"><span></span><span></span><span></span></div><div class="durl">shineprodetailing.com</div></div>
+          <div class="dcontent">
+            <div style="font-size:10px;font-weight:800;color:#fb923c;margin-bottom:6px">🚗 Shine Pro Detailing</div>
+            <div style="font-size:17px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px">Mobile Auto Detailing<br>Across the DMV</div>
+            <div style="font-size:8px;color:rgba(255,255,255,.38);margin-bottom:10px">We come to you · Interior + Exterior · From $149</div>
+            <div style="display:flex;gap:6px;margin-bottom:11px"><span style="font-size:8px;background:#fb923c;color:#000;padding:5px 11px;border-radius:4px;font-weight:700">Book a Detail →</span></div>
+            <div style="display:flex;gap:5px">
+              <div style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#fb923c">4.9★</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Rated</div></div>
+              <div style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#fb923c">DMV</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Wide</div></div>
+              <div style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#fb923c">Same Day</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Avail.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-info"><div class="demo-niche">Auto Detailing · Mobile</div><div class="demo-name">Shine Pro Auto Detailing</div><div class="demo-result"><strong>Mobile-first</strong> booking, leads daily</div></div>
+        <div class="demo-arr">↗</div>
+      </a>
+
+      <!-- House Cleaning -->
+      <a class="demo-card tilt" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-house-cleaning.html" target="_blank">
+        <div class="demo-screen" style="background:linear-gradient(160deg,#030c17 0%,#072030 55%,#051729 100%)">
+          <div class="dbar"><div class="ddots"><span></span><span></span><span></span></div><div class="durl">freshstartcleaningco.com</div></div>
+          <div class="dcontent">
+            <div style="font-size:10px;font-weight:800;color:#38bdf8;margin-bottom:6px">✨ Fresh Start Cleaning</div>
+            <div style="font-size:17px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px">Residential Cleaning<br>Done Right, Every Time</div>
+            <div style="font-size:8px;color:rgba(255,255,255,.38);margin-bottom:10px">Weekly · Deep Clean · Move-In/Out · Bonded</div>
+            <div style="display:flex;gap:6px;margin-bottom:11px"><span style="font-size:8px;background:#38bdf8;color:#000;padding:5px 11px;border-radius:4px;font-weight:700">Get a Quote →</span></div>
+            <div style="display:flex;gap:5px">
+              <div style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#38bdf8">4.8★</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Google</div></div>
+              <div style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#38bdf8">Insured</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Bonded</div></div>
+              <div style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#38bdf8">DMV</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Wide</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-info"><div class="demo-niche">House Cleaning</div><div class="demo-name">Fresh Start Cleaning Co.</div><div class="demo-result">AI quotes <strong>instantly 24/7</strong></div></div>
+        <div class="demo-arr">↗</div>
+      </a>
+
+      <!-- View All CTA -->
+      <a class="demo-card demo-cta-card" href="https://velorasmrtco-sketch.github.io/velora-demos/" target="_blank">
+        <div class="dc-ico">↗</div>
+        <h4>View All 6 Demos</h4>
+        <p>Open each full live site — or request a free custom demo for your exact niche and city.</p>
+        <span>Explore All Demos ↗</span>
+      </a>
+    </div>
+
+    <!-- DEMOS CTA -->
+    <div class="ri" style="margin-top:64px;background:linear-gradient(135deg,rgba(245,158,11,.07),rgba(245,158,11,.02));border:1px solid var(--acb);border-radius:20px;padding:40px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div>
+        <div class="tag" style="margin-bottom:8px">Ready to see yours?</div>
+        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(20px,2.5vw,28px);font-weight:800;letter-spacing:-.02em;margin-bottom:8px">Get a free demo built<br>for your exact business.</h3>
+        <p style="font-size:14px;color:var(--mu2);max-width:400px;line-height:1.7">I'll build a real mockup for your niche, city, and services — no commitment, no cost. Takes 20 minutes on a call.</p>
+      </div>
+      <a href="https://calendly.com/alejandroezpi2007/30min" target="_blank" class="btn" style="flex-shrink:0">Book Free Demo Call →</a>
+    </div>
+  </div>
+</section>
+</div><!-- /pv-demos -->
+
+<!-- ═══════════════════════════════════════════ -->
 <div class="pv" id="pv-how">
 <div class="pv-label"><div class="wrap"><div class="pv-crumb-row"><button class="pv-back" onclick="showPage('pv-home');return false">← Home</button><span style="color:var(--b2)">|</span><div class="pv-crumb">Velora — <strong>How It Works</strong></div></div></div></div>
 
@@ -1998,6 +2442,76 @@ document.addEventListener('mouseleave',function(e){
 });
 document.getElementById('exitModal').addEventListener('click',function(e){if(e.target===this)closeExit();});
 
+/* --- CUSTOM CURSOR --- */
+(function(){
+  var dot=document.getElementById('curDot'),ring=document.getElementById('curRing');
+  if(!dot||!ring||window.matchMedia('(hover:none)').matches)return;
+  var mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+  });
+  function tick(){
+    rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    requestAnimationFrame(tick);
+  }tick();
+  document.addEventListener('mouseover',function(e){
+    if(e.target.closest('a,button')){dot.classList.add('big');ring.classList.add('big');}
+  });
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest('a,button')){dot.classList.remove('big');ring.classList.remove('big');}
+  });
+  document.addEventListener('mouseleave',function(){dot.style.opacity='0';ring.style.opacity='0';});
+  document.addEventListener('mouseenter',function(){dot.style.opacity='1';ring.style.opacity='1';});
+})();
+
+/* --- MAGNETIC BUTTONS --- */
+document.querySelectorAll('.btn,.btn-o,.ncta,.mcta').forEach(function(btn){
+  btn.addEventListener('mousemove',function(e){
+    var r=btn.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;
+    btn.style.transform='translate('+x*.22+'px,'+y*.22+'px)';
+  });
+  btn.addEventListener('mouseleave',function(){btn.style.transform='';});
+});
+
+/* --- 3D CARD TILT --- */
+document.querySelectorAll('.tilt').forEach(function(card){
+  card.addEventListener('mousemove',function(e){
+    var r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform='perspective(900px) rotateY('+x*8+'deg) rotateX('+(-y*8)+'deg) translateY(-4px)';
+  });
+  card.addEventListener('mouseleave',function(){card.style.transform='';});
+});
+
+/* --- SKILLS RING ANIMATION --- */
+(function(){
+  var circumference=2*Math.PI*28; // r=28 → ~175.9
+  var triggered=false;
+  var skillsEl=document.querySelector('.skills-sec');
+  if(!skillsEl)return;
+  function animateRings(){
+    document.querySelectorAll('.sk-ring-fill').forEach(function(ring){
+      var pct=parseInt(ring.dataset.pct)||0;
+      var offset=circumference*(1-pct/100);
+      ring.style.strokeDasharray=circumference;
+      ring.style.strokeDashoffset=offset;
+    });
+  }
+  var skObs=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting&&!triggered){triggered=true;animateRings();}
+  },{threshold:.2});
+  skObs.observe(skillsEl);
+  if(typeof gsap!=='undefined'){
+    window.addEventListener('load',function(){
+      ScrollTrigger.create({
+        trigger:'.skills-sec',start:'top 80%',once:true,
+        onEnter:function(){if(!triggered){triggered=true;animateRings();}}
+      });
+    });
+  }
+})();
+
 /* --- LUCIDE ICONS --- */
 if(typeof lucide!=='undefined')lucide.createIcons();
 
@@ -2110,6 +2624,27 @@ window.addEventListener('load',function(){
     {opacity:0,scale:.94,y:24},
     {opacity:1,scale:1,y:0,duration:.65,ease:'back.out(1.3)',stagger:.12,
      scrollTrigger:{trigger:'.store-grid',start:'top 85%'}}
+  );
+
+  /* Review cards stagger */
+  gsap.fromTo('.rv-card',
+    {opacity:0,y:30},
+    {opacity:1,y:0,duration:.7,ease:'power2.out',stagger:.13,
+     scrollTrigger:{trigger:'.rv-grid',start:'top 85%'}}
+  );
+
+  /* Skills cards pop in */
+  gsap.fromTo('.sk-card',
+    {opacity:0,scale:.93,y:22},
+    {opacity:1,scale:1,y:0,duration:.6,ease:'back.out(1.4)',stagger:.1,
+     scrollTrigger:{trigger:'.skills-grid',start:'top 85%'}}
+  );
+
+  /* Demo teaser cards */
+  gsap.fromTo('.dt-card',
+    {opacity:0,y:28},
+    {opacity:1,y:0,duration:.65,ease:'power2.out',stagger:.11,
+     scrollTrigger:{trigger:'.dt-grid',start:'top 87%'}}
   );
 
   /* Directional slide-ins — left */
