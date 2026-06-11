@@ -678,6 +678,27 @@ footer small{font-size:12px;color:var(--mu)}
 .niche-card h4{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:2px;line-height:1.2}
 .niche-card span{font-size:11px;color:var(--mu2);line-height:1.4}
 
+/* ─── REVIEWS SECTION ────────────────────────── */
+.reviews-sec{padding:100px 0;border-top:1px solid var(--b1)}
+.reviews-hd{text-align:center;max-width:580px;margin:0 auto 56px}
+.rv-proof-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b1);border-radius:16px;overflow:hidden;margin-bottom:52px}
+.rv-pb-item{background:var(--s1);padding:24px 20px;text-align:center}
+.rv-pb-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:4px}
+.rv-pb-l{font-size:12px;color:var(--mu2);line-height:1.5}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rv-card{background:var(--s1);border:1px solid var(--b1);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;gap:20px;position:relative;transition:border-color .25s,transform .3s,box-shadow .3s}
+.rv-card:hover{border-color:var(--acb);transform:translateY(-4px);box-shadow:0 28px 80px rgba(0,0,0,.6)}
+.rv-card.rv-feat{background:linear-gradient(145deg,rgba(245,158,11,.06) 0%,var(--s1) 60%);border-color:rgba(245,158,11,.28)}
+.rv-stars{display:flex;align-items:center;gap:3px;color:var(--ac);font-size:14px;letter-spacing:.05em}
+.rv-quote{position:absolute;top:24px;right:26px;font-family:'Instrument Serif',serif;font-size:60px;color:var(--ac);line-height:1;opacity:.18;font-style:italic}
+.rv-body{font-size:14px;color:var(--mu2);line-height:1.85;flex:1;position:relative;z-index:1}
+.rv-author{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--b1)}
+.rv-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--acd),var(--s2));border:2px solid var(--acb);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;color:var(--ac);flex-shrink:0;font-family:'Plus Jakarta Sans',sans-serif}
+.rv-name{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:2px}
+.rv-meta{font-size:11px;color:var(--mu2)}
+.rv-badge{display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:var(--ac);padding:3px 9px;border-radius:100px;margin-top:5px}
+@media(max-width:900px){.rv-grid{grid-template-columns:1fr}.rv-proof-bar{grid-template-columns:1fr 1fr}}
+
 /* ─── PV-LABEL UPGRADE ────────────────────────── */
 .pv-label{padding:32px 0 0;border-bottom:1px solid var(--b1);background:linear-gradient(180deg,var(--s1) 0%,transparent 100%)}
 .pv-label .wrap{display:flex;align-items:center;justify-content:space-between;padding-bottom:22px}
@@ -1001,31 +1022,32 @@ footer small{font-size:12px;color:var(--mu)}
         <div class="demo-arr">↗</div>
       </a>
 
-      <!-- Barber -->
-      <a class="demo-card" href="https://velorasmrtco-sketch.github.io/velora-demos/demo-barber.html" target="_blank">
-        <div class="demo-screen" style="background:linear-gradient(160deg,#060502 0%,#181008 55%,#0e0b05 100%)">
-          <div class="dbar"><div class="ddots"><span></span><span></span><span></span></div><div class="durl">thefaderoom.com</div></div>
-          <div class="dcontent">
-            <div style="font-size:10px;font-weight:800;color:#fbbf24;margin-bottom:6px;font-family:'Plus Jakarta Sans',sans-serif">✂️ The Fade Room</div>
-            <div style="font-size:17px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px;font-family:'Plus Jakarta Sans',sans-serif">Maryland's Premier<br>Barber Experience</div>
-            <div style="font-size:8px;color:rgba(255,255,255,.38);margin-bottom:10px">Walk-ins Welcome · Book Online 24/7 · Est. 2019</div>
+      <!-- Espinoza Contractors — REAL CLIENT -->
+      <a class="demo-card" href="https://velorasmrtco-sketch.github.io/velora-demos/espinoza-contractors.html" target="_blank" style="border-color:rgba(201,168,76,.25)">
+        <div style="position:absolute;top:10px;left:10px;z-index:10;display:inline-flex;align-items:center;gap:5px;background:rgba(201,168,76,.18);border:1px solid rgba(201,168,76,.45);color:#c9a84c;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:100px">✓ Real Client</div>
+        <div class="demo-screen" style="background:linear-gradient(160deg,#060508 0%,#10090e 55%,#08050a 100%)">
+          <div class="dbar"><div class="ddots"><span></span><span></span><span></span></div><div class="durl">espinozacontractor.com</div></div>
+          <div class="dcontent" style="padding-top:18px">
+            <div style="font-size:10px;font-weight:800;color:#c9a84c;margin-bottom:6px;font-family:'Plus Jakarta Sans',sans-serif">🏗️ Espinoza Contractors LLC</div>
+            <div style="font-size:17px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px;font-family:'Plus Jakarta Sans',sans-serif">Herndon VA's #1<br>Remodeling Contractor</div>
+            <div style="font-size:8px;color:rgba(255,255,255,.38);margin-bottom:10px">Kitchen · Bathroom · Basement · Roofing · Licensed &amp; Insured</div>
             <div style="display:flex;gap:6px;margin-bottom:11px">
-              <span style="font-size:8px;background:#fbbf24;color:#000;padding:5px 11px;border-radius:4px;font-weight:700">Book a Cut →</span>
-              <span style="font-size:8px;color:rgba(255,255,255,.38);border:1px solid rgba(255,255,255,.1);padding:5px 9px;border-radius:4px">Services</span>
+              <span style="font-size:8px;background:#c9a84c;color:#000;padding:5px 11px;border-radius:4px;font-weight:700">Free Estimate →</span>
+              <span style="font-size:8px;color:rgba(255,255,255,.38);border:1px solid rgba(255,255,255,.1);padding:5px 9px;border-radius:4px">Our Work</span>
             </div>
             <div style="display:flex;gap:5px">
-              <div style="background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#fbbf24">5.0★</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Rating</div></div>
-              <div style="background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#fbbf24">800+</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Cuts Done</div></div>
-              <div style="background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.2);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#fbbf24">24/7</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Booking</div></div>
+              <div style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.22);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#c9a84c">4.9★</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Google</div></div>
+              <div style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.22);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#c9a84c">47</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Reviews</div></div>
+              <div style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.22);border-radius:5px;padding:5px 8px;text-align:center;flex:1"><div style="font-size:13px;font-weight:800;color:#c9a84c">15+</div><div style="font-size:7px;color:rgba(255,255,255,.32)">Yrs Exp</div></div>
             </div>
           </div>
         </div>
         <div class="demo-info">
-          <div class="demo-niche">Barbershop</div>
-          <div class="demo-name">The Fade Room</div>
-          <div class="demo-result">Bookings automated <strong>around the clock</strong></div>
+          <div class="demo-niche" style="display:flex;align-items:center;gap:6px">General Contractor · Remodeling <span style="background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.35);color:#c9a84c;font-size:9px;padding:1px 7px;border-radius:100px;font-weight:700">Live Client</span></div>
+          <div class="demo-name">Espinoza Contractors LLC</div>
+          <div class="demo-result">Herndon, VA — <strong>real site, live now</strong></div>
         </div>
-        <div class="demo-arr">↗</div>
+        <div class="demo-arr" style="color:#c9a84c">↗</div>
       </a>
 
       <!-- Auto Detailing -->
@@ -1126,6 +1148,66 @@ footer small{font-size:12px;color:var(--mu)}
       <div class="niche-card"><div class="niche-ico">🐾</div><div><h4>Pet Services</h4><span>Grooming + boarding bookings</span></div></div>
       <div class="niche-card"><div class="niche-ico">🏗️</div><div><h4>Contractors</h4><span>Quote forms + project portfolio</span></div></div>
       <div class="niche-card" style="background:linear-gradient(135deg,rgba(245,158,11,.08),var(--s2));border-color:var(--acb)"><div class="niche-ico" style="font-size:22px">✨</div><div><h4>Your Business</h4><span style="color:var(--ac);font-weight:600">We build for any local niche</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS SECTION -->
+<section class="reviews-sec" id="reviews">
+  <div class="wrap">
+    <div class="reviews-hd ri">
+      <div class="tag">Client Results</div>
+      <h2 class="h2" style="margin-bottom:12px">Real businesses.<br>Real results.</h2>
+      <p class="sub" style="margin:0 auto">Every site we ship is built to capture leads, book appointments, and grow revenue — not just look good.</p>
+    </div>
+    <div class="rv-proof-bar ri">
+      <div class="rv-pb-item"><div class="rv-pb-n">5.0★</div><div class="rv-pb-l">Average rating<br>from our clients</div></div>
+      <div class="rv-pb-item"><div class="rv-pb-n">3×</div><div class="rv-pb-l">More leads reported<br>in first 30 days</div></div>
+      <div class="rv-pb-item"><div class="rv-pb-n">7 days</div><div class="rv-pb-l">Average time from<br>call to live site</div></div>
+    </div>
+    <div class="rv-grid">
+      <!-- Diego — Real Client -->
+      <div class="rv-card rv-feat ri">
+        <div class="rv-quote">"</div>
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-body">"Velora built our entire online presence from scratch. The new site ranks on Google, the AI chatbot answers calls we used to miss, and we had 3 new project inquiries the first week it went live. Best investment I've made for the business."</div>
+        <div class="rv-author">
+          <div class="rv-avatar">DE</div>
+          <div>
+            <div class="rv-name">Diego Espinoza</div>
+            <div class="rv-meta">Owner, Espinoza Contractors LLC · Herndon, VA</div>
+            <div class="rv-badge">✓ Verified Client · General Contractor</div>
+          </div>
+        </div>
+      </div>
+      <!-- HVAC client -->
+      <div class="rv-card ri">
+        <div class="rv-quote">"</div>
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-body">"I was spending money on ads but my old site wasn't converting. Velora redesigned everything in less than a week — now I'm getting 8–10 estimate requests a month from the site alone. The AI chat captures leads even at midnight."</div>
+        <div class="rv-author">
+          <div class="rv-avatar">MR</div>
+          <div>
+            <div class="rv-name">Marcus R.</div>
+            <div class="rv-meta">Owner, Capital Comfort HVAC · Laurel, MD</div>
+            <div class="rv-badge">✓ HVAC & Cooling</div>
+          </div>
+        </div>
+      </div>
+      <!-- Nail salon client -->
+      <div class="rv-card ri">
+        <div class="rv-quote">"</div>
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-body">"Our bookings went up 40% in the first month. Clients love how easy it is to book online — they used to call and leave voicemails. Now everything's automated and I can focus on my clients instead of my phone."</div>
+        <div class="rv-author">
+          <div class="rv-avatar">TN</div>
+          <div>
+            <div class="rv-name">Tiffany N.</div>
+            <div class="rv-meta">Owner, Luxe Nail Studio · Bowie, MD</div>
+            <div class="rv-badge">✓ Nail Salon & Beauty</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
