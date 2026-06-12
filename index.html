@@ -751,6 +751,74 @@ body{cursor:none}
 /* ─── TILT CARD ───────────────────────────────── */
 .tilt{transform-style:preserve-3d;will-change:transform;transition:transform .1s ease}
 
+/* ═══════════════════════════════════════════════
+   TECH / FUTURE ANIMATION LAYER
+═══════════════════════════════════════════════ */
+
+/* Matrix canvas overlay in hero */
+#matrixCanvas{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.09;mask-image:radial-gradient(ellipse 80% 80% at 50% 0%,black 0%,transparent 100%)}
+
+/* Glowing circuit nodes on hero grid */
+.hero-bg::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(245,158,11,.5) 1px,transparent 1px);background-size:72px 72px;animation:nodePulse 5s ease-in-out infinite;mask-image:radial-gradient(ellipse 65% 55% at 50% 0%,black 0%,transparent 100%);pointer-events:none;z-index:0}
+@keyframes nodePulse{0%,100%{opacity:.12}50%{opacity:.38}}
+
+/* HUD corner bracket decorations */
+.hud{position:relative}
+.hud::before,.hud::after,.hud .hud-bl,.hud .hud-br{content:'';position:absolute;width:16px;height:16px;border-color:rgba(245,158,11,.45);border-style:solid;pointer-events:none;z-index:3;transition:border-color .3s,width .3s,height .3s}
+.hud::before{top:10px;left:10px;border-width:1.5px 0 0 1.5px}
+.hud::after{top:10px;right:10px;border-width:1.5px 1.5px 0 0}
+.hud .hud-bl{bottom:10px;left:10px;border-width:0 0 1.5px 1.5px}
+.hud .hud-br{bottom:10px;right:10px;border-width:0 1.5px 1.5px 0}
+.hud:hover::before,.hud:hover::after,.hud:hover .hud-bl,.hud:hover .hud-br{border-color:rgba(245,158,11,.85);width:22px;height:22px}
+
+/* Holographic mouse-tracked glow inside cards */
+.holo-card{background:radial-gradient(circle at var(--cx,50%) var(--cy,50%),rgba(245,158,11,.06) 0%,transparent 60%),var(--s1);transition:background .1s}
+
+/* Neon stats glow */
+.sb .num{text-shadow:0 0 30px rgba(245,158,11,.28),0 0 60px rgba(245,158,11,.12)}
+
+/* Cyber beam section dividers */
+.cyber-div{width:100%;height:1px;position:relative;overflow:hidden;margin:0}
+.cyber-div::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(245,158,11,.5) 30%,rgba(96,200,240,.35) 50%,rgba(245,158,11,.5) 70%,transparent 100%);animation:beamSweep 4s ease-in-out infinite}
+@keyframes beamSweep{0%,100%{opacity:.4;transform:scaleX(.7)}50%{opacity:1;transform:scaleX(1)}}
+
+/* Scan line sweep on browser hero mockup */
+.scan-browser{position:relative;overflow:hidden}
+.scan-browser::after{content:'';position:absolute;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,rgba(245,158,11,.55),rgba(96,200,240,.45),transparent);top:-2px;animation:scanSweep 5s ease-in-out infinite;pointer-events:none;z-index:5}
+@keyframes scanSweep{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:.6}100%{top:100%;opacity:0}}
+
+/* Terminal cursor blink on tag elements */
+.tag::after{content:'_';animation:termBlink .75s step-end infinite;color:var(--ac);opacity:.8}
+@keyframes termBlink{0%,100%{opacity:.8}50%{opacity:0}}
+
+/* Animate-in line under h2 headings */
+.h2-line{display:block;height:1px;width:0;background:linear-gradient(90deg,var(--ac),rgba(96,200,240,.6),transparent);margin-top:12px;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.h2-line.expand{width:72px}
+
+/* Pulsing glow border on hero browser */
+@keyframes glowBorderPulse{0%,100%{box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.04) inset,0 0 40px rgba(245,158,11,.04)}50%{box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.06) inset,0 0 60px rgba(245,158,11,.1),0 0 120px rgba(245,158,11,.04)}}
+.browser{animation:glowBorderPulse 4s ease-in-out infinite}
+
+/* Floating data badges in hero (JS positioned) */
+.hero-stat-float{position:absolute;display:inline-flex;align-items:center;gap:8px;background:rgba(6,6,4,.9);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:8px 14px;font-size:11px;color:var(--mu2);backdrop-filter:blur(16px);z-index:10;white-space:nowrap;pointer-events:none}
+.hsf-dot{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 1.8s infinite;flex-shrink:0}
+.hsf-val{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:var(--ac);font-size:12px}
+
+/* Cyber flicker on glowing elements */
+@keyframes cyberFlicker{0%,88%,92%,100%{opacity:1}89%{opacity:.35}91%{opacity:.9}93%{opacity:.5}95%{opacity:1}}
+.cyber-flicker{animation:cyberFlicker 9s infinite}
+
+/* Process icon animated ring */
+.pico{overflow:visible}
+.pico-ring{position:absolute;inset:-4px;border-radius:16px;background:conic-gradient(from var(--ba),transparent 50%,rgba(245,158,11,.55) 75%,transparent 100%);animation:borderSpin 4s linear infinite;z-index:-1;filter:blur(1px)}
+
+/* Scanline overlay on entire site (very subtle) */
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.015) 2px,rgba(0,0,0,.015) 4px);pointer-events:none;z-index:9998}
+
+/* Text scramble placeholder style */
+.scramble{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.03em}
+.scramble[data-scrambled]::selection{background:rgba(245,158,11,.3)}
+
 /* ─── PV-LABEL UPGRADE ────────────────────────── */
 .pv-label{padding:32px 0 0;border-bottom:1px solid var(--b1);background:linear-gradient(180deg,var(--s1) 0%,transparent 100%)}
 .pv-label .wrap{display:flex;align-items:center;justify-content:space-between;padding-bottom:22px}
@@ -863,6 +931,7 @@ body{cursor:none}
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg">
+    <canvas id="matrixCanvas"></canvas>
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
     <div class="orb orb3"></div>
@@ -890,8 +959,11 @@ body{cursor:none}
       </div>
     </div>
     <!-- FULL-WIDTH PRODUCT SHOWCASE -->
-    <div class="hv ri ri-d2" id="heroVis">
-      <div class="browser browser-glow">
+    <div class="hv ri ri-d2" id="heroVis" style="position:relative">
+      <div class="hero-stat-float" style="top:-16px;right:20px"><div class="hsf-dot"></div><span class="hsf-val" id="hsfLeads">0</span>&nbsp;leads captured this month</div>
+      <div class="hero-stat-float" style="bottom:-16px;left:20px;border-color:rgba(96,200,240,.2)"><span style="font-size:10px">⚡</span><span class="hsf-val" style="color:#60c8f0" id="hsfUptime">99.9%</span>&nbsp;uptime · AI always online</div>
+      <div class="browser browser-glow hud scan-browser">
+        <div class="hud-bl"></div><div class="hud-br"></div>
         <div class="bbar">
           <div class="bdots"><span></span><span></span><span></span></div>
           <div class="burl">capitalcomforthvac.com</div>
@@ -949,7 +1021,7 @@ body{cursor:none}
     <div class="dt-header">
       <div class="ri">
         <div class="tag">6 Live Demo Sites</div>
-        <h2 class="h2" style="margin-bottom:10px">See what we build<br>for your industry.</h2>
+        <h2 class="h2 scramble" style="margin-bottom:10px">See what we build<br>for your industry.</h2>
         <p class="sub">Every site is real — fully working, SEO-optimized, AI-powered. Click any to open live.</p>
       </div>
       <button class="btn ri ri-d1" onclick="showPage('pv-demos');return false" style="cursor:pointer;border:none;white-space:nowrap;flex-shrink:0">View All 6 Demos →</button>
@@ -1035,7 +1107,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="demos-hd ri">
       <div class="tag">6 Live Demo Sites — Click Any to Explore</div>
-      <h2 class="h2">See exactly what we build<br><em style="color:var(--ac);font-style:normal">for your industry.</em></h2>
+      <h2 class="h2 scramble">See exactly what we build<br><em style="color:var(--ac);font-style:normal">for your industry.</em></h2>
       <p class="sub" style="margin:0 auto">Every demo is a fully working, SEO-optimized website — built for real DMV business types. Click to open live.</p>
     </div>
 
@@ -1273,7 +1345,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:580px;margin:0 auto">
       <div class="tag">We Know Your Industry</div>
-      <h2 class="h2">Built for your niche,<br>not just "any business."</h2>
+      <h2 class="h2 scramble">Built for your niche,<br>not just "any business."</h2>
       <p class="sub" style="margin:0 auto">We've built sites for 10+ business types across the DMV. We know the local keywords, what converts customers in each niche, and what your competitors are missing.</p>
     </div>
     <div class="niche-grid ri">
@@ -1298,7 +1370,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="reviews-hd ri">
       <div class="tag">Client Results</div>
-      <h2 class="h2" style="margin-bottom:12px">Real businesses.<br>Real results.</h2>
+      <h2 class="h2 scramble" style="margin-bottom:12px">Real businesses.<br>Real results.</h2>
       <p class="sub" style="margin:0 auto">Every site we ship is built to capture leads, book appointments, and grow revenue — not just look good.</p>
     </div>
     <div class="rv-proof-bar ri">
@@ -1358,11 +1430,11 @@ body{cursor:none}
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:560px;margin:0 auto 52px">
       <div class="tag">Built to Convert</div>
-      <h2 class="h2" style="margin-bottom:12px">Every site ships with<br>these capabilities.</h2>
+      <h2 class="h2 scramble" style="margin-bottom:12px">Every site ships with<br>these capabilities.</h2>
       <p class="sub" style="margin:0 auto">Not features — systems. Each one is configured for your specific niche, city, and customer type.</p>
     </div>
     <div class="skills-grid">
-      <div class="sk-card tilt ri">
+      <div class="sk-card tilt ri holo-card hud">
         <div class="sk-ring-wrap">
           <svg class="sk-ring-svg" viewBox="0 0 68 68">
             <circle class="sk-ring-bg" cx="34" cy="34" r="28"/>
@@ -1449,7 +1521,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:520px;margin:0 auto 44px">
       <div class="tag">Explore Velora</div>
-      <h2 class="h2" style="margin-bottom:10px">Everything you need<br>in one place.</h2>
+      <h2 class="h2 scramble" style="margin-bottom:10px">Everything you need<br>in one place.</h2>
       <p class="sub" style="margin:0 auto">Jump to whatever's most useful for you right now.</p>
     </div>
     <div class="ri explore-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
@@ -1504,7 +1576,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="demos-hd ri">
       <div class="tag">6 Live Demo Sites — Click Any to Explore</div>
-      <h2 class="h2">See exactly what we build<br><em style="color:var(--ac);font-style:normal">for your industry.</em></h2>
+      <h2 class="h2 scramble">See exactly what we build<br><em style="color:var(--ac);font-style:normal">for your industry.</em></h2>
       <p class="sub" style="margin:0 auto">Every demo is a fully working, SEO-optimized website — built for real DMV business types. Click to open live.</p>
     </div>
 
@@ -1709,7 +1781,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:540px;margin:0 auto">
       <div class="tag">How it Works</div>
-      <h2 class="h2">From zero to lead machine<br>in 3 simple steps.</h2>
+      <h2 class="h2 scramble">From zero to lead machine<br>in 3 simple steps.</h2>
       <p class="sub" style="margin:0 auto">We handle everything. You just show up to the call and approve the design.</p>
     </div>
     <div class="pg">
@@ -1740,7 +1812,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:560px;margin:0 auto 0">
       <div class="tag">What's Included</div>
-      <h2 class="h2">AI-powered tools built<br>into every site.</h2>
+      <h2 class="h2 scramble">AI-powered tools built<br>into every site.</h2>
       <p class="sub" style="margin:0 auto">Features most agencies charge thousands extra for — included in every Velora build.</p>
     </div>
     <div class="bento ri">
@@ -1849,7 +1921,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:540px;margin:0 auto">
       <div class="tag">Client Results</div>
-      <h2 class="h2">Real businesses.<br>Real results.</h2>
+      <h2 class="h2 scramble">Real businesses.<br>Real results.</h2>
       <p class="sub" style="margin:0 auto">Local businesses that switched to a Velora AI website stopped losing leads and started winning more jobs.</p>
     </div>
     <div class="proof-strip ri">
@@ -1910,7 +1982,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:560px;margin:0 auto">
       <div class="tag">The Honest Comparison</div>
-      <h2 class="h2">Why not just use Wix?</h2>
+      <h2 class="h2 scramble">Why not just use Wix?</h2>
       <p class="sub" style="margin:0 auto">Fair question. Here's the real difference.</p>
     </div>
     <div class="ri" style="overflow-x:auto;margin-top:48px">
@@ -1965,7 +2037,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="ph ri">
       <div class="tag">Transparent Pricing</div>
-      <h2 class="h2">One booked job covers<br>the whole thing.</h2>
+      <h2 class="h2 scramble">One booked job covers<br>the whole thing.</h2>
       <p class="sub" style="margin:0 auto">Simple, upfront pricing. No hidden fees. No long-term contracts.</p>
       <div class="bt">
         <span class="tl on" id="ml">Monthly</span>
@@ -2071,7 +2143,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:540px;margin:0 auto">
       <div class="tag">FAQ</div>
-      <h2 class="h2">Questions answered.</h2>
+      <h2 class="h2 scramble">Questions answered.</h2>
       <p class="sub" style="margin:0 auto">Everything you need to know before booking your call.</p>
     </div>
     <div class="faq-w">
@@ -2092,7 +2164,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="ri" style="text-align:center;max-width:560px;margin:0 auto">
       <div class="tag">Service Area</div>
-      <h2 class="h2">Proudly serving the entire<br><span style="color:var(--ac)">DMV</span> — MD, DC &amp; NoVA.</h2>
+      <h2 class="h2 scramble">Proudly serving the entire<br><span style="color:var(--ac)">DMV</span> — MD, DC &amp; NoVA.</h2>
       <p class="sub" style="margin:0 auto">Based in Bowie, MD. We work with local businesses all across the DMV. Remote-friendly — all we need is a call and your business info.</p>
     </div>
     <div class="sa-regions ri">
@@ -2129,7 +2201,7 @@ body{cursor:none}
   <div class="wrap">
     <div class="ctai ri">
       <div class="tag">Serving MD · DC · Northern Virginia</div>
-      <h2 class="h2">Stop losing DMV leads to competitors<br>with better websites.</h2>
+      <h2 class="h2 scramble">Stop losing DMV leads to competitors<br>with better websites.</h2>
       <p>Book a free 30-minute call. I'll map out exactly what I'd build for your business — no obligation, no hard sell. Based in Bowie, MD.</p>
       <div class="acts">
         <a href="https://calendly.com/alejandroezpi2007/30min" target="_blank" class="btn">Book Your Free Call →</a>
@@ -2436,6 +2508,122 @@ document.addEventListener('mouseleave',function(e){
 });
 document.getElementById('exitModal').addEventListener('click',function(e){if(e.target===this)closeExit();});
 
+/* ═══════════════════════════════════════════════
+   TECH / FUTURE ANIMATIONS
+═══════════════════════════════════════════════ */
+
+/* --- MATRIX RAIN --- */
+(function(){
+  var canvas=document.getElementById('matrixCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var chars='01アイウエオカキクケコサシスセソタチツテトナニヌネノ∆∑Ω∞αβγδ01'.split('');
+  var cols,drops=[];
+  function resize(){
+    canvas.width=canvas.offsetWidth;
+    canvas.height=canvas.offsetHeight;
+    cols=Math.floor(canvas.width/16);
+    drops=Array(cols).fill(1);
+  }
+  resize();
+  window.addEventListener('resize',resize);
+  setInterval(function(){
+    ctx.fillStyle='rgba(6,6,4,.06)';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle='#f59e0b';
+    ctx.font='12px monospace';
+    for(var i=0;i<drops.length;i++){
+      var text=chars[Math.floor(Math.random()*chars.length)];
+      ctx.globalAlpha=Math.random()*.7+.3;
+      ctx.fillText(text,i*16,drops[i]*16);
+      if(drops[i]*16>canvas.height&&Math.random()>.96)drops[i]=0;
+      drops[i]++;
+    }
+    ctx.globalAlpha=1;
+  },60);
+})();
+
+/* --- TEXT SCRAMBLE ON SCROLL --- */
+(function(){
+  var chars='01∆∑ΩαβγXYZ#@!%&□■▲▶';
+  function scramble(el){
+    if(el.dataset.scrambled)return;
+    el.dataset.scrambled='1';
+    var final=el.innerText;
+    var frame=0,total=32;
+    var iv=setInterval(function(){
+      el.innerText=final.split('').map(function(c,i){
+        if(c===' '||c==='\n')return c;
+        if(frame>i*(total/Math.max(final.length,1)))return c;
+        return chars[Math.floor(Math.random()*chars.length)];
+      }).join('');
+      frame++;
+      if(frame>total){el.innerText=final;clearInterval(iv);}
+    },35);
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)scramble(e.target);});
+  },{threshold:.3});
+  document.querySelectorAll('.h2.scramble').forEach(function(el){obs.observe(el);});
+})();
+
+/* --- HOLOGRAPHIC CARD GLOW (mouse tracking) --- */
+document.querySelectorAll('.holo-card').forEach(function(card){
+  card.addEventListener('mousemove',function(e){
+    var r=card.getBoundingClientRect();
+    var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';
+    var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';
+    card.style.setProperty('--cx',x);
+    card.style.setProperty('--cy',y);
+  });
+  card.addEventListener('mouseleave',function(){
+    card.style.setProperty('--cx','50%');
+    card.style.setProperty('--cy','50%');
+  });
+});
+
+/* --- H2 LASER UNDERLINE --- */
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var line=e.target.parentElement&&e.target.parentElement.querySelector('.h2-line');
+        if(line)setTimeout(function(){line.classList.add('expand');},200);
+      }
+    });
+  },{threshold:.4});
+  document.querySelectorAll('.h2.scramble').forEach(function(el){
+    var line=document.createElement('div');
+    line.className='h2-line';
+    el.after(line);
+    obs.observe(el);
+  });
+})();
+
+/* --- FLOATING LEAD COUNTER --- */
+(function(){
+  var el=document.getElementById('hsfLeads');
+  if(!el)return;
+  var val=47,dir=1;
+  function tick(){
+    val+=dir*(Math.random()<.3?1:0);
+    if(val>52)dir=-1;
+    if(val<44)dir=1;
+    el.textContent=val;
+    setTimeout(tick,3500+Math.random()*4000);
+  }
+  setTimeout(tick,2000);
+})();
+
+/* --- HUD CORNER INIT (add inner spans) --- */
+document.querySelectorAll('.hud').forEach(function(el){
+  if(!el.querySelector('.hud-bl')){
+    var bl=document.createElement('div');bl.className='hud-bl';
+    var br=document.createElement('div');br.className='hud-br';
+    el.appendChild(bl);el.appendChild(br);
+  }
+});
+
 /* --- CUSTOM CURSOR --- */
 (function(){
   var dot=document.getElementById('curDot'),ring=document.getElementById('curRing');
@@ -2640,6 +2828,55 @@ window.addEventListener('load',function(){
     {opacity:1,y:0,duration:.65,ease:'power2.out',stagger:.11,
      scrollTrigger:{trigger:'.dt-grid',start:'top 87%'}}
   );
+
+  /* ── TECH UPGRADE: more dramatic section entrances ── */
+
+  /* Niche cards — slide from alternating sides */
+  document.querySelectorAll('.niche-card').forEach(function(card,i){
+    var fromX=i%2===0?-30:30;
+    gsap.fromTo(card,
+      {opacity:0,x:fromX,y:14},
+      {opacity:1,x:0,y:0,duration:.55,ease:'power3.out',
+       scrollTrigger:{trigger:card,start:'top 90%',toggleActions:'play none none none'}}
+    );
+  });
+
+  /* Hero visual — scale in from slightly below */
+  var heroVis=document.getElementById('heroVis');
+  if(heroVis){
+    gsap.fromTo(heroVis,
+      {opacity:0,y:48,scale:.97},
+      {opacity:1,y:0,scale:1,duration:1.1,ease:'power3.out',delay:.4}
+    );
+  }
+
+  /* Stats — count up with extra punch */
+  gsap.fromTo('.sg',
+    {opacity:0},
+    {opacity:1,duration:.4,
+     scrollTrigger:{trigger:'.stats-s',start:'top 80%'}}
+  );
+
+  /* Review cards — horizontal slide in */
+  gsap.fromTo('.rv-card:nth-child(1)',{opacity:0,x:-40},{opacity:1,x:0,duration:.7,ease:'power2.out',scrollTrigger:{trigger:'.rv-grid',start:'top 85%'}});
+  gsap.fromTo('.rv-card:nth-child(2)',{opacity:0,y:40},{opacity:1,y:0,duration:.7,ease:'power2.out',delay:.1,scrollTrigger:{trigger:'.rv-grid',start:'top 85%'}});
+  gsap.fromTo('.rv-card:nth-child(3)',{opacity:0,x:40},{opacity:1,x:0,duration:.7,ease:'power2.out',delay:.15,scrollTrigger:{trigger:'.rv-grid',start:'top 85%'}});
+
+  /* Skills — staggered scale + y */
+  gsap.fromTo('.sk-card',
+    {opacity:0,scale:.9,y:28},
+    {opacity:1,scale:1,y:0,duration:.65,ease:'back.out(1.6)',stagger:.09,
+     scrollTrigger:{trigger:'.skills-grid',start:'top 85%'}}
+  );
+
+  /* Sections tags — typewriter-like delay before fade */
+  gsap.utils.toArray('.tag').forEach(function(tag){
+    gsap.fromTo(tag,
+      {opacity:0,x:-10},
+      {opacity:1,x:0,duration:.5,ease:'power2.out',
+       scrollTrigger:{trigger:tag,start:'top 90%'}}
+    );
+  });
 
   /* Directional slide-ins — left */
   document.querySelectorAll('.ri-left').forEach(function(el){
