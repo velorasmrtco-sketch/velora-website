@@ -39,12 +39,12 @@
 @property --ba{syntax:'<angle>';initial-value:0deg;inherits:false}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#080602;--s1:#120f08;--s2:#1b1710;--s3:#241e13;
-  --b1:rgba(255,240,180,.055);--b2:rgba(255,240,180,.11);--b3:rgba(255,240,180,.2);
-  --tx:#fefce8;--mu:rgba(254,252,232,.32);--mu2:rgba(254,252,232,.60);
-  --ac:#f59e0b;--ac2:#d97706;--acd:rgba(245,158,11,.08);--acb:rgba(245,158,11,.22);--acb2:rgba(245,158,11,.45);
+  --bg:#060604;--s1:#0e0d0a;--s2:#161410;--s3:#1e1b14;
+  --b1:rgba(255,240,180,.045);--b2:rgba(255,240,180,.09);--b3:rgba(255,240,180,.18);
+  --tx:#fefce8;--mu:rgba(254,252,232,.28);--mu2:rgba(254,252,232,.55);
+  --ac:#f59e0b;--ac2:#d97706;--acd:rgba(245,158,11,.07);--acb:rgba(245,158,11,.2);--acb2:rgba(245,158,11,.4);
   --blue:#60c8f0;--blueb:rgba(96,200,240,.18);
-  --r:14px;
+  --r:100px;
 }
 html{scroll-behavior:smooth;scrollbar-color:var(--s3) var(--bg);scrollbar-width:thin}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden}
@@ -53,11 +53,11 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);line-h
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");opacity:.028;pointer-events:none;z-index:9997;mix-blend-mode:overlay}
 
 /* UTILS */
-.wrap{max-width:1120px;margin:0 auto;padding:0 5%}
-.sec{padding:100px 0}
-.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);margin-bottom:14px}
-.h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,4.2vw,52px);font-weight:800;letter-spacing:-.025em;line-height:1.08;margin-bottom:16px}
-.sub{font-size:15px;color:var(--mu2);line-height:1.8;max-width:480px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 5%}
+.sec{padding:120px 0}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ac);margin-bottom:14px;opacity:.9}
+.h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4.5vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:18px}
+.sub{font-size:15px;color:var(--mu2);line-height:1.85;max-width:480px}
 .ri{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .ri.vis{opacity:1;transform:none}
 .ri-d1{transition-delay:.1s}.ri-d2{transition-delay:.2s}.ri-d3{transition-delay:.3s}.ri-d4{transition-delay:.4s}
@@ -133,15 +133,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* NAV */
 header{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--b1)}
-header::after{content:'';position:absolute;inset:0;background:rgba(6,6,6,.82);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);z-index:-1}
-nav{display:flex;align-items:center;justify-content:space-between;height:66px;max-width:1120px;margin:0 auto;padding:0 5%}
-.logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:var(--tx);text-decoration:none;letter-spacing:-.02em}
+header::after{content:'';position:absolute;inset:0;background:rgba(4,4,3,.88);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);z-index:-1}
+nav{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:1140px;margin:0 auto;padding:0 5%}
+.logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:21px;font-weight:800;color:var(--tx);text-decoration:none;letter-spacing:-.02em}
 .logo span{color:var(--ac)}
-.nl{display:flex;align-items:center;gap:1px}
-.nl a{color:var(--mu2);font-size:14px;font-weight:500;padding:7px 14px;border-radius:8px;text-decoration:none;transition:color .15s,background .15s}
-.nl a:hover{color:var(--tx);background:var(--s2)}
-.ncta{background:var(--ac);color:#060606;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:9px 20px;border-radius:9px;text-decoration:none;transition:background .18s,transform .18s,box-shadow .18s;white-space:nowrap;box-shadow:0 0 0 0 rgba(245,158,11,0)}
-.ncta:hover{background:var(--ac2);transform:translateY(-1px);box-shadow:0 6px 24px rgba(245,158,11,.3)}
+.nl{display:flex;align-items:center;gap:0}
+.nl a{color:var(--mu2);font-size:13.5px;font-weight:500;padding:6px 13px;border-radius:100px;text-decoration:none;transition:color .15s,background .15s}
+.nl a:hover,.nl a.nav-on{color:var(--tx);background:rgba(255,240,180,.06)}
+.ncta{background:var(--ac);color:#060606;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:8px 20px;border-radius:100px;text-decoration:none;transition:background .18s,transform .18s,box-shadow .18s;white-space:nowrap}
+.ncta:hover{background:var(--ac2);transform:translateY(-1px);box-shadow:0 6px 22px rgba(245,158,11,.35)}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border-radius:8px}
 .hbg span{display:block;width:22px;height:2px;background:var(--mu2);border-radius:2px;transition:all .28s}
 .hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -151,44 +151,42 @@ nav{display:flex;align-items:center;justify-content:space-between;height:66px;ma
 .mmenu.open{display:flex}
 .mmenu a{color:var(--mu2);font-size:16px;font-weight:500;padding:13px 0;border-bottom:1px solid var(--b1);text-decoration:none;transition:color .15s}
 .mmenu a:hover{color:var(--tx)}
-.mmenu .mcta{display:block;margin-top:12px;text-align:center;background:var(--ac);color:#060606;font-weight:700;padding:14px;border-radius:10px;text-decoration:none}
+.mmenu .mcta{display:block;margin-top:12px;text-align:center;background:var(--ac);color:#060606;font-weight:700;padding:14px;border-radius:100px;text-decoration:none}
 
 /* HERO */
-.hero{min-height:calc(100vh - 66px);min-height:calc(100svh - 66px);display:flex;align-items:center;padding:80px 0 60px;position:relative;overflow:hidden}
+.hero{min-height:calc(100vh - 62px);min-height:calc(100svh - 62px);display:flex;align-items:center;padding:100px 0 80px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;pointer-events:none}
-/* animated grid */
-.hero-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 70% at 50% 0%,black 20%,transparent 100%)}
-/* orbs */
-.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
-.orb1{top:-15%;left:40%;width:700px;height:600px;background:radial-gradient(ellipse,rgba(245,158,11,.1) 0%,transparent 65%);animation:orbFloat1 8s ease-in-out infinite}
-.orb2{bottom:-10%;right:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(96,200,240,.06) 0%,transparent 65%);animation:orbFloat2 10s ease-in-out infinite}
-.orb3{top:30%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(245,158,11,.04) 0%,transparent 65%);animation:orbFloat3 12s ease-in-out infinite}
-@keyframes orbFloat1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-30px,20px) scale(1.05)}}
-@keyframes orbFloat2{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-25px)}}
-@keyframes orbFloat3{0%,100%{transform:translate(0,0)}50%{transform:translate(15px,30px)}}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center;position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 5%;width:100%}
-.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--acb);background:var(--acd);color:var(--ac);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px 6px 10px;border-radius:100px;margin-bottom:28px}
-.badge-dot{width:8px;height:8px;background:var(--ac);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(245,158,11,.5)}50%{opacity:.5;box-shadow:0 0 0 6px rgba(245,158,11,0)}}
-.hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(44px,6vw,80px);font-weight:800;line-height:1.0;letter-spacing:-.03em;margin-bottom:26px}
+.hero-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 70% 60% at 50% 0%,black 0%,transparent 100%)}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
+.orb1{top:-20%;left:35%;width:800px;height:700px;background:radial-gradient(ellipse,rgba(245,158,11,.055) 0%,transparent 65%);animation:orbFloat1 10s ease-in-out infinite}
+.orb2{bottom:-20%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(96,200,240,.025) 0%,transparent 65%);animation:orbFloat2 13s ease-in-out infinite}
+.orb3{top:40%;left:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(245,158,11,.02) 0%,transparent 65%);animation:orbFloat3 15s ease-in-out infinite}
+@keyframes orbFloat1{0%,100%{transform:translate(0,0)}50%{transform:translate(-20px,15px)}}
+@keyframes orbFloat2{0%,100%{transform:translate(0,0)}50%{transform:translate(15px,-20px)}}
+@keyframes orbFloat3{0%,100%{transform:translate(0,0)}50%{transform:translate(10px,25px)}}
+.hero-grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:64px;position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 5%;width:100%}
+.hero-text{max-width:760px}
+.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--b2);background:rgba(255,240,180,.04);color:var(--mu2);font-size:11px;font-weight:600;letter-spacing:.06em;padding:5px 14px 5px 8px;border-radius:100px;margin-bottom:32px}
+.badge-dot{width:6px;height:6px;background:var(--ac);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(245,158,11,.5)}50%{opacity:.5;box-shadow:0 0 0 5px rgba(245,158,11,0)}}
+.hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(48px,6.5vw,88px);font-weight:800;line-height:.98;letter-spacing:-.04em;margin-bottom:28px}
 .h1-line{display:block}
-.h1-xl{font-size:clamp(60px,8vw,104px)}
-.grad-text{background:linear-gradient(135deg,#f59e0b 0%,#fcd34d 40%,#d97706 80%);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradShift 4s ease-in-out infinite}
-@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.hero-sub{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(16px,2vw,20px);color:var(--mu2);max-width:500px;line-height:1.65;margin-bottom:38px}
-.hero-sub strong{color:var(--tx);font-style:normal}
-.acts{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:48px}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#060606;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;padding:15px 30px;border-radius:10px;cursor:pointer;text-decoration:none;transition:background .18s,transform .2s,box-shadow .2s;box-shadow:0 4px 28px rgba(245,158,11,.28)}
-.btn:hover{background:var(--ac2);transform:translateY(-2px);box-shadow:0 10px 36px rgba(245,158,11,.4)}
-.btn-o{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--tx);border:1px solid var(--b2);font-family:'Outfit',sans-serif;font-size:15px;font-weight:500;padding:15px 26px;border-radius:10px;cursor:pointer;text-decoration:none;transition:all .18s}
-.btn-o:hover{background:var(--s2);border-color:var(--b3)}
-.trust{display:flex;flex-wrap:wrap;gap:10px}
-.ti{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--mu2);background:var(--s1);border:1px solid var(--b1);padding:5px 12px;border-radius:100px}
-.ti .d{width:5px;height:5px;background:var(--ac);border-radius:50%;flex-shrink:0}
+.h1-xl{font-size:clamp(68px,9vw,120px)}
+.grad-text{background:linear-gradient(135deg,#fbbf24 0%,#f59e0b 45%,#d97706 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(16px,1.8vw,19px);color:var(--mu2);max-width:520px;line-height:1.75;margin:0 auto 40px}
+.hero-sub strong{color:var(--tx);font-weight:600}
+.acts{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#060606;font-family:'Outfit',sans-serif;font-size:14.5px;font-weight:700;padding:13px 28px;border-radius:100px;cursor:pointer;text-decoration:none;transition:background .18s,transform .2s,box-shadow .2s;box-shadow:0 2px 20px rgba(245,158,11,.22)}
+.btn:hover{background:var(--ac2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(245,158,11,.38)}
+.btn-o{display:inline-flex;align-items:center;gap:8px;background:rgba(255,240,180,.05);color:var(--tx);border:1px solid var(--b2);font-family:'Outfit',sans-serif;font-size:14.5px;font-weight:500;padding:13px 24px;border-radius:100px;cursor:pointer;text-decoration:none;transition:all .18s}
+.btn-o:hover{background:rgba(255,240,180,.09);border-color:var(--b3)}
+.trust{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.ti{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mu2);padding:4px 11px;border-radius:100px;border:1px solid var(--b1)}
+.ti .d{width:4px;height:4px;background:var(--ac);border-radius:50%;flex-shrink:0}
 
 /* HERO VISUAL */
-.hv{position:relative;transition:transform .08s ease}
-.browser{background:var(--s1);border:1px solid var(--b2);border-radius:16px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.04) inset}
+.hv{position:relative;width:100%;max-width:920px}
+.browser{background:var(--s1);border:1px solid var(--b2);border-radius:18px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.04) inset}
 .bbar{display:flex;align-items:center;gap:8px;padding:12px 15px;background:var(--s2);border-bottom:1px solid var(--b1)}
 .bdots{display:flex;gap:5px}
 .bdots span{width:10px;height:10px;border-radius:50%}
@@ -239,12 +237,12 @@ nav{display:flex;align-items:center;justify-content:space-between;height:66px;ma
 /* STATS */
 .stats-s{border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)}
 .sg{display:grid;grid-template-columns:repeat(4,1fr)}
-.sb{padding:52px 28px;text-align:center;border-right:1px solid var(--b1);position:relative;overflow:hidden;transition:background .3s}
+.sb{padding:60px 28px;text-align:center;border-right:1px solid var(--b1);position:relative;overflow:hidden;transition:background .35s}
 .sb:last-child{border-right:none}
-.sb::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,var(--acd) 0%,transparent 70%);opacity:0;transition:opacity .4s}
+.sb::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(245,158,11,.05) 0%,transparent 70%);opacity:0;transition:opacity .4s}
 .sb:hover::before{opacity:1}
-.sb .num{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(44px,5vw,68px);font-weight:800;color:var(--ac);line-height:1;letter-spacing:-.04em}
-.sb .lbl{font-size:13px;color:var(--mu2);margin-top:10px;line-height:1.5}
+.sb .num{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(48px,5.5vw,72px);font-weight:800;color:var(--ac);line-height:1;letter-spacing:-.05em}
+.sb .lbl{font-size:13px;color:var(--mu2);margin-top:12px;line-height:1.6}
 
 /* PROCESS */
 .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--b1);border:1px solid var(--b1);border-radius:20px;overflow:hidden;margin-top:56px}
@@ -289,12 +287,10 @@ nav{display:flex;align-items:center;justify-content:space-between;height:66px;ma
 .phone-line.s{width:40%}
 
 /* TESTIMONIALS */
-.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
-.tc{background:var(--s1);border:1px solid var(--b1);border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;gap:16px;transition:border-color .25s,transform .3s,box-shadow .3s;position:relative;overflow:hidden}
-.tc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--acb),transparent);opacity:0;transition:opacity .3s}
-.tc:hover{border-color:var(--acb);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
-.tc:hover::before{opacity:1}
-.stars{color:var(--ac);font-size:13px;letter-spacing:2px}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.tc{background:var(--s1);border:1px solid var(--b1);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;gap:18px;transition:border-color .25s,transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.tc:hover{border-color:var(--b2);transform:translateY(-4px);box-shadow:0 24px 70px rgba(0,0,0,.5)}
+.stars{color:var(--ac);font-size:12px;letter-spacing:2px}
 .tq{font-family:'Instrument Serif',serif;font-style:italic;font-size:16px;color:var(--tx);line-height:1.7;flex:1}
 .tq::before{content:'\201C';font-size:40px;color:var(--acb2);line-height:0;vertical-align:-18px;margin-right:2px;font-style:normal}
 .ta{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--b1)}
@@ -867,26 +863,20 @@ body{cursor:none}
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg">
-    <canvas id="ptcl"></canvas>
-    <div class="aurora-wrap">
-      <div class="aurora-layer aurora-1"></div>
-      <div class="aurora-layer aurora-2"></div>
-      <div class="aurora-layer aurora-3"></div>
-    </div>
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
     <div class="orb orb3"></div>
   </div>
   <div class="hero-grid">
-    <div>
-      <div class="badge ri"><span class="badge-dot"></span>📍 Bowie, MD — Serving Maryland, DC &amp; Northern Virginia</div>
+    <!-- CENTERED TEXT BLOCK -->
+    <div class="hero-text">
+      <div class="badge ri"><span class="badge-dot"></span>Serving Maryland, DC &amp; Northern Virginia</div>
       <h1 class="ri ri-d1">
-        <span class="h1-line" style="font-size:clamp(22px,2.8vw,36px);font-weight:800;color:var(--mu2);letter-spacing:-.02em;display:flex;align-items:center;gap:10px;margin-bottom:6px">Built for <span class="rw" style="display:inline-flex;overflow:hidden;height:1.15em;vertical-align:middle"><span class="rw-track" style="font-family:'Instrument Serif',serif;font-style:italic;color:var(--ac);font-size:clamp(24px,3vw,40px)"><span>barbers.</span><span>HVAC companies.</span><span>nail salons.</span><span>auto detailers.</span><span>landscapers.</span><span>house cleaners.</span><span>barbers.</span></span></span></span>
-        <span class="h1-line">Websites that</span>
-        <span class="h1-line h1-xl"><span class="grad-text glitch" data-g="win leads">win leads</span></span>
+        <span class="h1-line" style="color:var(--mu2);font-size:clamp(18px,2.2vw,30px);font-weight:700;letter-spacing:-.01em;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:8px">Built for <span class="rw" style="display:inline-flex;overflow:hidden;height:1.15em;vertical-align:middle"><span class="rw-track" style="font-family:'Instrument Serif',serif;font-style:italic;color:var(--ac);font-size:clamp(20px,2.5vw,34px)"><span>barbers.</span><span>HVAC companies.</span><span>nail salons.</span><span>auto detailers.</span><span>landscapers.</span><span>house cleaners.</span><span>barbers.</span></span></span></span>
+        <span class="h1-line h1-xl"><span class="grad-text glitch" data-g="Win leads">Win leads</span></span>
         <span class="h1-line">while you sleep.</span>
       </h1>
-      <p class="hero-sub ri ri-d2">I build every site myself — no outsourcing, no templates. Your business gets a custom site that ranks on Google and books customers while you're on the job in <strong>Maryland, DC &amp; Northern Virginia.</strong></p>
+      <p class="hero-sub ri ri-d2">Custom AI-powered websites for local businesses in the DMV — built to rank on Google, capture leads, and book customers <strong>24/7.</strong> Live in 7 days.</p>
       <div class="acts ri ri-d3">
         <a href="https://calendly.com/alejandroezpi2007/30min" target="_blank" class="btn">Book a Free Call →</a>
         <a href="#" class="btn-o" onclick="showPage('pv-demos');return false">See Live Demos</a>
@@ -899,36 +889,46 @@ body{cursor:none}
         <div class="ti"><div class="d"></div>MD · DC · NoVA</div>
       </div>
     </div>
+    <!-- FULL-WIDTH PRODUCT SHOWCASE -->
     <div class="hv ri ri-d2" id="heroVis">
       <div class="browser browser-glow">
         <div class="bbar">
           <div class="bdots"><span></span><span></span><span></span></div>
           <div class="burl">capitalcomforthvac.com</div>
+          <span style="font-size:10px;color:#4ade80;font-weight:600;margin-left:auto">🔒 Secure</span>
         </div>
-        <div class="bcontent">
-          <div class="mhero">
-            <div class="mlogo">Capital Comfort HVAC ✦</div>
-            <div class="mh">Bowie's #1 Heating<br>&amp; Cooling Service</div>
-            <div class="mp">Serving Bowie, Beltsville &amp; DMV · Licensed &amp; Insured</div>
-            <div class="mb">Get a Free Quote →</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;min-height:320px">
+          <!-- Main hero panel -->
+          <div style="grid-column:span 2;padding:28px 30px;background:linear-gradient(160deg,#040f1e,#071830);border-right:1px solid rgba(255,255,255,.06)">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f59e0b;margin-bottom:12px">⭐ #1 Rated HVAC — Bowie, MD</div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:12px">Bowie's Most Trusted<br>Heating &amp; Cooling</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.45);margin-bottom:20px">Same-day service · Licensed &amp; Insured · 10-yr Warranty</div>
+            <div style="display:flex;gap:10px;margin-bottom:28px">
+              <span style="background:#f59e0b;color:#000;font-size:12px;font-weight:700;padding:10px 20px;border-radius:100px">Get Free Quote →</span>
+              <span style="border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.5);font-size:12px;padding:10px 16px;border-radius:100px">Call Now</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+              <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:12px;text-align:center"><div style="font-size:18px;font-weight:800;color:#f59e0b">4.9★</div><div style="font-size:10px;color:rgba(255,255,255,.4);margin-top:3px">Google</div></div>
+              <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:12px;text-align:center"><div style="font-size:18px;font-weight:800;color:#f59e0b">340+</div><div style="font-size:10px;color:rgba(255,255,255,.4);margin-top:3px">Jobs Done</div></div>
+              <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:12px;text-align:center"><div style="font-size:18px;font-weight:800;color:#f59e0b">24/7</div><div style="font-size:10px;color:rgba(255,255,255,.4);margin-top:3px">AI Chat</div></div>
+            </div>
           </div>
-          <div class="mstats">
-            <div class="ms"><div class="n">4.9★</div><div class="l">Google Rating</div></div>
-            <div class="ms"><div class="n">340+</div><div class="l">Jobs Done</div></div>
-            <div class="ms"><div class="n">24/7</div><div class="l">AI Support</div></div>
+          <!-- AI Chat panel -->
+          <div style="padding:22px 20px;background:#060c18;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;gap:9px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06)">
+              <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#b45309);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#000;flex-shrink:0">AI</div>
+              <div><div style="font-size:11px;font-weight:700;color:#fff">Capital Comfort AI</div><div style="font-size:9px;color:#4ade80">● Online now</div></div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border-radius:8px 8px 8px 2px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,.55);line-height:1.6">Hi! 👋 Need AC repair or a tune-up? I can check availability and book a tech for you. What's your zip?</div>
+            <div style="background:rgba(245,158,11,.12);border-radius:8px 8px 2px 8px;padding:10px 12px;font-size:11px;color:#f59e0b;font-weight:600;text-align:right;line-height:1.6">20785 — when can you come?</div>
+            <div style="background:rgba(255,255,255,.04);border-radius:8px 8px 8px 2px;padding:10px 12px;font-size:11px;color:rgba(255,255,255,.55);line-height:1.6">We have tomorrow at 2pm and Thursday at 9am open. Which works?</div>
+            <div style="margin-top:auto;display:flex;align-items:center;gap:7px;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.18);border-radius:8px;padding:9px 12px">
+              <span style="font-size:11px">📬</span>
+              <div style="font-size:10px;color:rgba(255,255,255,.5)"><strong style="color:#4ade80">Lead captured</strong> · John D. booked Thu 9am</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="chat">
-        <div class="ch">
-          <div class="cav" style="font-size:10px">AC</div>
-          <div><div class="cn">Capital Comfort AI</div><div class="cs">● Online now</div></div>
-        </div>
-        <div class="cb">Hi! 👋 Need AC repair or a tune-up? I can book a technician for you right now.</div>
-        <div class="ci">Type a message…</div>
-      </div>
-      <div class="fbadge fbadge-lead"><span class="bdot"></span>📬 New lead captured<span class="bval">+1</span></div>
-      <div class="fbadge fbadge-book"><span class="bdot"></span>📅 Booking confirmed</div>
     </div>
   </div>
 </section>
@@ -937,14 +937,8 @@ body{cursor:none}
 <div class="mq-wrap">
   <div class="mq-row">
     <div class="mqt">
-      <span class="mqi"><span class="dot"></span>7-Day Delivery</span><span class="mqi"><span class="dot"></span>AI Chatbot Included</span><span class="mqi"><span class="dot"></span>Serving Maryland</span><span class="mqi"><span class="dot"></span>Full SEO Optimization</span><span class="mqi"><span class="dot"></span>No Code Needed</span><span class="mqi hi"><span class="dot"></span>Free Strategy Call</span><span class="mqi"><span class="dot"></span>You Own the Site</span><span class="mqi"><span class="dot"></span>Month-to-Month</span><span class="mqi"><span class="dot"></span>Serving Northern Virginia</span><span class="mqi"><span class="dot"></span>Mobile-First Design</span><span class="mqi hi"><span class="dot"></span>Leads on Autopilot</span><span class="mqi"><span class="dot"></span>Google Analytics Setup</span><span class="mqi"><span class="dot"></span>Calendly Booking Built-In</span><span class="mqi"><span class="dot"></span>SSL + Security Included</span>
-      <span class="mqi"><span class="dot"></span>7-Day Delivery</span><span class="mqi"><span class="dot"></span>AI Chatbot Included</span><span class="mqi"><span class="dot"></span>Serving Maryland</span><span class="mqi"><span class="dot"></span>Full SEO Optimization</span><span class="mqi"><span class="dot"></span>No Code Needed</span><span class="mqi hi"><span class="dot"></span>Free Strategy Call</span><span class="mqi"><span class="dot"></span>You Own the Site</span><span class="mqi"><span class="dot"></span>Month-to-Month</span><span class="mqi"><span class="dot"></span>Serving Northern Virginia</span><span class="mqi"><span class="dot"></span>Mobile-First Design</span><span class="mqi hi"><span class="dot"></span>Leads on Autopilot</span><span class="mqi"><span class="dot"></span>Google Analytics Setup</span><span class="mqi"><span class="dot"></span>Calendly Booking Built-In</span><span class="mqi"><span class="dot"></span>SSL + Security Included</span>
-    </div>
-  </div>
-  <div class="mq-row" style="border-top:1px solid var(--b1)">
-    <div class="mqt mqt2">
-      <span class="mqi"><span class="dot"></span>Serving Washington DC</span><span class="mqi hi"><span class="dot"></span>AI Booking System</span><span class="mqi"><span class="dot"></span>Lead Capture Forms</span><span class="mqi"><span class="dot"></span>Google Maps Embed</span><span class="mqi"><span class="dot"></span>Fast Load Time</span><span class="mqi"><span class="dot"></span>Bowie MD Based</span><span class="mqi hi"><span class="dot"></span>One Booked Job Covers It</span><span class="mqi"><span class="dot"></span>24/7 AI Support</span><span class="mqi"><span class="dot"></span>Custom Design</span><span class="mqi"><span class="dot"></span>Reviews Integration</span><span class="mqi hi"><span class="dot"></span>From $799</span><span class="mqi"><span class="dot"></span>Stripe Payments</span><span class="mqi"><span class="dot"></span>50% Deposit to Start</span><span class="mqi"><span class="dot"></span>Priority Support</span>
-      <span class="mqi"><span class="dot"></span>Serving Washington DC</span><span class="mqi hi"><span class="dot"></span>AI Booking System</span><span class="mqi"><span class="dot"></span>Lead Capture Forms</span><span class="mqi"><span class="dot"></span>Google Maps Embed</span><span class="mqi"><span class="dot"></span>Fast Load Time</span><span class="mqi"><span class="dot"></span>Bowie MD Based</span><span class="mqi hi"><span class="dot"></span>One Booked Job Covers It</span><span class="mqi"><span class="dot"></span>24/7 AI Support</span><span class="mqi"><span class="dot"></span>Custom Design</span><span class="mqi"><span class="dot"></span>Reviews Integration</span><span class="mqi hi"><span class="dot"></span>From $799</span><span class="mqi"><span class="dot"></span>Stripe Payments</span><span class="mqi"><span class="dot"></span>50% Deposit to Start</span><span class="mqi"><span class="dot"></span>Priority Support</span>
+      <span class="mqi"><span class="dot"></span>7-Day Delivery</span><span class="mqi"><span class="dot"></span>AI Chatbot Included</span><span class="mqi"><span class="dot"></span>Serving Maryland</span><span class="mqi"><span class="dot"></span>Full SEO Optimization</span><span class="mqi"><span class="dot"></span>No Code Needed</span><span class="mqi hi"><span class="dot"></span>Free Strategy Call</span><span class="mqi"><span class="dot"></span>You Own the Site</span><span class="mqi"><span class="dot"></span>Month-to-Month</span><span class="mqi"><span class="dot"></span>Serving DC &amp; Northern Virginia</span><span class="mqi"><span class="dot"></span>Mobile-First Design</span><span class="mqi hi"><span class="dot"></span>Leads on Autopilot</span><span class="mqi"><span class="dot"></span>Google Analytics Setup</span><span class="mqi"><span class="dot"></span>AI Booking Built-In</span><span class="mqi hi"><span class="dot"></span>From $799</span><span class="mqi"><span class="dot"></span>One Job Covers It</span>
+      <span class="mqi"><span class="dot"></span>7-Day Delivery</span><span class="mqi"><span class="dot"></span>AI Chatbot Included</span><span class="mqi"><span class="dot"></span>Serving Maryland</span><span class="mqi"><span class="dot"></span>Full SEO Optimization</span><span class="mqi"><span class="dot"></span>No Code Needed</span><span class="mqi hi"><span class="dot"></span>Free Strategy Call</span><span class="mqi"><span class="dot"></span>You Own the Site</span><span class="mqi"><span class="dot"></span>Month-to-Month</span><span class="mqi"><span class="dot"></span>Serving DC &amp; Northern Virginia</span><span class="mqi"><span class="dot"></span>Mobile-First Design</span><span class="mqi hi"><span class="dot"></span>Leads on Autopilot</span><span class="mqi"><span class="dot"></span>Google Analytics Setup</span><span class="mqi"><span class="dot"></span>AI Booking Built-In</span><span class="mqi hi"><span class="dot"></span>From $799</span><span class="mqi"><span class="dot"></span>One Job Covers It</span>
     </div>
   </div>
 </div>
